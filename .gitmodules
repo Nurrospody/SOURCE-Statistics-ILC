@@ -1,0 +1,3 @@
+[submodule "ilc_reports"]
+	path = ilc_reports
+	url = https://github.com/Nurrospody/REPORT-Statistics-ILC
