@@ -7,7 +7,7 @@ output:
 ### Timecard  
 **Monday** Aprx. 0 hours, 20 minutes - Brief brainstorm with partner of how to blog classwork  
 **Tuesday** Aprx. 2 hours, 10 minutes - With partner, demoed installation of R; RStudio; RMarkdown on VM.  Discussed and learned about GitHub webpages and markdown as a way to maintain a blog that can show my work in R.  Compilation of resources.  
-**Wednesday** Aprx. 2 hour, 54 minutes - Downloaded R; RStudio; RMarkdown on my own device.  Made GitHub account.  Looked through resources for markdown and used it to make this document.  Read through some of the introduction of required textbook *Learn R for Applied Statistics*.  Added Statistics-ILC Reprository to GitHub Desktop and discussed with partner how using reprositories would work; REPORT-Statistics-ILC and SOURCE-Statistics-ILC?  Manually putting .md into REPORT or using a script to move files?  Made submodule.  
+**Wednesday** Aprx. 3 hour, 14 minutes - Downloaded R; RStudio; RMarkdown on my own device.  Made GitHub account.  Looked through resources for markdown and used it to make this document.  Read through some of the introduction of required textbook *Learn R for Applied Statistics*.  Added Statistics-ILC Reprository to GitHub Desktop and discussed with partner how using reprositories would work; REPORT-Statistics-ILC and SOURCE-Statistics-ILC?  Manually putting .md into REPORT or using a script to move files?  Made submodule, made initial mid-week timestamp commit.
 **Thursday (Official Week 1 Start)**  
 **Friday**
 
