@@ -1,5 +1,5 @@
 ---
-title: "Chapter 2 & Intro Report (Week 1 Thursday)"
+title: "Chapter 2 & Intro Report for Book *Learn R for Applied Statistics : With Data Visualizations, Regressions, and Statistics* (Week 1 Thursday)"
 author: "Nurrospody"
 date: "4/2/2020"
 output:
@@ -34,7 +34,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ![](C:\Users\Persimmon\Documents\GitHub\Statistics-ILC\Fig23report1.png)
 This figure shows the placement of the R Code Editor (toedp left corner), Workspace Showing Variables (top right), R Console (bottom left), Plots and Others (bottom right).  It is on page 22 of *Title:Learn R for Applied Statistics* in the RStudio: The IRE for R section.  
 
-### Commands Used
+### Commands Used: print(), data, summary(), plot()
 The **print() function** is the first function introduced in Chapter 2.  I printed the text "Hello World", and also experimented with being able to print any other text by talking about my squeaky doorhinge.  Use of this function has not yet been explained in R, but if I remember correctly, when using Kali Linux the print() function (or whatever its equivilant is) is important so that you can select what was printed and further use it in command line. 
 ```{r print}
 print("Hello World");

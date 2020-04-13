@@ -9,7 +9,7 @@ output:
 **Tuesday** Aprx. 2 hours, 10 minutes - With partner, demoed installation of R; RStudio; RMarkdown on VM.  Discussed and learned about GitHub webpages and markdown as a way to maintain a blog that can show my work in R.  Compilation of resources.  
 **Wednesday** Aprx. 3 hour, 14 minutes - Downloaded R; RStudio; RMarkdown on my own device.  Made GitHub account.  Looked through resources for markdown and used it to make this document.  Read through some of the introduction of required textbook *Learn R for Applied Statistics*.  Added Statistics-ILC Reprository to GitHub Desktop and discussed with partner how using reprositories would work; nmade REPORT-Statistics-ILC and SOURCE-Statistics-ILC repositories.Questioned manually putting .md into REPORT or using a script to move files?  Decided on making submodule with GIT (help from partner), made initial mid-week timestamp commit.  
 **Thursday (Official Week 1 Start)**  Aprx. 2 hour, 35 minutes - finished Introduction of *Learn R for Applied Statistics* and read Chapter 2 "Getting Started".  Experimented with the small range of commands that were mentioned in Chapter 2 and organized them into a report.  
-**Friday**
+**Friday** N/A
 
 
 ###  Working Plan  
