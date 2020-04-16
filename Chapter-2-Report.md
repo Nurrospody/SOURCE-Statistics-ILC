@@ -46,11 +46,11 @@ data.
 
 ### Figures to keep handy
 
-![](C:\\Users\\Persimmon\\Documents\\GitHub\\Statistics-ILC\\Fig23report1.png)
-This figure shows the placement of the R Code Editor (toedp left
-corner), Workspace Showing Variables (top right), R Console (bottom
-left), Plots and Others (bottom right). It is on page 22 of *Title:Learn
-R for Applied Statistics* in the RStudio: The IRE for R section.
+![](Images/Fig23report1.png) This figure shows the placement of the R
+Code Editor (toedp left corner), Workspace Showing Variables (top
+right), R Console (bottom left), Plots and Others (bottom right). It is
+on page 22 of *Title:Learn R for Applied Statistics* in the RStudio: The
+IRE for R section.
 
 ### Commands Used: print(), data, summary(), plot()
 

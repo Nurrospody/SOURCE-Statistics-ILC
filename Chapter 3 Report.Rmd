@@ -11,7 +11,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Still in Progress, this currently has a version in SOURCE but not REPORTS (it will be in REPORTS once it is finished).  'dog' is placeholder vocabulary definition because otherwise my formatting breaks; many of these vocabulary terms are so simple that explaining them is a bit difficult, so I'll spend time doing that once I've fihnished the rest of the chapter.
+Still in Progress, this currently has a version in SOURCE but not REPORTS (it will be in REPORTS once it is finished).  'dog' is placeholder vocabulary definition because otherwise my formatting breaks; some of these vocabulary terms are so simple that explaining them is a bit difficult, so I'll spend time doing that once I've fihnished the rest of the chapter.
   
 ### Notable Vocabulary 
 **CRISP-DM** - dog  
@@ -130,9 +130,22 @@ J[2,3] <- 66; print(J);
 #With t() matrixes can be transposed--i.e. which axis each label is on is switched. 
 print(L); L <- t(L);print(L)
 ```
-### Data Frames *Commands Used* data.frame()  
-I tried making an initial data.frame that had number of legs (0, 4, 8), animal name (snake, fox, spider), and Does Riley like it? (good, good, AAAAAAAA) but it proved to be quite difficult; I kept getting errors about unexpected commas, or unexpected =.  I had to look around for a while.  Note to self: I might take what I have right now and bring it to the QUASR and instead figure out how to import a .csv and work with that instead to practice.
-```{r dataframe}
-#Making this silly dataframe was more difficult than it should have been.  Extra =s, extra commas. . .
+### Data Frames *Commands Used* data.frame(), read.csv()  
+I tried making an initial data.frame that had number of legs (0, 4, 8), animal name (snake, fox, spider), and Does Riley like it? (good, good, AAAAAAAA) but it proved to be quite difficult; I kept getting errors about unexpected commas, or unexpected =.  I will figure it out, but first I'll read a .csv into R to work with instead.  
+I knew I had a few .csv files on my computer from previous statistics projects and wanted to also learn how to find those, so I searched for them with cmd.
+```{cmd csv search}
+#where looks in the directory; /F formats the results to have quotes around them, /R Recursive looks into ALL directories, * is a wildcard that can include anything before the .csv result.
+#C:\Users\Persimmon>where /F /R %userprofile% *.csv
+```
+I found 8 .csv files scattered across my documents and OneDrive, and chose one that I had made to take a single full-soundtrack video and turn that into seperated mp3s.  I had to copy the file from my OneDrive into my Documents folder to open it properly in the Console, and I had to make a data_sources folder in my repository to get it to open in the Rmd file.
+```{r Madoka}
+Madoka <- read.csv(file="data_sources/Chapter_3/Madoka Magika Volume 1-3.csv"); print(Madoka)
+```
+
+
+
+
+
+```{r holdoverdataframe, include=FALSE}
 #M <- data.frame(number_of_legs(c(0, 4, 8)), animal(c("Snake", "Fox", "Spider")), Does_Riley_Like_it?(c(("good", "good", "AAAAAAAA")); print(M);
 ```

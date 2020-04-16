@@ -21,13 +21,13 @@ Nurrospody
   - [Matrix *Non-Duplicate Comands Used* matrix(), nrow, ncol, dimnames,
     attributes(), colnames(), rownames(), cbind(), rbind(),
     t()](#matrix-non-duplicate-comands-used-matrix-nrow-ncol-dimnames-attributes-colnames-rownames-cbind-rbind-t)
-  - [Data Frames *Commands Used*
-    data.frame()](#data-frames-commands-used-data.frame)
+  - [Data Frames *Commands Used* data.frame(),
+    read.csv()](#data-frames-commands-used-data.frame-read.csv)
 
 Still in Progress, this currently has a version in SOURCE but not
 REPORTS (it will be in REPORTS once it is finished). ‘dog’ is
 placeholder vocabulary definition because otherwise my formatting
-breaks; many of these vocabulary terms are so simple that explaining
+breaks; some of these vocabulary terms are so simple that explaining
 them is a bit difficult, so I’ll spend time doing that once I’ve
 fihnished the rest of the chapter.
 
@@ -405,17 +405,96 @@ print(L); L <- t(L);print(L)
     ## [1,] "old" "old" "new"
     ## [2,] "old" "old" "new"
 
-### Data Frames *Commands Used* data.frame()
+### Data Frames *Commands Used* data.frame(), read.csv()
 
 I tried making an initial data.frame that had number of legs (0, 4, 8),
 animal name (snake, fox, spider), and Does Riley like it? (good, good,
 AAAAAAAA) but it proved to be quite difficult; I kept getting errors
-about unexpected commas, or unexpected =. I had to look around for a
-while. Note to self: I might take what I have right now and bring it to
-the QUASR and instead figure out how to import a .csv and work with that
-instead to practice.
+about unexpected commas, or unexpected =. I will figure it out, but
+first I’ll read a .csv into R to work with instead.  
+I knew I had a few .csv files on my computer from previous statistics
+projects and wanted to also learn how to find those, so I searched for
+them with cmd.
+
+``` cmd
+#where looks in the directory; /F formats the results to have quotes around them, /R Recursive looks into ALL directories, * is a wildcard that can include anything before the .csv result.
+#C:\Users\Persimmon>where /F /R %userprofile% *.csv
+```
+
+I found 8 .csv files scattered across my documents and OneDrive, and
+chose one that I had made to take a single full-soundtrack video and
+turn that into seperated mp3s. I had to copy the file from my OneDrive
+into my Documents folder to open it properly in the Console, and I had
+to make a data\_sources folder in my repository to get it to open in the
+Rmd file.
 
 ``` r
-#Making this silly dataframe was more difficult than it should have been.  Extra =s, extra commas. . .
-#M <- data.frame(number_of_legs(c(0, 4, 8)), animal(c("Snake", "Fox", "Spider")), Does_Riley_Like_it?(c(("good", "good", "AAAAAAAA")); print(M);
+Madoka <- read.csv(file="data_sources/Chapter_3/Madoka Magika Volume 1-3.csv"); print(Madoka)
 ```
+
+    ##                           name    start      end track.. album.info X.VALUE.  X
+    ## 1            Gradus prohibitus 00:00:00 00:03:34       1   Volume 1  0:03:34 NA
+    ## 2            Credens justitiam 00:03:35 00:05:30       2   Volume 1  0:01:55 NA
+    ## 3                    Clementia 00:05:31 00:07:29       3   Volume 1  0:01:58 NA
+    ## 4                   Desiderium 00:07:30 00:09:11       4   Volume 1  0:01:41 NA
+    ## 5                  Conturbatio 00:09:21 00:10:39       5   Volume 1  0:01:18 NA
+    ## 6             Puella in somnio 00:10:40 00:12:36       6   Volume 1  0:01:56 NA
+    ## 7                  Umbra nigra 00:12:37 00:14:19       7   Volume 1  0:01:42 NA
+    ## 8             Terror adhaerens 00:14:20 00:18:08       8   Volume 1  0:03:48 NA
+    ## 9                 Scaena felix 00:18:09 00:19:59       9   Volume 1  0:01:50 NA
+    ## 10              Pugna cum maga 00:20:00 00:22:13      10   Volume 1  0:02:13 NA
+    ## 11                    Decretum 00:22:14 00:24:02      11   Volume 2  0:01:48 NA
+    ## 12              Agmen clientum 00:24:03 00:25:47      12   Volume 2  0:01:44 NA
+    ## 13              Venari strigas 00:25:48 00:28:33      13   Volume 2  0:02:45 NA
+    ## 14                Signum malum 00:28:34 00:30:20      14   Volume 2  0:01:46 NA
+    ## 15           Amicae carae meae 00:30:21 00:32:22      15   Volume 2  0:02:01 NA
+    ## 16                    Incertus 00:32:23 00:34:02      16   Volume 2  0:01:39 NA
+    ## 17                Inevitabilis 00:34:03 00:35:57      17   Volume 2  0:01:54 NA
+    ## 18                  Serena ira 00:35:58 00:37:58      18   Volume 2  0:02:00 NA
+    ## 19                  Anima mala 00:37:59 00:39:42      19   Volume 2  0:01:43 NA
+    ## 20              Pugna infinita 00:39:43 00:41:37      20   Volume 2  0:01:54 NA
+    ## 21        Vocalise Op.34 no.14 00:41:38 00:45:14      21   Volume 2  0:03:36 NA
+    ## 22                   Ave Maria 00:45:15 00:50:03      22   Volume 2  0:04:48 NA
+    ## 23              Numquam vincar 00:50:04 00:52:11      23   Volume 3  0:02:07 NA
+    ## 24                  Quamobrem? 00:52:12 00:53:41      24   Volume 3  0:01:29 NA
+    ## 25              Cor destructum 00:53:42 00:55:08      25   Volume 3  0:01:26 NA
+    ## 26            Surgam identidem 00:55:09 00:58:44      26   Volume 3  0:03:35 NA
+    ## 27                   Confessio 00:58:45 01:00:33      27   Volume 3  0:01:48 NA
+    ## 28               Nux Walpurgis 01:00:34 01:03:07      28   Volume 3  0:02:33 NA
+    ## 29             Cubilulum album 01:03:08 01:05:27      29   Volume 3  0:02:19 NA
+    ## 30             Taenia memoriae 01:05:28 01:07:38      30   Volume 3  0:02:10 NA
+    ## 31 La Fille aux Cheveux de Lin 01:07:39 01:10:40      31   Volume 3  0:03:01 NA
+    ## 32           Symposium magarum 01:10:41 01:11:59      32   Volume 3  0:01:18 NA
+    ##    X.1 X.2 X.3
+    ## 1   NA  NA  NA
+    ## 2   NA  NA  NA
+    ## 3   NA  NA  NA
+    ## 4   NA  NA  NA
+    ## 5   NA  NA  NA
+    ## 6   NA  NA  NA
+    ## 7   NA  NA  NA
+    ## 8   NA  NA  NA
+    ## 9   NA  NA  NA
+    ## 10  NA  NA  NA
+    ## 11  NA  NA  NA
+    ## 12  NA  NA  NA
+    ## 13  NA  NA  NA
+    ## 14  NA  NA  NA
+    ## 15  NA  NA  NA
+    ## 16  NA  NA  NA
+    ## 17  NA  NA  NA
+    ## 18  NA  NA  NA
+    ## 19  NA  NA  NA
+    ## 20  NA  NA  NA
+    ## 21  NA  NA  NA
+    ## 22  NA  NA  NA
+    ## 23  NA  NA  NA
+    ## 24  NA  NA  NA
+    ## 25  NA  NA  NA
+    ## 26  NA  NA  NA
+    ## 27  NA  NA  NA
+    ## 28  NA  NA  NA
+    ## 29  NA  NA  NA
+    ## 30  NA  NA  NA
+    ## 31  NA  NA  NA
+    ## 32  NA  NA  NA
