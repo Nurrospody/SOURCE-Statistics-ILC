@@ -19,7 +19,7 @@ Each week has its own Timecard.  In these timecards, I record via stopwatch how 
 [Week 3 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-3-Timecard.md)    
 
 ## "data_sources" folder
-Contains *.csv*, *.png*, and other misc. files for my reports to pull from.
+Contains *.csv*, *.png*, and other misc. files for my reports (of any kind) to pull from.
 
 
 
