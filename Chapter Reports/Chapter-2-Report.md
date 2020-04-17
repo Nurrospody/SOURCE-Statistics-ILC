@@ -46,7 +46,7 @@ data.
 
 ### Figures to keep handy
 
-![](Images/Fig23report1.png) This figure shows the placement of the R
+![](../data_sources/CH2_1.png) This figure shows the placement of the R
 Code Editor (toedp left corner), Workspace Showing Variables (top
 right), R Console (bottom left), Plots and Others (bottom right). It is
 on page 22 of *Title:Learn R for Applied Statistics* in the RStudio: The

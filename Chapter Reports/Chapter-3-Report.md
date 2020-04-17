@@ -21,15 +21,15 @@ Nurrospody
   - [Matrix *Non-Duplicate Comands Used* matrix(), nrow, ncol, dimnames,
     attributes(), colnames(), rownames(), cbind(), rbind(),
     t()](#matrix-non-duplicate-comands-used-matrix-nrow-ncol-dimnames-attributes-colnames-rownames-cbind-rbind-t)
-  - [Data Frames *Commands Used* data.frame(),
-    read.csv()](#data-frames-commands-used-data.frame-read.csv)
+  - [Data Frames *Non-duplicate Commands Used* data.frame(), read.csv().
+    *Investigated Escape Character; cmd; replacement
+    weirdness*](#data-frames-non-duplicate-commands-used-data.frame-read.csv.-investigated-escape-character-cmd-replacement-weirdness)
 
-Still in Progress, this currently has a version in SOURCE but not
-REPORTS (it will be in REPORTS once it is finished). ‘dog’ is
-placeholder vocabulary definition because otherwise my formatting
-breaks; some of these vocabulary terms are so simple that explaining
-them is a bit difficult, so I’ll spend time doing that once I’ve
-fihnished the rest of the chapter.
+Still in Progress.  
+‘dog’ is placeholder vocabulary definition because otherwise my
+formatting breaks; many of these vocabulary terms are so simple that
+explaining them is a bit difficult, so I’ll spend time doing that once
+I’ve fihnished the rest of the chapter.
 
 ### Notable Vocabulary
 
@@ -39,15 +39,18 @@ fihnished the rest of the chapter.
 defined and then can be used in the console.  
 **Data Types** - What a data’s classification is–numeric, character,
 TRUE/FALSE.  
-**Lists** - Like a vector, a list can store a set of values, but it can
-store values of multiple data types in a single list.  
 **Vectors** - A data structure for storing a SET of data values of the
-same type. The most basic and common data structure.  
-**Matrix** - Like a vector, but in a table–a vector with ‘two
-dimensions’ for the data. All data must of the same type.  
-**Data Frames** - Usually stores data from EXCEL or .csv. these are like
-matrices that contain multiple data types. They may look like charts
-with both ‘names’ and numbers to go with those ‘names’.  
+SAME type. The most basic and common data structure. If stored with
+extra attributes, like dim, it is technically an ‘array’ and not a
+vector.  
+**Lists** - Like a vector, a list can store a SET of values, but it can
+store values of DIFFERENT data types in a single list.  
+**Matrix** - Stores data in a ‘two dimensional’ table rather than a
+one-dimensional list. All data must of the SAME type. Uses dimnames to
+label each axis of the table.  
+**Data Frames** - Stores data in a ‘two dimensional’ table; can be of
+DIFFERENT types. Usually stores data imported from EXCEL or .csv. Uses
+dimnames to label axes of the table.  
 **Conditional Statements** - dog  
 **Loops** - dog  
 **Functions** - dog  
@@ -405,18 +408,24 @@ print(L); L <- t(L);print(L)
     ## [1,] "old" "old" "new"
     ## [2,] "old" "old" "new"
 
-### Data Frames *Commands Used* data.frame(), read.csv()
+### Data Frames *Non-duplicate Commands Used* data.frame(), read.csv(). *Investigated Escape Character; cmd; replacement weirdness*
 
-I tried making an initial data.frame that had number of legs (0, 4, 8),
-animal name (snake, fox, spider), and Does Riley like it? (good, good,
-AAAAAAAA) but it proved to be quite difficult; I kept getting errors
-about unexpected commas, or unexpected =. I will figure it out, but
-first I’ll read a .csv into R to work with instead.  
+I initially tried making a data.frame with the book-given command but it
+proved to be quite difficult; I kept getting errors about unexpected
+commas, or unexpected =. I will figure it out, but first I’ll read a
+.csv into R to work with instead.
+
+``` r
+#M <- data.frame(number_of_legs(c(0, 4, 8)), animal(c("Snake", "Fox", "Spider")), Does_Riley_Like_it?(c("good", "good", "AAAAAAAA")); print(M);
+#Also tried
+#M <- data.frame(number_of_legs(c=0, 4, 8), animal(c="Snake", "Fox", "Spider"), Does_Riley_Like_it?(c="good", "good", "AAAAAAAA")); print(M);
+```
+
 I knew I had a few .csv files on my computer from previous statistics
 projects and wanted to also learn how to find those, so I searched for
 them with cmd.
 
-``` cmd
+``` r
 #where looks in the directory; /F formats the results to have quotes around them, /R Recursive looks into ALL directories, * is a wildcard that can include anything before the .csv result.
 #C:\Users\Persimmon>where /F /R %userprofile% *.csv
 ```
@@ -426,10 +435,13 @@ chose one that I had made to take a single full-soundtrack video and
 turn that into seperated mp3s. I had to copy the file from my OneDrive
 into my Documents folder to open it properly in the Console, and I had
 to make a data\_sources folder in my repository to get it to open in the
-Rmd file.
+Rmd file. I discovered, also, that / and \\ work the same(ish) in
+Windows devices, but \\ if typed alone is an Escape Character so using
+DOUBLE \\ if using foward slash rather than backslash for addresses is
+nessesary.
 
 ``` r
-Madoka <- read.csv(file="data_sources/Chapter_3/Madoka Magika Volume 1-3.csv"); print(Madoka)
+Madoka <- read.csv(file="../data_sources/Madoka Magika Volume 1-3.csv"); print(Madoka);
 ```
 
     ##                           name    start      end track.. album.info X.VALUE.  X
@@ -498,3 +510,102 @@ Madoka <- read.csv(file="data_sources/Chapter_3/Madoka Magika Volume 1-3.csv"); 
     ## 30  NA  NA  NA
     ## 31  NA  NA  NA
     ## 32  NA  NA  NA
+
+For some reason when I looked at the structure or nrow ncol of Madoka I
+got 32 rows and 10 columns, but when I looked at Madoka\[0\] I got a
+result that seemed to claim there were no columns in the dataset.
+
+``` r
+str(Madoka);ncol(Madoka);nrow(Madoka); Madoka[0]; Madoka[,0];
+```
+
+    ## 'data.frame':    32 obs. of  10 variables:
+    ##  $ name      : Factor w/ 32 levels "Agmen clientum",..: 13 9 5 12 7 19 30 29 23 20 ...
+    ##  $ start     : Factor w/ 32 levels "00:00:00","00:03:35",..: 1 2 3 4 5 6 7 8 9 10 ...
+    ##  $ end       : Factor w/ 32 levels "00:03:34","00:05:30",..: 1 2 3 4 5 6 7 8 9 10 ...
+    ##  $ track..   : int  1 2 3 4 5 6 7 8 9 10 ...
+    ##  $ album.info: Factor w/ 3 levels "Volume 1","Volume 2",..: 1 1 1 1 1 1 1 1 1 1 ...
+    ##  $ X.VALUE.  : Factor w/ 29 levels "0:01:18","0:01:26",..: 25 13 15 5 1 14 6 28 11 20 ...
+    ##  $ X         : logi  NA NA NA NA NA NA ...
+    ##  $ X.1       : logi  NA NA NA NA NA NA ...
+    ##  $ X.2       : logi  NA NA NA NA NA NA ...
+    ##  $ X.3       : logi  NA NA NA NA NA NA ...
+
+    ## [1] 10
+
+    ## [1] 32
+
+    ## data frame with 0 columns and 32 rows
+
+    ## data frame with 0 columns and 32 rows
+
+I didn’t want to continue printing the whole Madoka data.frame with 10
+columns and 32 rows when experimenting with different commands, so I
+finagled with commands until I got the first 5 rows of the data.frame,
+and then made that a new variable. I got a lot of hands-on experience
+with trying to select a specific row/column of a variable here, doing it
+with an actual .csv with many rows and columns took much more
+understanding and exploration than just the small made-up data sets.
+
+``` r
+Smallmad <- Madoka[1:5,]; print(Smallmad)
+```
+
+    ##                name    start      end track.. album.info X.VALUE.  X X.1 X.2
+    ## 1 Gradus prohibitus 00:00:00 00:03:34       1   Volume 1  0:03:34 NA  NA  NA
+    ## 2 Credens justitiam 00:03:35 00:05:30       2   Volume 1  0:01:55 NA  NA  NA
+    ## 3         Clementia 00:05:31 00:07:29       3   Volume 1  0:01:58 NA  NA  NA
+    ## 4        Desiderium 00:07:30 00:09:11       4   Volume 1  0:01:41 NA  NA  NA
+    ## 5       Conturbatio 00:09:21 00:10:39       5   Volume 1  0:01:18 NA  NA  NA
+    ##   X.3
+    ## 1  NA
+    ## 2  NA
+    ## 3  NA
+    ## 4  NA
+    ## 5  NA
+
+I then wanted to change one of the columns in Smallmad, but something
+very perculiar happaned. Any input to \[5,3\] other than the original
+input, “00:10:39” would result in an invalid factor level, and generate
+an \<NA\>. If I changed it back to the original input, it worked
+properly again.  
+Not-pictured below: I thought that maybe the data format being ‘factor’
+meant that it “factored” somehow with the other values. I don’t expect
+that the program is smart enough to recognize that “xx:xx:xx” is a time
+format without being specifically told that it is a time format, but I
+still tried changing it so it didn’t technically contradict any
+timestamps I could see. However, even changing \[5,3\] to “00:10:40”
+resulted in \<NA\>.
+
+``` r
+Smallmad[5,3] <- "The angriest Madoka"; print(Smallmad); Smallmad[5,3] <- "00:10:39"; print(Smallmad);
+```
+
+    ## Warning in `[<-.factor`(`*tmp*`, iseq, value = "The angriest Madoka"): invalid
+    ## factor level, NA generated
+
+    ##                name    start      end track.. album.info X.VALUE.  X X.1 X.2
+    ## 1 Gradus prohibitus 00:00:00 00:03:34       1   Volume 1  0:03:34 NA  NA  NA
+    ## 2 Credens justitiam 00:03:35 00:05:30       2   Volume 1  0:01:55 NA  NA  NA
+    ## 3         Clementia 00:05:31 00:07:29       3   Volume 1  0:01:58 NA  NA  NA
+    ## 4        Desiderium 00:07:30 00:09:11       4   Volume 1  0:01:41 NA  NA  NA
+    ## 5       Conturbatio 00:09:21     <NA>       5   Volume 1  0:01:18 NA  NA  NA
+    ##   X.3
+    ## 1  NA
+    ## 2  NA
+    ## 3  NA
+    ## 4  NA
+    ## 5  NA
+
+    ##                name    start      end track.. album.info X.VALUE.  X X.1 X.2
+    ## 1 Gradus prohibitus 00:00:00 00:03:34       1   Volume 1  0:03:34 NA  NA  NA
+    ## 2 Credens justitiam 00:03:35 00:05:30       2   Volume 1  0:01:55 NA  NA  NA
+    ## 3         Clementia 00:05:31 00:07:29       3   Volume 1  0:01:58 NA  NA  NA
+    ## 4        Desiderium 00:07:30 00:09:11       4   Volume 1  0:01:41 NA  NA  NA
+    ## 5       Conturbatio 00:09:21 00:10:39       5   Volume 1  0:01:18 NA  NA  NA
+    ##   X.3
+    ## 1  NA
+    ## 2  NA
+    ## 3  NA
+    ## 4  NA
+    ## 5  NA
