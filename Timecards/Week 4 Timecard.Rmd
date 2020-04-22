@@ -1,0 +1,28 @@
+---
+title: "Week 4 Timelog"
+author: "Nurrospody"
+date: "4/20/2020"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Monday** - 0 hours 55 minutes - Downloaded the rest of my R book because I could only download 200 pages total and my book was about 250 pages long.  Made new timecard and discussed schedule statagies.  My internet wasn't working for a while today so my workflow got interrupted.
+
+**Tuesday** - 4 hours 10 minutes - Read ahead into the logical statements and loop functions . . . spent some time learning about how they worked from partner because they seemed a bit confusing.  Tried making some loops and logical functions.  
+Also looked into time formatting for getting means of Smallmad[,6], found something called chron but it wasn't information helpful for what I was doing.  Learned about modulus %% and how it returns the remainder of division.
+
+**Wednesday** - 0 hours 0 minutes
+
+**Thursday** - 0 hours 0 minutes
+
+**Friday** - 0 hours 0 minutes
+
+**Saturday** - 0 hours 0 minutes
+
+**Sunday** - 0 hours 0 minutes
+
+
+End of Week Discussion

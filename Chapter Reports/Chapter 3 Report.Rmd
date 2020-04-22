@@ -1,5 +1,5 @@
 ---
-title: "Chapter 3 Basic Syntax Report for Book *Learn R for Applied Statistics : With Data Visualizations, Regressions, and Statistics* (Week 2 Monday-)"
+title: "Chapter 3 Basic Syntax Report for Book *Learn R for Applied Statistics : With Data Visualizations, Regressions, and Statistics* (Started Week 2 Monday)"
 author: "Nurrospody"
 date: "4/6/2020"
 output:
@@ -210,3 +210,5 @@ resulted in \<NA\>.
 ``` {r small2}
 Smallmad[5,3] <- "The angriest Madoka"; print(Smallmad); Smallmad[5,3] <- "00:10:39"; print(Smallmad);
 ```
+
+Here I read ahead in the book a bit and realized how long the chapters are--having each chapter continue to be its report is a bad idea, so I'm ending this part of the report here.
