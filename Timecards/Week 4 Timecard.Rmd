@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 **Tuesday** - 4 hours 10 minutes - Read ahead into the logical statements and loop functions . . . spent some time learning about how they worked from partner because they seemed a bit confusing.  Tried making some loops and logical functions.  
 Also looked into time formatting for getting means of Smallmad[,6], found something called chron but it wasn't information helpful for what I was doing.  Learned about modulus %% and how it returns the remainder of division.
 
-**Wednesday** - 0 hours 0 minutes
+**Wednesday** - 2 hours 7 minutes - My reports have inconsistant formatting and are difficult to read, so I decided to spend some time today improving them.  They're now split up into smaller chunks.  I also completed the Vocabulary list for CH3.
 
 **Thursday** - 0 hours 0 minutes
 

@@ -11,30 +11,37 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Still in Progress.  
-'dog' is placeholder vocabulary definition because otherwise my formatting breaks; many of these vocabulary terms are so simple that explaining them is a bit difficult, so I'll spend time doing that once I've fihnished the rest of the chapter.
+This chapter is very long; most chapters in this book will continue to be too long to be put into one report reasonably.  This is all of CH3 put into one report, but I have also seperated this chapter into seperate reports, roughly based on the amount of content showed per section.
+
   
-### Notable Vocabulary 
-**CRISP-DM** - dog  
-**R Objects** - dog  
-**Variables** - AKA. Variable is variable (python), something that is defined and then can be used in the console.  
+### Notable Vocabulary from Chapter 3
+**CRISP-DM** (also Data Mining) - This is a model of data understanding (statistics, machine learning, etc) and buisness understanding (real world practices, what the data means for a company, how people react).  The data-understanding folks work together with the buisness-understanding folks to prepare the data and model it; once it's put into a model, it's evaluated by both parties to make sure it makes sense.  If both parties are happy, the model is deployed. "Because data science is
+a multidisciplinary field, if you can master statistics, machine e-learning, and business knowledge, it is extremely hard to be replaced." Direct quote from page 6.
+![](../data_sources/CH3_1.png)
+
+**R Objects** - Everything inside of R is an object, and an R Object is an object inside of R.  An object is any data structure with any attributes that can have action done unto them with some sort of method.  
+
+**Variables** - AKA. Variable is variable (python), something that is defined and then can be used in the console. 
+
 **Data Types** - What a data's classification is--numeric, character, TRUE/FALSE.  
-**Vectors** - A data structure for storing a SET of data values of the
-SAME type. The most basic and common data structure. If stored with
-extra attributes, like dim, it is technically an ‘array’ and not a
-vector.  
-**Lists** - Like a vector, a list can store a SET of values, but
-it can store values of DIFFERENT data types in a single list.  
-**Matrix** - Stores data in a ‘two dimensional’ table rather than a
-one-dimensional list. All data must of the SAME type. Uses dimnames to
-label each axis of the table.  
-**Data Frames** - Stores data in a ‘two dimensional’ table; can be of
-DIFFERENT types. Usually stores data imported from EXCEL or .csv. Uses
-dimnames to label axes of the table.  
-**Conditional Statements** - dog  
-**Loops** - dog  
-**Functions** - dog  
+
+**Vectors** - A data structure for storing a SET of data values of the SAME type. The most basic and common data structure. If stored with extra attributes, like dim, it is technically an ‘array’ and not a vector.  
+
+**Lists** - Like a vector, a list can store a SET of values, but it can store values of DIFFERENT data types in a single list.
+
+**Matrix** - Stores data in a ‘two dimensional’ table rather than a one-dimensional list. All data must of the SAME type. Uses dimnames to label each axis of the table.  
+
+**Data Frames** - Stores data in a ‘two dimensional’ table; can be of DIFFERENT types. Usually stores data imported from EXCEL or .csv. Uses dimnames to label axes of the table. 
+
+**Conditional Statements** - These are boolean expressions; *if . . . else* statements; basic TRUE FALSE backbones of a code that make things work.  They use mathematical expressions like != does not equal; == equal to; <= less than or equal to.
+
+**Loops** - Loops are *for [p] in [variable]** statements that apply *something* to each element inside of a vector.  These are useful because, rather than manually doing the same operation multiple times, you can tell the console to do this operation multiple times before ending the operation.  Some operations cannot be done on a whole vector, but they can be done on elements within a vector.
+
+**Functions** - If you wanted to run the same fragment of code on multiple variables, you can take that code fragment and give it a name.  Then when you want to use that code, you can use its name (like you do a variable's name) rather than typing it out every time you want to use it. R has many built in functions; mean() is a function.  Instead of taking every number, adding it up, and dividing . . . simply use the function.
+
 **<-** - "Assign"  
+
+**c() OR cat()** - concatenate; combine;
 
 Data Types | Example Values
 -----------|---------------
@@ -44,13 +51,14 @@ Character | "This is a bat" (quotes are mandatory)
 
 
 ### Writing in R Console - Basic Mathematics *Comands Used* : subraction, addition, division, multiplication, cosine, sine, tangent, standard deviation, mean, min, max, plot
+
 I discovered that if I use semi-colons to mark the end of a line delimiter but DON'T break the line wtih ENTER, it compiles the information in a way that is more legible for an RMarkdown report.
 ``` {r math}
 47-50; 89+6; 5 * 8; 54/870
 
 cos(96); sin(96); tan(96)
 ```
-Before solving for the standard deviation as-per the book's example, I noticed that a 'c' was part of the formula, but wasn't sure why.  I experimented a bit with not including it, and realized it only took the first value without c; c appears to be 'concatenate', to 'combine' something into a Vector; a list.  The help() page called it a 'Primitive' function.
+Before solving for the standard deviation as-per the book's example, I noticed that a 'c' was part of the formula, but wasn't sure why.  I experimented a bit with not including it, and realized that without c only the first value is used; c appears to be 'concatenate', to 'combine' something into a list.  The help() page called it a 'Primitive' function.
 ```{r math contined}
 sd(c(7,81,4,53,82,11,90, na.rm = FALSE)); mean(c(111, 65, 78, 93, 299)); min(c(9, 4, 7, 2)); max(c(9, 7, 2, 5))
 
@@ -59,7 +67,7 @@ plot(c(77, 45, 99, 88, 33))
  
  
 ### Making a basic script
-Using information from the sections 'Using the Code Editor' and 'Adding Comments to the Code' I made the following simple RScript.  #Can be used to add a comment to a script, which has quickly become a favourite thing for me in this report!  The first part of the script assigns variables and then some math uses those assigned variables.  
+Using information from the sections 'Using the Code Editor' and 'Adding Comments to the Code' I made the following simple RScript.  #Can be used to add a comment to a script, which is very helpful! The first part of the script assigns variables and then some math uses those assigned variables.  
 I discovered that you can use = instead of <-, but apparently <- works on all levels of coding and = only works in the first level of code?  Not sure what code levels mean yet, but using <- for R seems generally god practice.
 ```{r simple script}
 #Create Variable "A" with a value of "1"
@@ -76,7 +84,7 @@ A^2; B^2;
 
 
 ### Data Types *Commands Used* - (class), (is.datatype), (as.datatype)
-In case the data type for a variable isn't known for some reason, (class) or (is.datatype) can be used.  Boolean can not be found as a function. "datatype" in is.datatype gets replaced by any of the types of data.
+In case the data type for a variable isn't known for some reason, (class) or (is.datatype) can be used.  "datatype" in is.datatype gets replaced by any of the types of data.
 ```{r cont}
 #Determine the data type of a variable
 print(class(A)); print(is.numeric(A)); print(is.character(A)); print(is.logical(A))
@@ -85,38 +93,50 @@ In specific cases, datatypes can be converted, such as the following case:
 ```{r data}
 C <- 7;
 D <- "7"; 
+#C + D results in a *"Line 74 Error in C + D : non-numberic argument to binary operator Calls"* and halts the Excecution.
 ```
-C + D results in a Line 74 Error in C + D : non-numberic argument to binary operator Calls and halts the Excecution.  D must be used as.numeric:
+  D must be used as.numeric:
 ```{r as.type}
 D <- as.numeric(D);
 C + D;
 ```
 
 ### Vectors *Commands Used* c(), typeof(), class(), length(), : operator, print(), [] brackets for retrieving vectors, modify a vector with ->
+
+Let's make a new variable, E, as a vector, then investigate it
 ```{r vector}
-#Making a new variable, E, as a vector, then investigating it
 E <- c(5,6,7,8,9); print(E); typeof(E); class(E); length(E);
-#Making another new variable, F, as another larger vector for sokme additional excercises
-F <- 4:20; print(F);
-#What is the fifth value inside of this vector?  What about the fifth AND ninth?  All the values without the fifth?
-F[5]; F[c(5,9)]; F[-5];
-#Using E again, to test a shorter logical excercise: there are only 5 values in E, but I typed out 6 logical values, so the latst one is NA.
+
+```
+Let's test a short logical excercise. There are only 5 values in E, but I typed out 6 true/false values, so the last one is NA.
+```{r vec3}
 E[c(FALSE, TRUE, FALSE, TRUE, FALSE, TRUE)];
-#Back to Variable F.  Let's test using the less than sign to retrieve an element from the vector.  There is nothing <4, but there is something <5.
-F[F<4]; F[F < 5];
-#Let's look at E one last time.  What happens if we modify a vector?  If we modify the third value, it gets REPLACED, not ADDED IN.
+```
+Let's look at E one last time.  What happens if we modify a vector?  If we modify the third value, it gets REPLACED, not ADDED IN.
+```{r vec5}
 print(E);
 E[3] <- 9;
 print(E);
 ```
-
+Next let's make another new variable, F, as another larger vector for some additional excercises.  What is the fifth value inside of this vector?  What about the fifth AND ninth?  All the values without the fifth?
+```{r vec2}
+F <- 4:20; print(F);
+F[5]; F[c(5,9)]; F[-5];
+```
+Let's test using the less than sign to retrieve an element from the vector.  There is nothing <4, but there is something <5.
+```{r vec4}
+F[F<4]; F[F < 5];
+```
 ### Lists *Non-duplicate Commands Used* list(), str(), [[sublist]], NULL  
 This section used a lot of duplicate commands from the Vector section, so only the new ones are shown.
 ```{r lists}
+#Here we're making a new variable G, as a list; it has both character and numeric data types inside of it (something a vector cannot do).
 G <- list("fox", "phoenix", "water", 9); print(G); str(G);
-#There seems to be a difference between a list and a sublist; I'll have to figure the practical use of this difference with supplementary material.  
-G[1]; G[[1]];
+#According to [[string]], there seems to be a difference between a list and a sublist; I'll have to figure the practical use of this difference with supplementary material.
+```
 #NULL (caps sensitive?) is a new command for assigning NULL to part of a list, I presume it would work for a vector as well..
+```{r list 2}
+G[1]; G[[1]];
 G[[4]] <- NULL; print(G)
 ```
 
