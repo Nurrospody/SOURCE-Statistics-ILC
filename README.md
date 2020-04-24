@@ -1,6 +1,7 @@
 # Statistics-ILC  
 
-My reports and timecards all have two file versions: *.md* and *.Rmd*--for reading on github, you'll want the *.md* and all of my hyperlinks in this README will go to those.  For pulling files up onto R, you'll want the *.Rmd* files.
+My reports and timecards all have two file versions: .md and .Rmd files.
+For reading on github, you'll want the .md and all of the hyperlinks in this README will go to those. For pulling files up onto R, you'll want the .Rmd files.
 
 ## "Chapter Reports" folder
 Contains both .Rmd and .md files of my Chapter Reports.  Also contains "*_files" folders that are automatically created and contain plots for my reports.
