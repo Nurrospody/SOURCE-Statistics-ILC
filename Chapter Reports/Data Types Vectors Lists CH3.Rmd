@@ -11,7 +11,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-### Data Types *Commands Used* - (class()), (is.datatype), (as.datatype)
+#### Data Types *Commands Used* - (class()), (is.datatype), (as.datatype)
 In case the data type for a variable isn't known for some reason, (class()) or (is.datatype) can be used.  "datatype" in is.datatype gets replaced by any of the types of data.
 ```{r cont}
 #Determine the data type of variable A.
@@ -29,7 +29,7 @@ D <- as.numeric(D);
 C + D;
 ```
 
-### Vectors *Commands Used* c(), typeof(), class(), length(), : operator, print(), [] brackets for retrieving vectors, modify a vector with ->
+#### Vectors *Commands Used* c(), typeof(), class(), length(), : operator, print(), [] brackets for retrieving vectors, modify a vector with ->
 
 Let's make a new variable, E, as a vector, then investigate it
 ```{r vector}
@@ -55,7 +55,7 @@ Let's test using the less than sign to retrieve an element from the vector.  The
 ```{r vec4}
 F[F<4]; F[F < 5];
 ```
-### Lists *Non-duplicate Commands Used* list(), str(), [[sublist]], NULL  
+#### Lists *Non-duplicate Commands Used* list(), str(), [[sublist]], NULL  
 This section used a lot of duplicate commands from the Vector section, so only the new ones are shown.
 ```{r lists}
 #Here we're making a new variable G, as a list; it has both character and numeric data types inside of it (something a vector cannot do).

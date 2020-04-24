@@ -13,9 +13,19 @@ Week 3 Wednesday-Friday
 
 ### Matrix *Non-Duplicate Comands Used* matrix(), nrow, ncol, dimnames, attributes(), colnames(), rownames(), cbind(), rbind(), t()
 
+To experiment with matrices, I made up a a pretend survey where 6 people
+were asked if they liked or disliked 3 different animals. Making this
+felt a bit clunky . . . either I need more practice, or there are better
+uses for matrices than tables like this.  
+When entering the data, it fills in the table like this: the data goes
+all the way down column one and then loops around to column two. I had
+to make sure when entering my data, that I wasn’t thinking: how many
+people liked the spider; how many people disliked the spider? I had to
+think: how many people liked the spider, the fox, the dog? Only once I’d
+filled in my first column completely, could I then think about the
+second column.
+
 ``` r
-#To experiment with making matrices, I made up a a pretend survey where 6 people were asked if they liked or disliked 3 different animals.  Making this was clunky, however . . . there must be better ways to make tables and better uses of matrices.  Row is the X axis and Column is the Y axis.  
-#Entering the data goes down column one and then loops around to column two, instead of across row one and then looping to row two.
 H <- matrix(c(1,4,5,5,2,1), nrow=3, ncol=2, dimnames=list(c("Spider", "Fox", "Dog"), c("Likes the Animal", "Dislikes the Animal"))); print(H)
 ```
 
@@ -43,39 +53,55 @@ attributes(H); colnames(H); rownames(H);
 
     ## [1] "Spider" "Fox"    "Dog"
 
+Selecting different rows & columns in a matrix works similar to a
+vector, but if the comma is before the number \[,n\] it selects the
+relevant column. If the comma is AFTER the number it selects the
+relevant row. \[n,\].
+
 ``` r
-#These comands use row and column binding to make matrices; column binding makes the values travel down and then loop to the next column; row binding makes the values travel across the rows and then loop down to the next column.
-I <- cbind(c(1,2,3), c(4,5,6)); print(I); J <- rbind(c(1,2,3), c(4,5,6)); print(J);
+print(H); H[,1]; H[2,]; H[-1,]; H[2,2]
 ```
 
-    ##      [,1] [,2]
-    ## [1,]    1    4
-    ## [2,]    2    5
-    ## [3,]    3    6
+    ##        Likes the Animal Dislikes the Animal
+    ## Spider                1                   5
+    ## Fox                   4                   2
+    ## Dog                   5                   1
 
-    ##      [,1] [,2] [,3]
-    ## [1,]    1    2    3
-    ## [2,]    4    5    6
+    ## Spider    Fox    Dog 
+    ##      1      4      5
+
+    ##    Likes the Animal Dislikes the Animal 
+    ##                   4                   2
+
+    ##     Likes the Animal Dislikes the Animal
+    ## Fox                4                   2
+    ## Dog                5                   1
+
+    ## [1] 2
+
+This makes sense if you think about selecting position in a vector (or
+data.frame) to be like reading a graph (except it’s reversed because the
+data goes down, not up). Remember that a column’s NAME is on the X axis,
+even though it then travels down the Y axis, and visa versa. Where the
+name is, is what’s important. Because I had some trouble with this, I
+also practiced replacing a value inside of a matrix until I understood
+*where* in the matrix was being modified.
 
 ``` r
-#Selecting different rows & columns in a matrix works similar to a vector, but if the comma is before the number it selects the relevant column.  If the comma is AFTER the number it selects the relevant row.
-print(J); J[,1]; J[2,]; J[-1,]; J[2,2]
+#oh no!  Suddenly a bunch of dog-disliking people stormed in to our animal survey!  Now our results are not very useful, because this is obviously a biased sample.
+H[3,2] <- 66; print(H);
 ```
 
-    ##      [,1] [,2] [,3]
-    ## [1,]    1    2    3
-    ## [2,]    4    5    6
+    ##        Likes the Animal Dislikes the Animal
+    ## Spider                1                   5
+    ## Fox                   4                   2
+    ## Dog                   5                  66
 
-    ## [1] 1 4
-
-    ## [1] 4 5 6
-
-    ## [1] 4 5 6
-
-    ## [1] 5
+We can add an additional row or column to a matrix by using rbind() or
+cbind() respectfully. Technically, the command shown here makes an
+additional variable rather than modifying an already existing one.
 
 ``` r
-#You can also add an additional row or column to a matrix by using rbind or cbind respectfully; the technique taught in the book technically makes a whole new variable.
 K <- cbind(c("old", "old"), c("old", "old")); print(K); L <- rbind(K, c("new", "new")); print(L)
 ```
 
@@ -88,18 +114,10 @@ K <- cbind(c("old", "old"), c("old", "old")); print(K); L <- rbind(K, c("new", "
     ## [2,] "old" "old"
     ## [3,] "new" "new"
 
-``` r
-#I wanted to practice modifying a matrix: I think the order of [column, row] confuses me since it's going Y and then X for reading,  
-#instead of X and then Y, so it's the inverse of reading a graph (kind of, this isn't meant to analogy with a graph, but figuring out why I was confused is helpful.)
-J[2,3] <- 66; print(J);
-```
-
-    ##      [,1] [,2] [,3]
-    ## [1,]    1    2    3
-    ## [2,]    4    5   66
+With t() matrixes can be transposed–i.e. which axis each label is on is
+switched.
 
 ``` r
-#With t() matrixes can be transposed--i.e. which axis each label is on is switched. 
 print(L); L <- t(L);print(L)
 ```
 
@@ -114,35 +132,50 @@ print(L); L <- t(L);print(L)
 
 ### Data Frames *Non-duplicate Commands Used* data.frame(), read.csv(). *Investigated Escape Character; cmd; replacement weirdness*
 
-I initially tried making a data.frame with the book-given command but it
-proved to be quite difficult; I kept getting errors about unexpected
-commas, or unexpected =. I will figure it out, but first I’ll read a
-.csv into R to work with instead.
+Initially I tried making a data.frame with the book-given command.
+Eventually after many trials, giving up, and coming back to it a week
+later when I could actually copy paste the syntax from my book, I got it
+to work:
 
 ``` r
-#M <- data.frame(number_of_legs(c(0, 4, 8)), animal(c("Snake", "Fox", "Spider")), Does_Riley_Like_it?(c("good", "good", "AAAAAAAA")); print(M);
-#Also tried
-#M <- data.frame(number_of_legs(c=0, 4, 8), animal(c="Snake", "Fox", "Spider"), Does_Riley_Like_it?(c="good", "good", "AAAAAAAA")); print(M);
+RilA <- data.frame(number_of_legs=c(0, 4, 8), animal=c("Snake", "Fox", "Spider"), Rileys_Opinion=c("good", "good", "AAAAAAAA")); print(RilA)
 ```
 
-I knew I had a few .csv files on my computer from previous statistics
-projects and wanted to also learn how to find those, so I searched for
-them with cmd.
+    ##   number_of_legs animal Rileys_Opinion
+    ## 1              0  Snake           good
+    ## 2              4    Fox           good
+    ## 3              8 Spider       AAAAAAAA
+
+Originally I kept getting errors about unexpected commas, wrong ()s, or
+unexpected =, most of it was format issues. Then I learned that I can’t
+put a “?” or a “’” in a string name or the code will break, and
+originally the third column was “Does\_Riley\_Like\_It?” or “Riley’s
+Opinion” so that explains it, too.
+
+I didn’t have this data.frame when I actually did the excercises, so
+instead I took the more practical approach of loading a *.csv* file into
+R as a data.frame.
+
+I had a few *.csv* files on my computer from previous statistics
+projects, and I learned how to find them using Command Line. I’ve shown
+my search and what each part of the search means below as a comment:
 
 ``` r
 #where looks in the directory; /F formats the results to have quotes around them, /R Recursive looks into ALL directories, * is a wildcard that can include anything before the .csv result.
 #C:\Users\Persimmon>where /F /R %userprofile% *.csv
 ```
 
-I found 8 .csv files scattered across my documents and OneDrive, and
-chose one that I had made to take a single full-soundtrack video and
-turn that into seperated mp3s. I had to copy the file from my OneDrive
-into my Documents folder to open it properly in the Console, and I had
-to make a data\_sources folder in my repository to get it to open in the
-Rmd file. I discovered, also, that / and \\ work the same(ish) in
-Windows devices, but \\ if typed alone is an Escape Character so using
-DOUBLE \\ if using foward slash rather than backslash for addresses is
-nessesary.
+I found 8 .csv files and chose one meant to take an hour-length
+soundtrack video and turn that into seperated mp3s. This not only taught
+me how to find and open a *.csv* but also about data pathing;  
+I had to copy the file from my OneDrive into my Documents folder to open
+it properly in the RConsole; and in order to knit it from my R Code
+Editor, I had to place it inside of a data\_sources subdirectory in my
+Git directory (where all my md and Rmd files are located).  
+I also discovered that / and \\ work the same(ish) in Windows devices
+for pathing, but \\ if typed alone is an Escape Character. Using DOUBLE
+\\ if using backslash rather than forwardslash is neccesary, for the
+sake of typing addresses or any markdown documents.
 
 ``` r
 Madoka <- read.csv(file="../data_sources/Madoka Magika Volume 1-3.csv"); print(Madoka);
@@ -215,9 +248,10 @@ Madoka <- read.csv(file="../data_sources/Madoka Magika Volume 1-3.csv"); print(M
     ## 31  NA  NA  NA
     ## 32  NA  NA  NA
 
-For some reason when I looked at the structure or nrow ncol of Madoka I
-got 32 rows and 10 columns, but when I looked at Madoka\[0\] I got a
-result that seemed to claim there were no columns in the dataset.
+When I looked at the structure or nrow ncol of Madoka I got 32 rows and
+10 columns, but when I looked at Madoka\[0\] I got a result that seemed
+to claim there were no columns in the dataset. I thought this was
+interesting.
 
 ``` r
 str(Madoka);ncol(Madoka);nrow(Madoka); Madoka[0]; Madoka[,0];
@@ -245,11 +279,11 @@ str(Madoka);ncol(Madoka);nrow(Madoka); Madoka[0]; Madoka[,0];
 
 I didn’t want to continue printing the whole Madoka data.frame with 10
 columns and 32 rows when experimenting with different commands, so I
-finagled with commands until I got the first 5 rows of the data.frame,
-and then made that a new variable. I got a lot of hands-on experience
-with trying to select a specific row/column of a variable here, doing it
-with an actual .csv with many rows and columns took much more
-understanding and exploration than just the small made-up data sets.
+took the first 5 rows of the data.frame and made that its own variable.
+I got a lot of hands-on experience with trying to select a specific
+row/column of a variable here. Doing it with an actual *.csv* with many
+rows and columns took more understanding and exploration than just the
+small made-up data sets.
 
 ``` r
 Smallmad <- Madoka[1:5,]; print(Smallmad)
@@ -269,20 +303,20 @@ Smallmad <- Madoka[1:5,]; print(Smallmad)
     ## 5  NA
 
 I then wanted to change one of the columns in Smallmad, but something
-very perculiar happaned. Any input to \[5,3\] other than the original
-input, “00:10:39” would result in an invalid factor level, and generate
-an \<NA\>. If I changed it back to the original input, it worked
-properly again.  
+perculiar happaned.  
+Any input to \[5,3\] other than the original input, “00:10:39” would
+result in an invalid factor level, and generate an \<NA\>. If I changed
+it back to the original input, it worked properly again.  
 Not-pictured below: I thought that maybe the data format being ‘factor’
-meant that it “factored” somehow with the other values. I don’t expect
-that the program is smart enough to recognize that “xx:xx:xx” is a time
-format without being specifically told that it is a time format, but I
-still tried changing it so it didn’t technically contradict any
-timestamps I could see. However, even changing \[5,3\] to “00:10:40”
-resulted in \<NA\>.
+meant that it “factored” somehow with the other time values. I don’t
+expect that the program is smart enough to recognize that “xx:xx:xx” is
+a time format without being specifically told that it *is* a time
+format, but I still tried changing it so it didn’t technically
+contradict any timestamps I could see. However, even changing \[5,3\] to
+“00:10:40” resulted in \<NA\>.
 
 ``` r
-Smallmad[5,3] <- "The angriest Madoka"; print(Smallmad); Smallmad[5,3] <- "00:10:39"; print(Smallmad);
+Smallmad[5,3] <- "The angriest Madoka"; print(Smallmad); Smallmad[5,3] <- "00:10:39";
 ```
 
     ## Warning in `[<-.factor`(`*tmp*`, iseq, value = "The angriest Madoka"): invalid
@@ -301,19 +335,18 @@ Smallmad[5,3] <- "The angriest Madoka"; print(Smallmad); Smallmad[5,3] <- "00:10
     ## 4  NA
     ## 5  NA
 
-    ##                name    start      end track.. album.info X.VALUE.  X X.1 X.2
-    ## 1 Gradus prohibitus 00:00:00 00:03:34       1   Volume 1  0:03:34 NA  NA  NA
-    ## 2 Credens justitiam 00:03:35 00:05:30       2   Volume 1  0:01:55 NA  NA  NA
-    ## 3         Clementia 00:05:31 00:07:29       3   Volume 1  0:01:58 NA  NA  NA
-    ## 4        Desiderium 00:07:30 00:09:11       4   Volume 1  0:01:41 NA  NA  NA
-    ## 5       Conturbatio 00:09:21 00:10:39       5   Volume 1  0:01:18 NA  NA  NA
-    ##   X.3
-    ## 1  NA
-    ## 2  NA
-    ## 3  NA
-    ## 4  NA
-    ## 5  NA
+I tried some additional commands with Smallmad, such as difftime which
+would result the mean difference in time for all the X values (i.e. how
+long the actual song is) but the result didn’t make much sense. From
+this I infer the data would need to be converted into a real time
+format.
 
-Here I read ahead in the book a bit and realized how long the chapters
-are–having each chapter continue to be its report is a bad idea, so I’m
-ending this part of the report here.
+``` dif
+mean.difftime(Smallmad[,6]); #Time difference of 11.8 
+```
+
+Turning Smallmad into a histogram results that it’s not numeric data,
+either. At a different time, I will return to Smallmad and figure out
+how to convert the characters into a real formatted timestamp, but for
+now it’s time to move on and go forward with learning more from the
+book.

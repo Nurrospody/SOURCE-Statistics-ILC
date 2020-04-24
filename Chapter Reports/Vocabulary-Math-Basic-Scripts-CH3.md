@@ -13,10 +13,9 @@ Nurrospody
     plot](#writing-in-r-console---basic-mathematics-comands-used-subraction-addition-division-multiplication-cosine-sine-tangent-standard-deviation-mean-min-max-plot)
   - [Making a basic script](#making-a-basic-script)
 
-This chapter is very long; most chapters in this book will continue to
-be too long to be put into one report reasonably. I have seperated this
-chapter into seperate reports, roughly based on the amount of content
-showed per section.
+This chapter is very long. For ease of work and browsing I have
+seperated this chapter into seperate reports, roughly based on the
+amount of content showed per section.
 
 ### Notable Vocabulary from Chapter 3
 

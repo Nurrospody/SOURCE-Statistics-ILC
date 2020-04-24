@@ -3,6 +3,9 @@ Week 4 Timelog
 Nurrospody
 4/20/2020
 
+*Reminder: Sunday work from Week 3 exists and was not discussed last
+ZOOM meeting. Consider starting each week on Saturday?*
+
 **Monday** - 0 hours 55 minutes - Downloaded the rest of my R book
 because I could only download 200 pages total and my book was about 250
 pages long. Made new timecard and discussed schedule statagies. My
@@ -10,17 +13,26 @@ internet wasn’t working for a while today so my workflow got
 interrupted.
 
 **Tuesday** - 4 hours 10 minutes - Read ahead into the logical
-statements and loop functions . . . spent some time learning about how
-they worked from partner because they seemed a bit confusing. Tried
-making some loops and logical functions.  
-Also looked into time formatting for getting means of Smallmad\[,6\],
-found something called chron but it wasn’t information helpful for what
-I was doing. Learned about modulus %% and how it returns the remainder
-of division.
+statements and loop functions section. . . spent some time learning
+about how they worked from partner because they seemed a bit confusing,
+then tried making some loops and logical functions. They’re in their own
+report, “Logical Statements and Loops CH3” Also looked into time
+formatting for getting means of Smallmad\[,6\], found something called
+chron but it wasn’t information helpful for what I was doing. Learned
+about modulus %% and how it returns the remainder of division.
 
-**Wednesday** - 0 hours 0 minutes
+**Wednesday** - 2 hours 7 minutes - My reports have inconsistant
+formatting and are difficult to read, so I decided to spend some time
+today improving them. They’re now split up into smaller chunks. I also
+completed the Vocabulary list for CH3.
 
-**Thursday** - 0 hours 0 minutes
+**Thursday** - 2 hours 30 minutes - Spent time making the Matrix and
+Madoka Data.frame report more legible; this (and the vector section)
+were the hardest to read. I found that rewording the reports was helpful
+because it engaged me with the material again (like a review?) and I
+recognized concepts better. Also re-wrote the Logical Statements and
+Loops CH3 report, which was much easier after digesting the information
+for a day or two.
 
 **Friday** - 0 hours 0 minutes
 

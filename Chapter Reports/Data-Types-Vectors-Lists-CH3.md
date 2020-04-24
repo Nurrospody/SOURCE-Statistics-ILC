@@ -13,7 +13,7 @@ Week 3 Monday-ish
   - [Lists *Non-duplicate Commands Used* list(), str(), \[\[sublist\]\],
     NULL](#lists-non-duplicate-commands-used-list-str-sublist-null)
 
-### Data Types *Commands Used* - (class()), (is.datatype), (as.datatype)
+#### Data Types *Commands Used* - (class()), (is.datatype), (as.datatype)
 
 In case the data type for a variable isn’t known for some reason,
 (class()) or (is.datatype) can be used. “datatype” in is.datatype gets
@@ -50,7 +50,7 @@ C + D;
 
     ## [1] 14
 
-### Vectors *Commands Used* c(), typeof(), class(), length(), : operator, print(), \[\] brackets for retrieving vectors, modify a vector with -\>
+#### Vectors *Commands Used* c(), typeof(), class(), length(), : operator, print(), \[\] brackets for retrieving vectors, modify a vector with -\>
 
 Let’s make a new variable, E, as a vector, then investigate it
 
