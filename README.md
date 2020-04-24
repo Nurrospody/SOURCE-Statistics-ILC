@@ -23,7 +23,7 @@ Intro_CH1.md
 Contrains both .Rmd and .md files of my timecards.  
 Each week has its own Timecard.  In these timecards, I record via stopwatch how long I work on my ILC each day of the week.  I also supply a brief summary of the days' activities.  The very first timecard also sets up my working plan for the quarter.  
 **DIRECT LINKS**  
-[Week 1 Timecard AND Working Plan.md](www.google.com)  
+[Week 1 Timecard AND Working Plan.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-1-Timecard.md)  
 Week 2 Timecard.md  
 Week 3 Timecard.md  
 Week 4 Timecard.md
