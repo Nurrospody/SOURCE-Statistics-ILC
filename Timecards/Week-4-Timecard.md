@@ -26,13 +26,16 @@ formatting and are difficult to read, so I decided to spend some time
 today improving them. They’re now split up into smaller chunks. I also
 completed the Vocabulary list for CH3.
 
-**Thursday** - 2 hours 30 minutes - Spent time making the Matrix and
+**Thursday** - 4 hours 5 minutes - Spent time making the Matrix and
 Madoka Data.frame report more legible; this (and the vector section)
 were the hardest to read. I found that rewording the reports was helpful
 because it engaged me with the material again (like a review?) and I
 recognized concepts better. Also re-wrote the Logical Statements and
 Loops CH3 report, which was much easier after digesting the information
-for a day or two.
+for a day or two. Updated the FULL Ch3 report, but decided I will not
+make both segmented reports and full reports for future chapters–it’s so
+long that the scroll bar disappears in the R Code Editor, which is not
+good. Updated the README and had to fix Github conflicts which resulted.
 
 **Friday** - 0 hours 0 minutes
 

@@ -2,7 +2,7 @@
 title: "Statistics Done Wrong Intro & Ch1 Musings"
 author: "Nurrospody"
 date: "4/19/2020"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
