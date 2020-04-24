@@ -16,7 +16,7 @@ My Chapter Reports show my work and the commands I've practiced with in R.
 ## "Statistics Gone Wrong Musings" folder  
 Contains writeups that I've made after reading my *Statistics Gone Wrong* book by Alex Reinhart.  
 **DIRECT LINKS**  
-Intro_CH1.md (accidentally is not an md currently, must fix)
+[Intro_CH1.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Statistics%20Done%20Wrong%20Musings/Into_Ch1.md)  
 
 
 ## "Timecards" folder
