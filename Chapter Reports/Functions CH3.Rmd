@@ -1,0 +1,14 @@
+---
+title: 'Functions : Chapter 3 *Learn R for Applied Statistics : With Data Visualizations, Regressions, and Statistics*'
+author: "Nurrospody"
+date: "4/26/2020"
+output:
+  github_document:
+    toc: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+empty, learning other loops first
