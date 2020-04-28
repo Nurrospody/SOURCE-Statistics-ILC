@@ -326,8 +326,8 @@ what it’s supposed to, and looks rather ugly. If RScript() is used in
 the Terminal, the script does not wait for user input like it’s supposed
 to (Windows problem?). If \> source(filepath to the R file) is used, it
 seems to work correctly and user input can be entered with only the
-proper print returns. The actual script cannot be knitted here, but it
-can be found in my data\_sources folder. This is what it looks like when
+proper print returns. The actual script cannot be knitted here, but [it
+can be found in my data\_sources folder](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/BookCalc.R). This is what it looks like when
 used via souce() in the terminal:
 
 ``` r
