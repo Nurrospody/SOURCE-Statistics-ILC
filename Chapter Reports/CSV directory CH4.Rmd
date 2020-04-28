@@ -1,0 +1,72 @@
+---
+title: "Chapter 4 *Descriptive Statistics* Working directory, *.csv*, vocabulary"
+author: "Nurrospody"
+date: "4/28/2020, *Learn R for Applied Statistics : With Data Visualizations, Regressions, and Statistics*"
+output:
+  github_document:
+    toc: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### Chapter 4 Vocabulary:
+**Descriptive Statistics** discuss distribution, central tendency, and data dispersion.  After we summarize a dataset with descriptive statistics, we can better decide on whether to use inferential statistics or regression analysis on the data next.  
+**Inferential statistics**: can identify the relationship between SETS of data  
+**Regression analysis**: can identify the relationship between VARIABLES WITHIN THE SAME SET of data.  
+**Distribution** can be normal, binomial, or Bernoulli (in order of popularity).  
+**Central tendency** is mean, median, and mode (which one is best depends on the dataset).  
+**Data dispersion** means the spread of the data, and can be the range, variance, standard deviation, or interquartile range.  
+An important question is *how normal is the data distribution*.  
+**Central Limit Theorum**: the mean of a sample will be equal to the "normal distribution mean" of a sample.  This is why we 'convert' data to be normally distributed when working with it.  
+
+#### Reading Data Files: Getting Location **New Commands used: getwd(), setwd()** 
+I first learned how to get my working directory.  
+```{r directory}
+getwd();
+```
+My code-editor's working directory is my chapter reports, since this is a chapter report; my console's working directory was simply my documents.  
+In order to read my *.csv* file in the next section, I changed my working directory to the data_sources directory where I store my *.csv* files.  This is shown as a comment, because I cannot change the working directory for my report and knit correctly:
+```{r 2 directory}
+#setwd("C:/Users/Persimmon/Documents/GitHub/Statistics-ILC/data_sources"); 
+#getwd()
+#[1] "C:/Users/Persimmon/Documents/GitHub/Statistics-ILC/data_sources"
+```
+
+#### Reading a CSV File **New Commands Used: read.csv()**  
+Now that my working directory is set to the same location as my *.csv* files, it's easy to read.csv my *.csv* into R.  That path is shown in a comment.  
+For the purpose of knitting my Rmd, the path is slightly more complicated since I must go up a level in the directory, and then to the data_sources directory.
+```{r read}
+#CTF <- read.csv(file="ctf_performance.csv", header=TRUE, sep=",");
+CTF <- read.csv(file="../data_sources/ctf_performance.csv", header=TRUE, sep=",");
+print(CTF)
+```
+Once I assign the *.csv* file to CTF, it becomes an R object in my global environment that I can click on, and it becomes a very nice table that looks like this:
+![](../data_sources/ctf1.png)
+This table is very nice, especially compared to how the same data looks if I were to simply open up the ctf_performance.cvs directly from file explorer without properly using the read.csv command:
+![](../data_sources/ctf2.png)
+
+#### Writing a CSV File **New Commands used: write.csv()**
+Using write.csv, I can write to the file directly from R, which would presumably be useful if I had editted the data.
+```{r write}
+#write.csv(data.frame(CTF), file="ctf_performance.csv", quote=TRUE, sep=",", row.names=TRUE, col.names=TRUE);
+```
+My attempts to set seperators and column names were ignored, since they weren't neccesary, but when I checked out the file's properties in explorer, it had been modified and accessed!  Technically no changes were made to the data, but it did work correctly.
+
+#### Reading an Excel File **New Commands Used: install.packages(), require(), library(),**
+First, I needed to install the "xlsx" package onto my computer, so that I could read an EXCEL file inside of R.  Shown as a comment.
+```{r xl}
+#install.packages("xlsx");
+
+#The console informed me that I should download [Rtools40 from the r-cran website](https://cran.rstudio.com/bin/windows/Rtools/) to build an R package.
+```
+
+Using the pckage requires the require() function.  
+*I was curious about what this is so used the help() function, and it looks like require() and library() are related.  Then I went onto a slight tangent where with library(help), I found out I could see all the downloadable libraries--including the base R library--and I can use library(help=base) to look at all commands included inthe base R package.  Super cool!*
+```{r require}
+require("xlsx")
+```
+R looks for compilers like this in the default instalation path for Rtools, so until I install Rtools, I won't be able to successfully load the package.  Time for an adventure!
+
+#### R Tools Adventure

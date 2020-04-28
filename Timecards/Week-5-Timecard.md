@@ -10,7 +10,9 @@ review, I discovered that it didn’t *actually* teach me how to use loops
 to print the same character-based message a hundred times . . . so I
 figured out how to do it before closing out of chapter 3.
 
-**Tuesday** - 0 hours 0 minutes - work description
+**Tuesday** - 2 hours 30 minutes +10 FOR MISSED TIMER - Begun reading
+chapter 4 (descriptive statistics) and working on chapter 4 report\! Had
+to go onto an Rtools instalation adventure to use the xlsl package.
 
 **Wednesday** - 0 hours 0 minutes - work description
 
