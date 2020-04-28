@@ -128,8 +128,9 @@ presumably be useful if I had editted the data.
 
 My attempts to set seperators and column names were ignored, since they
 weren’t neccesary, but when I checked out the file’s properties in
-explorer, it had been modified and accessed\! Technically no changes
-were made to the data, but it did work correctly.
+explorer, it had been modified and accessed\! No visible changes were
+made but in my GitHub desktop application, I could see that the whole
+document had been deleted and then written again, essentially.
 
 #### Reading an Excel File **New Commands Used: install.packages(), require(), library(),**
 
