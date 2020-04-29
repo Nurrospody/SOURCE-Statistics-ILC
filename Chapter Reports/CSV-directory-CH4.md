@@ -14,7 +14,8 @@ Regressions, and Statistics*
   - [Reading an Excel File **New Commands Used: install.packages(),
     require(),
     library(),**](#reading-an-excel-file-new-commands-used-install.packages-require-library)
-  - [R Tools Adventure](#r-tools-adventure)
+  - [R Tools Adventure **New Commands:
+    sys.which()**](#r-tools-adventure-new-commands-sys.which)
 
 #### Chapter 4 Vocabulary:
 
@@ -166,4 +167,23 @@ R looks for compilers like this in the default instalation path for
 Rtools, so until I install Rtools, I won’t be able to successfully load
 the package. Time for an adventure\!
 
-#### R Tools Adventure
+#### R Tools Adventure **New Commands: sys.which()**
+
+After installing Rtools for 3.6.3, I restarted R, and then tested if it
+worked by using this command:
+
+``` r
+Sys.which("make")
+```
+
+    ##                                  make 
+    ## "C:\\PROGRA~2\\Rtools\\bin\\make.exe"
+
+That appears to work as intended. Then I installed the “xlxs” package
+using type = “source” as instructed by the Rtools page.
+
+``` r
+#install.packages("xlsx", type = "source")
+```
+
+It still seems to be erroring, though . . .
