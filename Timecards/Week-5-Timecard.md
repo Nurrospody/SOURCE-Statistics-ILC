@@ -18,8 +18,9 @@ instalation adventure to use the xlsl package.
 require(xlsx) because the file path didn’t exist, or java wasn’t
 installed, or the environment variable wasn’t made in windows . . .
 
-**Thursday** - 1 hours 33 minutes - created second report, continued
-work on chapter 4
+**Thursday** - 1 hours 37 minutes - created second report, continued
+work on chapter 4, figured out why images work the way they do in
+markdown (it’s a hyperlink, but with no text–instead an \! image)
 
 **Friday** - 0 hours 0 minutes - work description
 
