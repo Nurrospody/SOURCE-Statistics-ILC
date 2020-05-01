@@ -10,13 +10,16 @@ review, I discovered that it didn’t *actually* teach me how to use loops
 to print the same character-based message a hundred times . . . so I
 figured out how to do it before closing out of chapter 3.
 
-**Tuesday** - 3 hours 2 minutes +10 FOR MISSED TIMER - Begun reading
-chapter 4 (descriptive statistics) and working on chapter 4 report\! Had
-to go onto an Rtools instalation adventure to use the xlsl package.
+**Tuesday** - 3 hours 12 minutes - Begun reading chapter 4 (descriptive
+statistics) and working on chapter 4 report\! Had to go onto an Rtools
+instalation adventure to use the xlsl package.
 
-**Wednesday** - 0 hours 0 minutes - work description
+**Wednesday** - Aprx. \~2 hours - fixed an issue wehre I couldn’t
+require(xlsx) because the file path didn’t exist, or java wasn’t
+installed, or the environment variable wasn’t made in windows . . .
 
-**Thursday** - 0 hours 0 minutes - work description
+**Thursday** - 1 hours 33 minutes - created second report, continued
+work on chapter 4
 
 **Friday** - 0 hours 0 minutes - work description
 

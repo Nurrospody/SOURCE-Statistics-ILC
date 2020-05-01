@@ -1,4 +1,5 @@
-Chapter 4 *Descriptive Statistics* Working directory, *.csv*, vocabulary
+Chapter 4 part1 *Descriptive Statistics* Working directory, *.csv*,
+vocabulary
 ================
 Nurrospody
 4/28/2020, *Learn R for Applied Statistics : With Data Visualizations,
@@ -11,11 +12,10 @@ Regressions, and Statistics*
     read.csv()**](#reading-a-csv-file-new-commands-used-read.csv)
   - [Writing a CSV File **New Commands used:
     write.csv()**](#writing-a-csv-file-new-commands-used-write.csv)
-  - [Reading an Excel File **New Commands Used: install.packages(),
-    require(),
-    library(),**](#reading-an-excel-file-new-commands-used-install.packages-require-library)
-  - [R Tools Adventure **New Commands:
-    sys.which()**](#r-tools-adventure-new-commands-sys.which)
+  - [The Adventure to Read an Excel File **New Commands Used:
+    install.packages(), require(), library(),** installed Java and
+    Rtools and made a Windows Environment Variale
+    path.](#the-adventure-to-read-an-excel-file-new-commands-used-install.packages-require-library-installed-java-and-rtools-and-made-a-windows-environment-variale-path.)
 
 #### Chapter 4 Vocabulary:
 
@@ -133,15 +133,13 @@ explorer, it had been modified and accessed\! Quotes had been placed
 around the name of each CTF excercise, and a row number (with quotes
 around it) had been appended to each entry.
 
-#### Reading an Excel File **New Commands Used: install.packages(), require(), library(),**
+#### The Adventure to Read an Excel File **New Commands Used: install.packages(), require(), library(),** installed Java and Rtools and made a Windows Environment Variale path.
 
 First, I needed to install the “xlsx” package onto my computer, so that
-I could read an EXCEL file inside of R. Shown as a comment.
+I could read an EXCEL file inside of R.
 
 ``` r
 #install.packages("xlsx");
-
-#The console informed me that I should download [Rtools40 from the r-cran website](https://cran.rstudio.com/bin/windows/Rtools/) to build an R package.
 ```
 
 Using the pckage requires the require() function.  
@@ -153,21 +151,17 @@ library(help=base) to look at all commands included inthe base R
 package. Super cool\!*
 
 ``` r
-require("xlsx")
+#require("xlsx")
+## Loading required package: xlsx
+
+## Error: package or namespace load failed for 'xlsx':
+##  .onLoad failed in loadNamespace() for 'rJava', details:
+##   call: fun(libname, pkgname)
+##   error: JAVA_HOME cannot be determined from the Registry
 ```
 
-    ## Loading required package: xlsx
-
-    ## Error: package or namespace load failed for 'xlsx':
-    ##  .onLoad failed in loadNamespace() for 'rJava', details:
-    ##   call: fun(libname, pkgname)
-    ##   error: JAVA_HOME cannot be determined from the Registry
-
-R looks for compilers like this in the default instalation path for
-Rtools, so until I install Rtools, I won’t be able to successfully load
-the package. Time for an adventure\!
-
-#### R Tools Adventure **New Commands: sys.which()**
+However, it wouldn’t work. I tried installing Rtools, since R briefly
+mentioned Rtools when I installed the package.
 
 After installing Rtools for 3.6.3, I restarted R, and then tested if it
 worked by using this command:
@@ -179,11 +173,46 @@ Sys.which("make")
     ##                                  make 
     ## "C:\\PROGRA~2\\Rtools\\bin\\make.exe"
 
-That appears to work as intended. Then I installed the “xlxs” package
-using type = “source” as instructed by the Rtools page.
+That appears to work as intended. Hopeful, I attempted to install the
+“xlsx” package again . . . I discovered that the package installer was
+made in Java, something that I don’t have–so without Java R couldn’t
+read the installer.
+
+Once I installed Java and restarted my computer (again) I was finally
+able to succesfully ‘unpack’ the package\!
 
 ``` r
-#install.packages("xlsx", type = "source")
+#Installing package into ‘C:/Users/Persimmon/Documents/R/win-library/3.6’
+#(as ‘lib’ is unspecified)
+#trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/xlsx_0.6.3.zip'
+#Content type 'application/zip' length 379823 bytes (370 KB)
+#downloaded 370 KB
+
+#package ‘xlsx’ successfully unpacked and MD5 sums checked
+
+#The downloaded binary packages are in
+#   C:\Users\Persimmon\AppData\Local\Temp\RtmpEF3qjQ\downloaded_packages
 ```
 
-It still seems to be erroring, though . . .
+Unfortunately, unpacking succesfully does not mean that I can
+succesfully load it from the registry, apparently. The same error from
+my last require() attempt persisted.  
+Here, my partner came to help:  
+We discovered that the 32-bit version of Java was intalled on my
+computer; to install the 64-bit version their ‘[All Java
+Downloads](https://www.java.com/en/download/manual.jsp)’ link must be
+found and followed.  
+After installing the correct bit version of Java and uninstalling the 32
+version, we discovered that that JAVA\_HOME was not a set environment
+variable in my windows machine. We set the variable to the correct path:
+Java/jre1.8.0\_250.  
+After all of that, require(“xlsx”); finally ran correctly.
+
+``` r
+require("xlsx");
+```
+
+    ## Loading required package: xlsx
+
+[To continue reading the CH4 reports, select a new
+section.](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/README.md)
