@@ -214,5 +214,6 @@ require("xlsx");
 
     ## Loading required package: xlsx
 
-[To continue reading the CH4 reports, select a new
-section.](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/README.md)
+To continue reading the CH4 reports, select a new section:  
+[Part 2 of the Chapter 4 Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part2.md)  
+[Link to README to select any Chapter Report](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/README.md)
