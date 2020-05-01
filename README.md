@@ -19,7 +19,8 @@ My Chapter Reports show my work and the commands I've practiced with in R.
 [Logical Statements and Loops CH3.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/Logical-Statements-and-Loops-CH3.md)  
 
 *Chapter 4*  
-[CH4 Vocabulary, Working Directories, *.csv*, Require, R Tools Adventure](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CSV-directory-CH4.md)
+[CH4 Vocabulary, Working Directories, *.csv*, Require, Fixing R Packages Adventure](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CSV-directory-CH4.md)  
+[CH4 *.xlsx* and SPSS files (reading and writing)](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part2.md) 
 
 ## "Statistics Gone Wrong Musings" folder  
 Contains writeups that I've made after reading my *Statistics Gone Wrong* book by Alex Reinhart.  
