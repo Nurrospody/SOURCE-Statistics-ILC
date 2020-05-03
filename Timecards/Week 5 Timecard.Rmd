@@ -17,9 +17,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Thursday** - 1 hours 37 minutes - created second report, continued work on chapter 4, figured out why images work the way they do in markdown (it's a hyperlink, but with no text--instead an ! image)
 
-**Friday** - 0 hours 0 minutes - work description
+**Friday** - 15 minutes - typed up summary of the week's work and sent it to my sponsor! Also fixed some GitHut hyperlinks.
 
-**Saturday** - 0 hours 0 minutes - work description
+**Saturday** - 1 hours 0 minutes - I didn't have a .sav file to work with, so I made one!  Writing it was more difficult than reading it however; reading it wrote weird things to the file.
 
 **Sunday** - 0 hours 0 minutes - work description
 

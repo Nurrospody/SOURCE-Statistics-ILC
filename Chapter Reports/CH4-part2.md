@@ -84,4 +84,11 @@ even the .txt format, but I always got this type of error: Error in
 read.spss(file = “spfox.sav”, to.data.frame = TRUE) : file ‘spfox.sav’
 is not in any supported SPSS format  
 I’m not sure what’s up, especially since it knits perfectly fine in my
-Rmd file. I’ll revisit it later when it’s more important.
+Rmd file. It also seems to change my .txt and .sav files to something
+they’re not supposed to be:  
+![](../data_sources/foxb.png) It was originally what’s in green, but
+trying to fox2 \<- read.spss(file) changed both the .txt and the .sav to
+what’s in the red. I’m not sure why that’s what it became. Luckily I
+caught it fast enough to both fix it in-console, and catch a screenshot
+of the incorrect data.  
+I’ll revisit it later when it’s more important.
