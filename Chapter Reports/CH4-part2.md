@@ -65,7 +65,7 @@ Rather than writing a data.frame all in one line, I assigned all the
 variables *first* and then assigned it to a data.frame. This felt much
 less clunky than the previous way I made a data.frame. Then I wrote that
 table to a *.txt* file, and wrote that data to a *.sav* file.  
-[LINK]() to the *.sav* file. It looks very satisfying with all its new
+[LINK](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/spfox.sav) to the *.sav* file. It looks very satisfying with all its new
 fancy headers\!
 
 #### Reading an SPSS File **New Commands: read.spss()**
