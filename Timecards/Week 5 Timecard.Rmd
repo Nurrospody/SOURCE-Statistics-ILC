@@ -19,8 +19,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Friday** - 15 minutes - typed up summary of the week's work and sent it to my sponsor! Also fixed some GitHut hyperlinks.
 
-**Saturday** - 1 hours 0 minutes - I didn't have a .sav file to work with, so I made one!  Writing it was more difficult than reading it however; reading it wrote weird things to the file.
+**Saturday** - 1 hours 4 minutes - I didn't have a .sav file to work with, so I made one!  Writing it was more difficult than reading it however; reading it wrote weird things to the file.  12 hours, 19 minutes so far.  If I spend another almost 3 hour day tomorrow this will be the second week on-perfect track!
 
-**Sunday** - 0 hours 0 minutes - work description
+**Sunday** - 1 hours 30 minutes - Contined work on chapter 4!  This time I was practicing some basic data processing.  Soon the chapter will lead me to do mean, median, and mode with data.
 
 End of week reflection.
