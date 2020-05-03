@@ -9,8 +9,10 @@ Regressions, and Statistics*
     read.xlsx(),**](#reading-an-excel-file-new-commands-used-read.xlsx)
   - [Writing an Excel File **New Commands Used
     write.xlsx()**](#writing-an-excel-file-new-commands-used-write.xlsx)
-  - [Reading an SPSS File](#reading-an-spss-file)
-  - [Writing an SPSS File](#writing-an-spss-file)
+  - [Writing an SPSS File **New Commands: write.table(),
+    write.foreign()**](#writing-an-spss-file-new-commands-write.table-write.foreign)
+  - [Reading an SPSS File **New Commands:
+    read.spss()**](#reading-an-spss-file-new-commands-read.spss)
 
 #### Reading an Excel File **New Commands Used: read.xlsx(),**
 
@@ -39,19 +41,47 @@ slightly wider spacing between values.
 file. GitHub desktop then tells me the binary file has changed.
 Previously the first sheet was only called Sheet1; now it is named.
 
-#### Reading an SPSS File
+#### Writing an SPSS File **New Commands: write.table(), write.foreign()**
 
 An SPSS (Statistical Package for the Social Sciences) file actually uses
 the *.sav* file extension. Reading it into R necessitates installing the
 “foreign” package, requiring the foreign package, and then assigning a
-variable using the read.spss command.
+variable using the read.spss command.  
+I didn’t have a *.sav* file lying around, so I wrote my own.
 
-``` spss
-install.packages("Foreign"); 
-require("foreign");
-#SCTF <- read.spss(file="ctf_performance.sav", to data.frame = TRUE);
+``` wrsps
+require(foreign)
+library(foreign)
+fur <- c("red", "brown", "grey")
+eyes <- c("blue", "blue", "brown")
+age <- c("7 months", "1 year", "3 years")
+foxes <- data.frame(age, eyes, fur)
+write.table(foxes, "spfox.txt", sep = "\t")
+write.foreign(foxes, "spfox.txt", "spfox.sav", package = "SPSS")
+print(foxes);
 ```
 
-The excecution is exactly the same as a *.csv* or *.xlsx* file read.
+Rather than writing a data.frame all in one line, I assigned all the
+variables *first* and then assigned it to a data.frame. This felt much
+less clunky than the previous way I made a data.frame. Then I wrote that
+table to a *.txt* file, and wrote that data to a *.sav* file.  
+[LINK]() to the *.sav* file. It looks very satisfying with all its new
+fancy headers\!
 
-#### Writing an SPSS File
+#### Reading an SPSS File **New Commands: read.spss()**
+
+Technically reading an SPSS file should work exactly the same as an xlsx
+or csv file, but I had some issues getting it to work, mostly because of
+errors.
+
+``` spss
+require("foreign");
+fox2 <- read.spss(file="../data_sources/spfox.sav", to data.frame = TRUE);
+```
+
+I tried read.spss using the .sav file format, .spss format, .sps format,
+even the .txt format, but I always got this type of error: Error in
+read.spss(file = “spfox.sav”, to.data.frame = TRUE) : file ‘spfox.sav’
+is not in any supported SPSS format  
+I’m not sure what’s up, especially since it knits perfectly fine in my
+Rmd file. I’ll revisit it later when it’s more important.
