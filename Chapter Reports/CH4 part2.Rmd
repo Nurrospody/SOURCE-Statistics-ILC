@@ -40,7 +40,7 @@ write.foreign(foxes, "spfox.txt", "spfox.sav", package = "SPSS")
 print(foxes);
 ```
 Rather than writing a data.frame all in one line, I assigned all the variables *first* and then assigned it to a data.frame.  This felt much less clunky than the previous way I made a data.frame.  Then I wrote that table to a *.txt* file, and wrote that data to a *.sav* file.  
-[LINK]() to the *.sav* file.  It looks very satisfying with all its new fancy headers!  
+[LINK](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/spfox.sav) to the *.sav* file.  It looks very satisfying with all its new fancy headers!  
 
 #### Reading an SPSS File + JSON **New Commands: read.spss()**  
 Technically reading an SPSS file should work exactly the same as an xlsx or csv file, but I had some issues getting it to work, mostly because of errors.
