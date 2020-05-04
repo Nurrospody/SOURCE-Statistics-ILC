@@ -79,8 +79,9 @@ Rather than writing a data.frame all in one line, I assigned all the
 variables *first* and then assigned it to a data.frame. This felt much
 less clunky than the previous way I made a data.frame. Then I wrote that
 table to a *.txt* file, and wrote that data to a *.sav* file.  
-[LINK](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/spfox.sav) to the *.sav* file. It looks very satisfying with all its new
-fancy headers\!
+[LINK](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/spfox.sav)
+to the *.sav* file. It looks very satisfying with all its new fancy
+headers\!
 
 #### Reading an SPSS File + JSON **New Commands: read.spss()**
 
@@ -433,3 +434,9 @@ professionally appropriate ways to do this.
 I fixed this by adding r into the {} names of of code blocks, and now it
 is printing succesfully. Code blocks that I mentioned “will come back to
 later” for, I left it untouched.
+
+To continue reading the CH4 reports, select a new section:  
+[Part 3 of the Chapter 4
+Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part2.md)  
+[Link to README to select any Chapter
+Report](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/README.md)

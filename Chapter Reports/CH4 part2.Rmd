@@ -103,3 +103,7 @@ This revealed some interesting things to me:
 3. But because it will not catch any errors I make, if I want to write anything inside of a codeblock but not have it actually be code . . . I can simply fail to specify the language.  There's probably other, more professionally appropriate ways to do this.
 
 I fixed this by adding r into the {} names of of code blocks, and now it is printing succesfully.  Code blocks that I mentioned "will come back to later" for, I left it untouched.
+
+To continue reading the CH4 reports, select a new section:  
+[Part 3 of the Chapter 4 Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part2.md)  
+[Link to README to select any Chapter Report](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/README.md)
