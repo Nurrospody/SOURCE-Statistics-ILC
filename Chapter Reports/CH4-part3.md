@@ -27,16 +27,16 @@ random <- rnorm(70, 10, 2);
 print(random)
 ```
 
-    ##  [1]  6.075211 11.303303 10.424199 12.360806 11.935623  6.580755  8.552948
-    ##  [8]  6.860803  9.569438  7.783481  9.372788 11.436076  9.294276  8.884155
-    ## [15] 10.001504  7.158850 10.309570 12.545809  9.806483  9.050677 10.918926
-    ## [22]  9.571183 11.349937  7.243030 10.489110 10.749886 16.034010 10.505249
-    ## [29] 12.794762  9.006275 10.808922 12.545248 10.777935  6.930930 10.700242
-    ## [36]  7.871806  9.608625 10.484932  5.780759 11.578801 13.126352  7.889660
-    ## [43]  9.854357  9.785254  9.370533 12.928441  8.754476  3.698259  7.434817
-    ## [50] 10.410666  7.378824 11.829321 10.011721  8.480541  8.449678 12.256906
-    ## [57] 10.479782  6.935147  8.013481  9.578609 11.572416 11.023688 11.313909
-    ## [64]  7.944892  7.215126  7.420070 12.014897  8.309880 13.610770 12.348664
+    ##  [1] 11.221298  8.586925 11.394484 10.010592 11.235113 12.466812  4.752301
+    ##  [8]  9.144222 13.867494  7.970839 10.396648 10.333960 11.437906  9.138704
+    ## [15] 10.368608 10.854784 12.278329  7.008869 11.229298 10.488534  7.875486
+    ## [22] 11.708981  8.434693 11.748309 10.832150  7.321220 10.567367  8.144428
+    ## [29] 10.242126  8.753871  7.473489 11.689720  9.062036  6.206962 11.778861
+    ## [36]  9.701272 10.071360 10.081105  9.784233 10.813052  7.821579 11.427274
+    ## [43]  8.102347 11.702759 10.607479 13.970805  8.219984  9.727955  8.702698
+    ## [50]  8.647258 11.971685  7.554601 11.086237 11.542613  9.034230 12.293351
+    ## [57] 11.786422  9.697702 12.507214 12.449379  8.831663 11.524664  8.556539
+    ## [64] 12.579324 11.521078  9.250470 13.220820  9.921174  6.911173  7.345428
 
 Originally I tried using system.time rather than NULL to set my seed, to
 guarentee the randomness of it, but I discovered this in the
@@ -49,18 +49,19 @@ help(set.seed) documentation:
 This means that I don’t have to manually use system.time to make
 reliably random seeds, and can use NULL with good conscience. I talked
 with my partner a bit about the consequences of having non-random seeds,
-or duplicate-able seeds: in Monster Hunter 3 Ultimate, it was always
-best to set your birthday to a specific day (like January 15th or
-something) *because the seed for that day* had end-game drop tables that
-were objectively better than any other drop tables in the game. This led
-to all serious players either having to live with subpar tables, or
-restarting their entire game to set a fake birthday. Players with this
-birthday had an unfair unknown advantage over all over players, merely
-because of the seed they received. Bad seeds cause strife in video
-games, but the strife they cause in the real world is so much worse.
+or duplicate-able seeds:
+
+``` mh3u
+In Monster Hunter 3 Ultimate, it was always best to set your birthday to a specific day (like January 15th or something) *because the seed for that day* had end-game drop tables that were objectively better than any other drop tables in the game.  This led to all serious players either having to live with subpar tables, or restarting their entire game to set a fake birthday.  Players with this birthday had an unfair unknown advantage over all over players, merely because of the seed they received.
+```
+
+Bad seeds cause strife in video games, but the strife they cause in the
+real world is so much worse.
 
 Whenever I knit my document, I get a new random data set (which is
 wonderful) which I believe further proves that these seeds are good.
+This also means that with every commit to GitHub for this report, my
+values are changed.
 
 Then I made a histogram of my random numbers, to verify randomness:
 
@@ -68,10 +69,11 @@ Then I made a histogram of my random numbers, to verify randomness:
 hist(random, breaks=10);
 ```
 
-![](CH4-part3_files/figure-gfm/his-1.png)<!-- --> Based on the random
-number set that was generated each knit, this histogram ranges from a
-disastogram to being almost perfect. So I ran some more tests to prove
-randomness.  
+![](CH4-part3_files/figure-gfm/his-1.png)<!-- -->
+
+Based on the random number set that was generated each knit, this
+histogram ranges from a disastogram to being almost perfect. So I ran
+some more tests to prove randomness.  
 First, a **Q-Q plot**:
 
 ``` r
@@ -79,8 +81,10 @@ qqnorm(random)
 qqline(random)
 ```
 
-![](CH4-part3_files/figure-gfm/QQ-1.png)<!-- --> Sometimes, this looks
-textbook perfect. Othertimes it’s a bit more wobbly on the very edges.
+![](CH4-part3_files/figure-gfm/QQ-1.png)<!-- -->
+
+Sometimes, this looks textbook perfect. Othertimes it’s a bit more
+wobbly on the very edges.
 
 Then I ran a Shapiro-Wilk normality test.
 
@@ -92,15 +96,17 @@ shapiro.test(random)
     ##  Shapiro-Wilk normality test
     ## 
     ## data:  random
-    ## W = 0.99081, p-value = 0.8921
+    ## W = 0.98362, p-value = 0.493
 
 Between knits I’ve gotten the pleasure of seeing p-values that are low
-like 0.1408, or p-values that are quite high like 0.7505. Assuming the
-‘default’ alpha of 0.05, all of these p-values mean I can reject the
-null hypothesis. (In this case, the null hypothesis is that variable
-‘random’ equals a non-random distribution). I am not certain what the
-W represents, but it seems to gravitate between 0.97\#\#\# and
-0.98\#\#\#.
+like 0.1408, or p-values that are quite high like 0.8921. There’s also
+been . . . hall of shame results with p values around 0.02.  
+Assuming the ‘default’ alpha of 0.05, *most* of these p-values mean I
+can reject the null hypothesis. (In this case, the null hypothesis is
+that variable ‘random’ equals a non-random distribution). I am not
+certain what the W represents, but it seems to gravitate between
+0.97\#\#\# and 0.98\#\#\#. Hall of shame results sometimes have
+0.96\#\#\# values.
 
 Now that I have an ever changing, lovely random data set to work with,
 let’s go back to th beginning of the chapter and run some more basic
@@ -116,7 +122,7 @@ American economic data.
 median(random)
 ```
 
-    ## [1] 9.83042
+    ## [1] 10.28804
 
 Means are the mathemetical average–sum all the data, then divide it by
 N. The mean is good for centrality when data’s distribution is normal or
@@ -126,7 +132,7 @@ flat.
 mean(random)
 ```
 
-    ## [1] 9.778549
+    ## [1] 10.07132
 
 Range is the difference between the largest and smallest data point.
 range() gives us the largest and the smallest without subtracting them.
@@ -137,21 +143,21 @@ can also be useful for finding ranges.
 range(random)
 ```
 
-    ## [1]  3.698259 16.034010
+    ## [1]  4.752301 13.970805
 
 ``` r
 res <- range(random); diff(res)
 ```
 
-    ## [1] 12.33575
+    ## [1] 9.218504
 
 ``` r
 min(random); max(random)
 ```
 
-    ## [1] 3.698259
+    ## [1] 4.752301
 
-    ## [1] 16.03401
+    ## [1] 13.97081
 
 Interquartile Ranges are useful for looking at the spread of data. IQR
 gives us the difference between the 75% quartile and 25% quartile–most
@@ -162,17 +168,17 @@ We can also request the main 4 quartiles, or specify any quartile.
 IQR(random)
 ```
 
-    ## [1] 3.223677
+    ## [1] 2.862649
 
 ``` r
 quantile(random); quantile(random, 0.30)
 ```
 
     ##        0%       25%       50%       75%      100% 
-    ##  3.698259  8.087581  9.830420 11.311258 16.034010
+    ##  4.752301  8.661118 10.288043 11.523767 13.970805
 
-    ##      30% 
-    ## 8.531226
+    ##     30% 
+    ## 8.97346
 
 SAMPLE variance can be found with the var() function. POPULARION
 variance requires more care.
@@ -181,7 +187,7 @@ variance requires more care.
 var(random)
 ```
 
-    ## [1] 4.719872
+    ## [1] 3.596536
 
 SAMPLE standard deviation can be found with the sd() function.
 POPULATION sd requires more care.
@@ -190,7 +196,7 @@ POPULATION sd requires more care.
 sd(random)
 ```
 
-    ## [1] 2.172527
+    ## [1] 1.896454
 
 To continue reading the CH4 reports, select a new section:  
 [Part 4 of the Chapter 4 Reports (DOES NOT EXIST

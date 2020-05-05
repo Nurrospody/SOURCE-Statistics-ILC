@@ -21,28 +21,34 @@ Originally I tried using system.time rather than NULL to set my seed, to guarent
 ```{set}
 "Initially, there is no seed; a new one is created from the current time and the process ID when one is required. Hence different sessions will give different simulation results, by default. However, the seed might be restored from a previous session if a previously saved workspace is restored."
 ```
-This means that I don't have to manually use system.time to make reliably random seeds, and can use NULL with good conscience.  I talked with my partner a bit about the consequences of having non-random seeds, or duplicate-able seeds: in Monster Hunter 3 Ultimate, it was always best to set your birthday to a specific day (like January 15th or something) *because the seed for that day* had end-game drop tables that were objectively better than any other drop tables in the game.  This led to all serious players either having to live with subpar tables, or restarting their entire game to set a fake birthday.  Players with this birthday had an unfair unknown advantage over all over players, merely because of the seed they received.  Bad seeds cause strife in video games, but the strife they cause in the real world is so much worse.
+This means that I don't have to manually use system.time to make reliably random seeds, and can use NULL with good conscience.  I talked with my partner a bit about the consequences of having non-random seeds, or duplicate-able seeds: 
+```{MH3U}
+In Monster Hunter 3 Ultimate, it was always best to set your birthday to a specific day (like January 15th or something) *because the seed for that day* had end-game drop tables that were objectively better than any other drop tables in the game.  This led to all serious players either having to live with subpar tables, or restarting their entire game to set a fake birthday.  Players with this birthday had an unfair unknown advantage over all over players, merely because of the seed they received.
+```
+Bad seeds cause strife in video games, but the strife they cause in the real world is so much worse.  
 
-Whenever I knit my document, I get a new random data set (which is wonderful) which I believe further proves that these seeds are good.  
+Whenever I knit my document, I get a new random data set (which is wonderful) which I believe further proves that these seeds are good.  This also means that with every commit to GitHub for this report, my values are changed.
 
 Then I made a histogram of my random numbers, to verify randomness:
 ```{r his}
 hist(random, breaks=10);
 ```
+
 Based on the random number set that was generated each knit, this histogram ranges from a disastogram to being almost perfect.  So I ran some more tests to prove randomness.  
 First, a **Q-Q plot**:
 ```{r QQ}
 qqnorm(random)
 qqline(random)
 ```
+
 Sometimes, this looks textbook perfect.  Othertimes it's a bit more wobbly on the very edges.  
 
 Then I ran a Shapiro-Wilk normality test.  
 ```{r not shikira test}
 shapiro.test(random)
 ```
-Between knits I've gotten the pleasure of seeing p-values that are low like 0.1408, or p-values that are quite high like 0.7505.
-Assuming the 'default' alpha of 0.05, all of these p-values mean I can reject the null hypothesis.  (In this case, the null hypothesis is that variable 'random' equals a non-random distribution).  I am not certain what the W represents, but it seems to gravitate between 0.97### and 0.98###.
+Between knits I've gotten the pleasure of seeing p-values that are low like 0.1408, or p-values that are quite high like 0.8921.  There's also been . . . hall of shame results with p values around 0.02.  
+Assuming the 'default' alpha of 0.05, *most* of these p-values mean I can reject the null hypothesis.  (In this case, the null hypothesis is that variable 'random' equals a non-random distribution).  I am not certain what the W represents, but it seems to gravitate between 0.97### and 0.98###.  Hall of shame results sometimes have 0.96### values.  
 
 Now that I have an ever changing, lovely random data set to work with, let's go back to th beginning of the chapter and run some more basic commands.
 
