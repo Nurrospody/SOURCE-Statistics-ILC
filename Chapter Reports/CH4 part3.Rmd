@@ -1,5 +1,5 @@
 ---
-title: "Chapter 4 part3 *Descriptive Statistics* Mode, Median, Mean"
+title: "Chapter 4 part3 *Descriptive Statistics* Central Tendency, Spread, Variation Commands, Random Number Generation"
 author: "Nurrospody"
 date: "5/3/2020, *Learn R for Applied Statistics : With Data Visualizations, Regressions, and Statistics*"
 output:

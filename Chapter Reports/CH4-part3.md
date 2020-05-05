@@ -1,4 +1,5 @@
-Chapter 4 part3 *Descriptive Statistics* Mode, Median, Mean
+Chapter 4 part3 *Descriptive Statistics* Central Tendency, Spread,
+Variation Commands, Random Number Generation
 ================
 Nurrospody
 5/3/2020, *Learn R for Applied Statistics : With Data Visualizations,
@@ -26,16 +27,16 @@ random <- rnorm(70, 10, 2);
 print(random)
 ```
 
-    ##  [1] 10.878255  5.643165 11.683776  8.279260 11.549956 11.451955 13.370179
-    ##  [8] 10.126731 12.099745  8.602582 10.558754  7.607298 10.149068  8.545950
-    ## [15]  9.987197 13.289800  7.721351 11.804366 11.831994  9.634737  8.090798
-    ## [22] 13.836986 10.657932 12.408304  8.364120 11.008095 11.685643  6.369396
-    ## [29]  9.098848  8.716103  7.660327  9.551009  9.414104  8.148395  8.034997
-    ## [36]  6.614911 10.817276 10.446656  9.024702 10.376004  6.113105 12.530452
-    ## [43] 12.784498 11.903985  7.879825 16.181668  7.781156  8.429211 12.680340
-    ## [50] 10.170073 10.101167 10.096625  9.973559  8.226119 11.953782  9.205164
-    ## [57] 10.213702 10.617300  9.773205  9.469419  7.342926 11.705558  7.693870
-    ## [64]  9.000892 10.919303 10.051282 12.677293 10.281020 10.718778 10.811127
+    ##  [1]  6.075211 11.303303 10.424199 12.360806 11.935623  6.580755  8.552948
+    ##  [8]  6.860803  9.569438  7.783481  9.372788 11.436076  9.294276  8.884155
+    ## [15] 10.001504  7.158850 10.309570 12.545809  9.806483  9.050677 10.918926
+    ## [22]  9.571183 11.349937  7.243030 10.489110 10.749886 16.034010 10.505249
+    ## [29] 12.794762  9.006275 10.808922 12.545248 10.777935  6.930930 10.700242
+    ## [36]  7.871806  9.608625 10.484932  5.780759 11.578801 13.126352  7.889660
+    ## [43]  9.854357  9.785254  9.370533 12.928441  8.754476  3.698259  7.434817
+    ## [50] 10.410666  7.378824 11.829321 10.011721  8.480541  8.449678 12.256906
+    ## [57] 10.479782  6.935147  8.013481  9.578609 11.572416 11.023688 11.313909
+    ## [64]  7.944892  7.215126  7.420070 12.014897  8.309880 13.610770 12.348664
 
 Originally I tried using system.time rather than NULL to set my seed, to
 guarentee the randomness of it, but I discovered this in the
@@ -91,7 +92,7 @@ shapiro.test(random)
     ##  Shapiro-Wilk normality test
     ## 
     ## data:  random
-    ## W = 0.98865, p-value = 0.7822
+    ## W = 0.99081, p-value = 0.8921
 
 Between knits I’ve gotten the pleasure of seeing p-values that are low
 like 0.1408, or p-values that are quite high like 0.7505. Assuming the
@@ -115,7 +116,7 @@ American economic data.
 median(random)
 ```
 
-    ## [1] 10.11395
+    ## [1] 9.83042
 
 Means are the mathemetical average–sum all the data, then divide it by
 N. The mean is good for centrality when data’s distribution is normal or
@@ -125,7 +126,7 @@ flat.
 mean(random)
 ```
 
-    ## [1] 10.03467
+    ## [1] 9.778549
 
 Range is the difference between the largest and smallest data point.
 range() gives us the largest and the smallest without subtracting them.
@@ -136,21 +137,21 @@ can also be useful for finding ranges.
 range(random)
 ```
 
-    ## [1]  5.643165 16.181668
+    ## [1]  3.698259 16.034010
 
 ``` r
 res <- range(random); diff(res)
 ```
 
-    ## [1] 10.5385
+    ## [1] 12.33575
 
 ``` r
 min(random); max(random)
 ```
 
-    ## [1] 5.643165
+    ## [1] 3.698259
 
-    ## [1] 16.18167
+    ## [1] 16.03401
 
 Interquartile Ranges are useful for looking at the spread of data. IQR
 gives us the difference between the 75% quartile and 25% quartile–most
@@ -161,17 +162,17 @@ We can also request the main 4 quartiles, or specify any quartile.
 IQR(random)
 ```
 
-    ## [1] 3.06706
+    ## [1] 3.223677
 
 ``` r
 quantile(random); quantile(random, 0.30)
 ```
 
     ##        0%       25%       50%       75%      100% 
-    ##  5.643165  8.458396 10.113949 11.525456 16.181668
+    ##  3.698259  8.087581  9.830420 11.311258 16.034010
 
     ##      30% 
-    ## 8.915455
+    ## 8.531226
 
 SAMPLE variance can be found with the var() function. POPULARION
 variance requires more care.
@@ -180,7 +181,7 @@ variance requires more care.
 var(random)
 ```
 
-    ## [1] 4.004074
+    ## [1] 4.719872
 
 SAMPLE standard deviation can be found with the sd() function.
 POPULATION sd requires more care.
@@ -189,7 +190,7 @@ POPULATION sd requires more care.
 sd(random)
 ```
 
-    ## [1] 2.001018
+    ## [1] 2.172527
 
 To continue reading the CH4 reports, select a new section:  
 [Part 4 of the Chapter 4 Reports (DOES NOT EXIST
