@@ -9,7 +9,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-**Monday** - 0 hours 0 minutes - set up timecard and README hyperlink
+**Monday** - 3 hours 14 minutes - set up timecard and README hyperlink, read quite a few pages into the chapter, generated a random distribution of 70n to work with and did a bunch of basic stats calculations!  Talked about seeds, tried to make sure everything had a definition appended to it.
 
 **Tuesday** - 0 hours 0 minutes - work description
 
