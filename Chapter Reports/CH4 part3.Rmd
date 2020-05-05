@@ -10,13 +10,73 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+#### Generating a Number Set **New Commands Used: set.seed(), rnorm(), hist(), qqnorm(), qqline(), shapiro.test()**
+Before doing any of the excercises, I read ahead in the Basic Statistics part of chapter 4.  I noticed that most of these excercises wanted a big number dataset, and it was helpful if the dataset was normally distributed.  So I went a bit out of order and **generated a number set** first.
+```{r seed}
+set.seed(NULL);
+random <- rnorm(70, 10, 2);
+print(random)
+```
+Originally I tried using system.time rather than NULL to set my seed, to guarentee the randomness of it, but I discovered this in the help(set.seed) documentation:
+```{set}
+"Initially, there is no seed; a new one is created from the current time and the process ID when one is required. Hence different sessions will give different simulation results, by default. However, the seed might be restored from a previous session if a previously saved workspace is restored."
+```
+This means that I don't have to manually use system.time to make reliably random seeds, and can use NULL with good conscience.  I talked with my partner a bit about the consequences of having non-random seeds, or duplicate-able seeds: in Monster Hunter 3 Ultimate, it was always best to set your birthday to a specific day (like January 15th or something) *because the seed for that day* had end-game drop tables that were objectively better than any other drop tables in the game.  This led to all serious players either having to live with subpar tables, or restarting their entire game to set a fake birthday.  Players with this birthday had an unfair unknown advantage over all over players, merely because of the seed they received.  Bad seeds cause strife in video games, but the strife they cause in the real world is so much worse.
 
+Whenever I knit my document, I get a new random data set (which is wonderful) which I believe further proves that these seeds are good.  
 
+Then I made a histogram of my random numbers, to verify randomness:
+```{r his}
+hist(random, breaks=10);
+```
+Based on the random number set that was generated each knit, this histogram ranges from a disastogram to being almost perfect.  So I ran some more tests to prove randomness.  
+First, a **Q-Q plot**:
+```{r QQ}
+qqnorm(random)
+qqline(random)
+```
+Sometimes, this looks textbook perfect.  Othertimes it's a bit more wobbly on the very edges.  
 
+Then I ran a Shapiro-Wilk normality test.  
+```{r not shikira test}
+shapiro.test(random)
+```
+Between knits I've gotten the pleasure of seeing p-values that are low like 0.1408, or p-values that are quite high like 0.7505.
+Assuming the 'default' alpha of 0.05, all of these p-values mean I can reject the null hypothesis.  (In this case, the null hypothesis is that variable 'random' equals a non-random distribution).  I am not certain what the W represents, but it seems to gravitate between 0.97### and 0.98###.
 
+Now that I have an ever changing, lovely random data set to work with, let's go back to th beginning of the chapter and run some more basic commands.
 
+#### Central Tendency, Spread, Variation Commands that DON'T require manual help **New Commands Used: median(), mean(), range(), diff(), res <- , min(), max(), IQR(), quantile(), var(), sd()**
 
-
+Medians indicate the 50% percentile and can be better than the mean for centrality IF there are many outliers or the data is skewed, such as American economic data.  
+```{r median}
+median(random)
+```
+Means are the mathemetical average--sum all the data, then divide it by N.  The mean is good for centrality when data's distribution is normal or flat.
+```{r mean}
+mean(random)
+```
+Range is the difference between the largest and smallest data point.  range() gives us the largest and the smallest without subtracting them.  If we want the difference, we need to specify that.
+Min and max values can also be useful for finding ranges.
+```{r range}
+range(random)
+res <- range(random); diff(res)
+min(random); max(random)
+```
+Interquartile Ranges are useful for looking at the spread of data.  IQR gives us the difference between the 75% quartile and 25% quartile--most of the data will be here.  
+We can also request the main 4 quartiles, or specify any quartile.
+```{r quannnnnnnntile}
+IQR(random)
+quantile(random); quantile(random, 0.30)
+```
+SAMPLE variance can be found with the var() function.  POPULARION variance requires more care.  
+```{r variance}
+var(random)
+```
+SAMPLE standard deviation can be found with the sd() function.  POPULATION sd requires more care.
+```{r sd}
+sd(random)
+```
 
 
 
