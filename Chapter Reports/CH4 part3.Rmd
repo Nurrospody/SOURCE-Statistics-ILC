@@ -84,21 +84,39 @@ SAMPLE standard deviation can be found with the sd() function.  POPULATION sd re
 sd(random)
 ```
 
+#### Central Tendency, Spread, Variation Commands that DO require manual help  
+There is no built-in function in *R* for **Mode**.  One way (the book given way) to get the mode is this:
+```{1 mmmode}
+Make variable; x <- table(variable)
+names(x)[which(x==max(x))];
+```
+Whereby you request the names of which elements/values there are the most of, but only after turning your matrix/data.frame into a frequency table.  This returned weird things and didn't seem to ignore duplicate values, so I didn't like it very much.  
 
+You can also make or find a pre-made function for finding mode, as to not enter the formula every time.  
+```{r function mode}
+Modes <- function(x) {
+  ux <- unique(x)
+  tab <- tabulate(match(x, ux))
+  ux[tab == max(tab)]
+}
+```
+*Modes* is a function for finding all the given modes in a variable, if there are multiple. "Modes" is capitalized because mode() is a seperate built-in function.  
+*Unique* removes duplicate elements from our result.  This is useful for mode because we want to know that our mode is, say, 5, and not 5, 5, 5, 5, 5.  
+*Tabulate* counts the number of times each integer happens in a vector bin.  
+*Max* does the same thing as the previous function--which value occurs the maximum amount of times?  
 
-
-
-
-
-
-
-
-
-
-
-
-
+If we tried to get the mode from our variable "random" right now, it would just return every variable because each number with 6 decimal points *is* unique, and each occurs the most frequently at one time.  
+Instead, let's use the built-in R function which unfortunately shares names with the mathematical mode, but instead is for changing the 'mode' (data type) of a value/variable.
+```{r mode}
+mode(random) <- "integer"
+print(random)
+```
+Now instead of having 70 unique values, we have a much more limited scope of values.  Hooray!  Let's run Modes() on this:
+```{r MMode}
+Modes(random)
+```
+I learned here that while FUNCTION names are caps sensitive, LABELS for code blocks are NOT caps sensitive.  Thanks Windows.
 
 To continue reading the CH4 reports, select a new section:  
-[Part 4 of the Chapter 4 Reports (DOES NOT EXIST YET)](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part4.md)  
+[Part 4 of the Chapter 4 Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part4.md)  
 [Link to README to select any Chapter Report](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/README.md)

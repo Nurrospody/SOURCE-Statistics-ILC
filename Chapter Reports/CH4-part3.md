@@ -12,6 +12,8 @@ Regressions, and Statistics*
     manual help **New Commands Used: median(), mean(), range(), diff(),
     res \<- , min(), max(), IQR(), quantile(), var(),
     sd()**](#central-tendency-spread-variation-commands-that-dont-require-manual-help-new-commands-used-median-mean-range-diff-res---min-max-iqr-quantile-var-sd)
+  - [Central Tendency, Spread, Variation Commands that DO require manual
+    help](#central-tendency-spread-variation-commands-that-do-require-manual-help)
 
 #### Generating a Number Set **New Commands Used: set.seed(), rnorm(), hist(), qqnorm(), qqline(), shapiro.test()**
 
@@ -27,16 +29,16 @@ random <- rnorm(70, 10, 2);
 print(random)
 ```
 
-    ##  [1] 11.221298  8.586925 11.394484 10.010592 11.235113 12.466812  4.752301
-    ##  [8]  9.144222 13.867494  7.970839 10.396648 10.333960 11.437906  9.138704
-    ## [15] 10.368608 10.854784 12.278329  7.008869 11.229298 10.488534  7.875486
-    ## [22] 11.708981  8.434693 11.748309 10.832150  7.321220 10.567367  8.144428
-    ## [29] 10.242126  8.753871  7.473489 11.689720  9.062036  6.206962 11.778861
-    ## [36]  9.701272 10.071360 10.081105  9.784233 10.813052  7.821579 11.427274
-    ## [43]  8.102347 11.702759 10.607479 13.970805  8.219984  9.727955  8.702698
-    ## [50]  8.647258 11.971685  7.554601 11.086237 11.542613  9.034230 12.293351
-    ## [57] 11.786422  9.697702 12.507214 12.449379  8.831663 11.524664  8.556539
-    ## [64] 12.579324 11.521078  9.250470 13.220820  9.921174  6.911173  7.345428
+    ##  [1]  9.826494  9.065310  8.814595  8.563254  9.382763 11.256545  8.981788
+    ##  [8]  7.361516 10.039361  6.961752 11.243033 10.394685  6.130403  7.972492
+    ## [15]  7.043358  9.411424 10.266041  9.703351  5.347325 11.055905 12.422719
+    ## [22]  7.522149 10.371153 10.614395 10.509950 10.262291  8.145225 11.941964
+    ## [29]  9.175873 10.616995  8.993539 11.437810  8.311521  9.757576  6.225241
+    ## [36] 11.946885 11.849535  7.269068 10.997243 10.601334  9.337078  8.895220
+    ## [43]  9.203705 11.454376  7.526863  8.101565  9.543737 13.300003 10.360707
+    ## [50]  9.734457 11.825338 12.836642 10.038241 14.471561 10.329705 11.748632
+    ## [57]  9.314330  7.907735  9.541246 10.087124  6.817062 11.534361 11.559121
+    ## [64]  7.188120 12.558816  9.693330  6.805177  9.467936  9.711676  8.907838
 
 Originally I tried using system.time rather than NULL to set my seed, to
 guarentee the randomness of it, but I discovered this in the
@@ -96,7 +98,7 @@ shapiro.test(random)
     ##  Shapiro-Wilk normality test
     ## 
     ## data:  random
-    ## W = 0.98362, p-value = 0.493
+    ## W = 0.99264, p-value = 0.9574
 
 Between knits I’ve gotten the pleasure of seeing p-values that are low
 like 0.1408, or p-values that are quite high like 0.8921. There’s also
@@ -122,7 +124,7 @@ American economic data.
 median(random)
 ```
 
-    ## [1] 10.28804
+    ## [1] 9.707514
 
 Means are the mathemetical average–sum all the data, then divide it by
 N. The mean is good for centrality when data’s distribution is normal or
@@ -132,7 +134,7 @@ flat.
 mean(random)
 ```
 
-    ## [1] 10.07132
+    ## [1] 9.679937
 
 Range is the difference between the largest and smallest data point.
 range() gives us the largest and the smallest without subtracting them.
@@ -143,21 +145,21 @@ can also be useful for finding ranges.
 range(random)
 ```
 
-    ## [1]  4.752301 13.970805
+    ## [1]  5.347325 14.471561
 
 ``` r
 res <- range(random); diff(res)
 ```
 
-    ## [1] 9.218504
+    ## [1] 9.124236
 
 ``` r
 min(random); max(random)
 ```
 
-    ## [1] 4.752301
+    ## [1] 5.347325
 
-    ## [1] 13.97081
+    ## [1] 14.47156
 
 Interquartile Ranges are useful for looking at the spread of data. IQR
 gives us the difference between the 75% quartile and 25% quartile–most
@@ -168,17 +170,17 @@ We can also request the main 4 quartiles, or specify any quartile.
 IQR(random)
 ```
 
-    ## [1] 2.862649
+    ## [1] 2.276092
 
 ``` r
 quantile(random); quantile(random, 0.30)
 ```
 
     ##        0%       25%       50%       75%      100% 
-    ##  4.752301  8.661118 10.288043 11.523767 13.970805
+    ##  5.347325  8.626090  9.707514 10.902181 14.471561
 
-    ##     30% 
-    ## 8.97346
+    ##      30% 
+    ## 8.959603
 
 SAMPLE variance can be found with the var() function. POPULARION
 variance requires more care.
@@ -187,7 +189,7 @@ variance requires more care.
 var(random)
 ```
 
-    ## [1] 3.596536
+    ## [1] 3.374527
 
 SAMPLE standard deviation can be found with the sd() function.
 POPULATION sd requires more care.
@@ -196,10 +198,75 @@ POPULATION sd requires more care.
 sd(random)
 ```
 
-    ## [1] 1.896454
+    ## [1] 1.836989
+
+#### Central Tendency, Spread, Variation Commands that DO require manual help
+
+There is no built-in function in *R* for **Mode**. One way (the book
+given way) to get the mode is this:
+
+``` 1
+Make variable; x <- table(variable)
+names(x)[which(x==max(x))];
+```
+
+Whereby you request the names of which elements/values there are the
+most of, but only after turning your matrix/data.frame into a frequency
+table. This returned weird things and didn’t seem to ignore duplicate
+values, so I didn’t like it very much.
+
+You can also make or find a pre-made function for finding mode, as to
+not enter the formula every time.
+
+``` r
+Modes <- function(x) {
+  ux <- unique(x)
+  tab <- tabulate(match(x, ux))
+  ux[tab == max(tab)]
+}
+```
+
+*Modes* is a function for finding all the given modes in a variable, if
+there are multiple. “Modes” is capitalized because mode() is a seperate
+built-in function.  
+*Unique* removes duplicate elements from our result. This is useful for
+mode because we want to know that our mode is, say, 5, and not 5, 5, 5,
+5, 5.  
+*Tabulate* counts the number of times each integer happens in a vector
+bin.  
+*Max* does the same thing as the previous function–which value occurs
+the maximum amount of times?
+
+If we tried to get the mode from our variable “random” right now, it
+would just return every variable because each number with 6 decimal
+points *is* unique, and each occurs the most frequently at one time.  
+Instead, let’s use the built-in R function which unfortunately shares
+names with the mathematical mode, but instead is for changing the ‘mode’
+(data type) of a value/variable.
+
+``` r
+mode(random) <- "integer"
+print(random)
+```
+
+    ##  [1]  9  9  8  8  9 11  8  7 10  6 11 10  6  7  7  9 10  9  5 11 12  7 10 10 10
+    ## [26] 10  8 11  9 10  8 11  8  9  6 11 11  7 10 10  9  8  9 11  7  8  9 13 10  9
+    ## [51] 11 12 10 14 10 11  9  7  9 10  6 11 11  7 12  9  6  9  9  8
+
+Now instead of having 70 unique values, we have a much more limited
+scope of values. Hooray\! Let’s run Modes() on this:
+
+``` r
+Modes(random)
+```
+
+    ## [1] 9
+
+I learned here that while FUNCTION names are caps sensitive, LABELS for
+code blocks are NOT caps sensitive. Thanks Windows.
 
 To continue reading the CH4 reports, select a new section:  
-[Part 4 of the Chapter 4 Reports (DOES NOT EXIST
-YET)](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part4.md)  
+[Part 4 of the Chapter 4
+Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part4.md)  
 [Link to README to select any Chapter
 Report](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/README.md)
