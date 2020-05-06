@@ -16,8 +16,10 @@ different), learning some things about functions and floating values
 learned that for some reason ‘numeric’ data takes up more memory than
 ‘interger’ data (and also numbers in R are really big?)
 
-**Wednesday** - 0 hours 11 minutes - Started part 4 of chapter 4 report,
-made files and updated README.
+**Wednesday** - 1 hours 8 minutes - Started part 4 of chapter 4 report,
+made files and updated README. Got back to where I started (the Normal
+Distribution section) so now it’s time to figure out what a cumulative
+distribution function (CDF) is.
 
 **Thursday** - 0 hours 0 minutes - work description
 

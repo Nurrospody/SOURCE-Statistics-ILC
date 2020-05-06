@@ -4,6 +4,51 @@ Nurrospody
 5/5/2020, *Learn R for Applied Statistics : With Data Visualizations,
 Regressions, and Statistics*
 
+  - [Central Tendency, Spread, Variation Commands that DO require manual
+    help
+    CONTINUED](#central-tendency-spread-variation-commands-that-do-require-manual-help-continued)
+
+#### Central Tendency, Spread, Variation Commands that DO require manual help CONTINUED
+
+In the last report we ended by talking about getting the mode of a
+dataset or variable, and how that requires making a special function or
+frequency tahble.  
+Next we’ll talk about getting **POPULATION** (POP) **Standard Deviation
+and Variance**, which also require ‘special’ treatment.
+
+Because of Bessel’s correction–which is meant to partially correct bias
+of standard deviation estimation–we need to append `* (N - 1)/N:` to our
+variance var() function. N is length(variable), or the amount of points
+in our variable. N-1 is used for similar reasons as n-1 in other
+statistical formulae.  
+In order to get the POP Standard Deviation, we do the above the get the
+POP variance, and then sqrt(variance). We do this, rather than `sd(X) *
+(N-1) / N;`, because Variance is a better unbiased estimator than
+Standard Deviation. So in order to get the POP Standard Deviation in R,
+you must get the POP Variance first.
+
+Let’s calculate the POP Variance and Standard deviation using our
+‘random’ variable.
+
+``` r
+N <- length(random);
+variance <- var(random) * (N - 1) / N;
+N; variance; sqrt(variance);
+```
+
+    ## [1] 70
+
+    ## [1] 3.306946
+
+    ## [1] 1.818501
+
+The first number in the solution box is N (70), the second number is the
+POP Variance (probably about 4), and the third number is the POP
+Standard Deviation (probably about 2). Because Standard Deviation is the
+square of variance, it of course has a less wide range than variance
+does. I guess that inherently makes it more biased because it is smaller
+and more concentrated.
+
 To continue reading the CH4 reports, select a new section:  
 [Part 5 of the Chapter 4 Reports *Will result in error page
 currently*](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part5.md)  
