@@ -22,6 +22,7 @@ My Chapter Reports show my work and the commands I've practiced with in R.
 [CH4 Vocabulary, Working Directories, *.csv*, Require, Fixing R Packages Adventure](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CSV-directory-CH4.md)  
 [CH4 *.xlsx* and SPSS files (reading and writing) and Basic Data Processing](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part2.md)  
 [CH4 Central Tendency, Spread, Variation Commands, Random Number Generation](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part3.md)
+[CH4 part4 (currently empty)](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part4.md)  
 
 ## "Statistics Gone Wrong Musings" folder  
 Contains writeups that I've made after reading my *Statistics Gone Wrong* book by Alex Reinhart.  

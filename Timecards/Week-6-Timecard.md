@@ -3,15 +3,21 @@ Week 6 Timecard
 Nurrospody
 5/4/2020
 
-**Monday** - 3 hours 23 minutes - set up timecard and README hyperlink,
+**Monday** - 3 hours 27 minutes - set up timecard and README hyperlink,
 read quite a few pages into the chapter, generated a random distribution
 of 70n to work with and did a bunch of basic stats calculations\! Talked
 about seeds, tried to make sure everything had a definition appended to
 it.
 
-**Tuesday** - 0 hours 0 minutes - work description
+**Tuesday** - 1 hours 53 minutes - finished chapter 4 part 3 report,
+worked with finding modes, changing data ‘modes’ (which is apparently
+different), learning some things about functions and floating values
+(and doubles, which are more accurate numbers than floating values),
+learned that for some reason ‘numeric’ data takes up more memory than
+‘interger’ data (and also numbers in R are really big?)
 
-**Wednesday** - 0 hours 0 minutes - work description
+**Wednesday** - 0 hours 11 minutes - Started part 4 of chapter 4 report,
+made files and updated README.
 
 **Thursday** - 0 hours 0 minutes - work description
 
