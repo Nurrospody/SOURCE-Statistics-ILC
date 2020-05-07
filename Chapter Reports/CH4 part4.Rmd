@@ -30,10 +30,31 @@ N; variance; sqrt(variance);
 ```
 The first number in the solution box is N (70), the second number is the POP Variance (probably about 4), and the third number is the POP Standard Deviation (probably about 2).  Because Standard Deviation is the square of variance, it of course has a less wide range than variance does.  I guess that inherently makes it more biased because it is smaller and more concentrated.  
 
+#### Cumulative Distribution Function (CDF) **New Commands: pnorm(), qnorm()**  
+I hadn't learned about CDF before, or at least I hadn't learned it by name, so I looked up examples of what this was before I tried using the function.  
+CDF uses 4 components: probability, mean, standard deviation, an X value.  
+Given a certain X value, the mean, and standard deviation, CDF can tell you how PROBABLE it is that X is (or is less than) that specific value.  (If you want to know how probable it is that X is GREATER than or less than a certain value, you need to write it into the equation; kind of like how getting area right of a curve in a statistics textbook requires you to subtract your result from 1).  So if you have a 6-sided dice and roll it, it is 1/6 probable that you will get a result of 1 or lower.  
+This is the idea behind the pnorm() function.  
 
+You can also use a given probability, mean, and standard deviation, to solve for a specific X value.  In this case, the given probability is like the area of a curve, so 0.95 probabilty has only 0.05 area to the right of the curve.  If you use CDF you can ask R to solve what X value is sitting right on that probability/area.  
+This is the idea behind the qnorm() function.  
 
+I noted the interesting naming scheme between these functions--q and p in confidence intervals.  q represents the recorded probability (so the recorded frequency) that something was FALSE, and p is that something was TRUE.  q is often simply shown as 1 - p.  I thought it was interesting that both of these had to do with probability.  
 
-
+Let's practice using the pnorm() and qnorm() functions.  I'll use the same mean (10) and standard deviation (2) as in 'random', 
+```{r pnorm}
+#Here I'm checking to see how likely a result of 16 is.  Sometimes kniting has given me one or two of these extreme values.  
+pnorm(16, 10, 2);
+```
+```{r qnorm}
+#Here I'm asking what the 50 percentile is.  Hopefully it returns the mean.
+#I also asked for a different value, about 1 standard deviation away from the mean.
+qnorm(0.50, 10, 2); mean(random); qnorm(0.84, 10, 2);
+```
+The answer I got from pnorm() obviously needs to be subtracted from 1 to get the real probability.  This is because pnorm() returns the probability something is less than or equal to a value, but I want the probability that it's greater than or equal to.  We can do that with:
+```{r one minus qnorm}
+1 - pnorm(16, 10, 2);
+```
 
 To continue reading the CH4 reports, select a new section:  
 [Part 5 of the Chapter 4 Reports *Will result in error page currently*](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part5.md)  

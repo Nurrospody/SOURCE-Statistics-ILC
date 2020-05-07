@@ -16,10 +16,12 @@ different), learning some things about functions and floating values
 learned that for some reason ‘numeric’ data takes up more memory than
 ‘interger’ data (and also numbers in R are really big?)
 
-**Wednesday** - 1 hours 8 minutes - Started part 4 of chapter 4 report,
+**Wednesday** - 2 hours 11 minutes - Started part 4 of chapter 4 report,
 made files and updated README. Got back to where I started (the Normal
-Distribution section) so now it’s time to figure out what a cumulative
-distribution function (CDF) is.
+Distribution section) and found several new statistical concepts I
+wasn’t familar with: so I spent time learning about what Cummulative
+Distribution Function is, what kurtosis is, and what ‘skewness’ when
+measured in numbers is and how to interpret those numbers.
 
 **Thursday** - 0 hours 0 minutes - work description
 
