@@ -1,4 +1,5 @@
-Chapter 4 part4 *Descriptive Statistics* (Topics Go Here)
+Chapter 4 part4 *Descriptive Statistics* (Special Central Tendencies,
+Cumulative Distribution Function, Skewness and Kurtosis)
 ================
 Nurrospody
 5/5/2020, *Learn R for Applied Statistics : With Data Visualizations,
@@ -9,13 +10,17 @@ Regressions, and Statistics*
     CONTINUED](#central-tendency-spread-variation-commands-that-do-require-manual-help-continued)
   - [Cumulative Distribution Function (CDF) **New Commands: pnorm(),
     qnorm()**](#cumulative-distribution-function-cdf-new-commands-pnorm-qnorm)
+  - [Next is the section on skewness and kurtosis. **New Commands: r,
+    getOption, options, “moments”, skewness(), kurtosis(),
+    as.data.frame(), plot(), polygon(),
+    density()**](#next-is-the-section-on-skewness-and-kurtosis.-new-commands-r-getoption-options-moments-skewness-kurtosis-as.data.frame-plot-polygon-density)
 
 #### Central Tendency, Spread, Variation Commands that DO require manual help CONTINUED
 
 In the last report we ended by talking about getting the mode of a
 dataset or variable, and how that requires making a special function or
 frequency tahble.  
-Next we’ll talk about getting **POPULATION** (POP) **Standard Deviation
+Next, we’ll talk about getting **POPULATION** (POP) **Standard Deviation
 and Variance**, which also require ‘special’ treatment.
 
 Because of Bessel’s correction–which is meant to partially correct bias
@@ -40,9 +45,9 @@ N; variance; sqrt(variance);
 
     ## [1] 70
 
-    ## [1] 4.134189
+    ## [1] 4.029172
 
-    ## [1] 2.033271
+    ## [1] 2.00728
 
 The first number in the solution box is N (70), the second number is the
 POP Variance (probably about 4), and the third number is the POP
@@ -84,21 +89,21 @@ Let’s practice using the pnorm() and qnorm() functions. I’ll use the
 same mean (10) and standard deviation (2) as in ‘random’,
 
 ``` r
-#Here I'm checking to see how likely a result of 16 is.  Sometimes kniting has given me one or two of these extreme values.  
+#Here I'm checking to see how likely a result of 16 is.  Sometimes knitting has given me one or two of these extreme values.  
 pnorm(16, 10, 2);
 ```
 
     ## [1] 0.9986501
 
 ``` r
-#Here I'm asking what the 50 percentile is.  Hopefully it returns the mean.
+#Here I'm asking what the 50 percentile is.  Hopefully, it returns the mean.
 #I also asked for a different value, about 1 standard deviation away from the mean.
 qnorm(0.50, 10, 2); mean(random); qnorm(0.84, 10, 2);
 ```
 
     ## [1] 10
 
-    ## [1] 10.18831
+    ## [1] 9.963782
 
     ## [1] 11.98892
 
@@ -113,8 +118,105 @@ probability that it’s greater than or equal to. We can do that with:
 
     ## [1] 0.001349898
 
+#### Next is the section on skewness and kurtosis. **New Commands: r, getOption, options, “moments”, skewness(), kurtosis(), as.data.frame(), plot(), polygon(), density()**
+
+I’m familiar with skewness as a vague concept, but I’ve never seen it
+used as a calculation or number before. I had never heard of kurtosis at
+all. I [referred to a math help
+website](https://brownmath.com/stat/shape.htm) to give me a basic
+overview of what these concepts are.  
+**Skew** Data can be *approximately symmetric*, *moderately skewed*, or
+*highly skewed*.  
+0 is perfectly symmetric, but this is unlikely for real-world data.  
+Skewness scores ranging from + 0.5 to - 0.5 are approximately symmetric.
+Skewness scores of +1 to -1, non-inclusive of the 0.5 range, are
+moderately skewed.  
+Anything more extreme is highly skewed.  
+Some data *looks* skewed to one side, but can be treated as
+approximately normal anyway because of this. I never knew this bit of
+information, which is rather helpful because it always felt like we
+arbitrarily decided if something was “close enough” before.
+
+To test for skew (and kurtosis) in R we must install and require the
+“moments” package. I got a strange ‘trying to use CRAN without setting
+a mirror’ error, so I had to re-set the CRAN repository for my knit
+session; I think something didn’t get shut down correctly when I last
+worked.
+
+``` r
+r = getOption("repos")
+r["CRAN"] = "http://cran.us.r-project.org"
+options(repos = r)
+install.packages("moments")
+```
+
+    ## Installing package into 'C:/Users/Persimmon/Documents/R/win-library/3.6'
+    ## (as 'lib' is unspecified)
+
+    ## package 'moments' successfully unpacked and MD5 sums checked
+    ## 
+    ## The downloaded binary packages are in
+    ##  C:\Users\Persimmon\AppData\Local\Temp\Rtmpk7bTj7\downloaded_packages
+
+``` r
+require(moments)
+```
+
+    ## Loading required package: moments
+
+``` r
+hist(random); skewness(random)
+```
+
+![](CH4-part4_files/figure-gfm/mom-1.png)<!-- -->
+
+    ## [1] 0.09780196
+
+Unless something terribly extreme happened with the normal distribution
+random seed, the skewness result should be approximately normal and a
+very small number. But what about kurtosis? That can vary more.
+
+**Kurtosis** measures the slope’s *shape*–how much variance comes from
+infrequent extreme deviations, rather than frequent & modest deviations?
+Higher kurtosis will have longer tails (and thus a higher peak) while
+lower kurtosis will have less tails (and thus a rounder peak).  
+You can have 3 graphs that all have the same mean, same stdev, and same
+skewness, but look very different because the kurtosis. This works out
+mathematically because intermediate values become rarer and extreme
+values become more likely.  
+A perfectly normal cuve has a kurtosis of 3. Because of this, we
+typically work with “excess” kurtosis (kurtosis - 3) so that our perfect
+normal distribution is actually 0. The lowest kurtosis possible (two
+discrete probabilities–flipping a coin) is 1 (or excess -2) and
+Student’s t with 4 df has infinity kurtosis.
+
+``` r
+kurtosis(random);
+```
+
+    ## [1] 2.928854
+
+R appears to use “excess” sample kurtosis as its returned value, like
+Excel does.  
+Kurtosis is easier to visualize with a plot than a histogram, but I
+didn’t want to use a Q-Q plot for it because that just shows
+normality, not the actual curve shape (which is what’s unique here with
+kurtosis). I found Kernel Density Plots as a solution to show it off for
+now. The density argument needed to be numeric, and not the name of a
+variable, so I used as.data.frame(random) to set it. A list of 70
+numbers is quite long so I used include=FALSE for that particular line
+of code.
+
+``` r
+d <- density(random)
+plot(d, main="Distribution of the 'random' normal distributed variable")
+polygon(d, col="red", border="blue") 
+```
+
+![](CH4-part4_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
 To continue reading the CH4 reports, select a new section:  
-[Part 5 of the Chapter 4 Reports *Will result in error page
-currently*](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part5.md)  
+[Part 5 of the Chapter 4
+Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part5.md)  
 [Link to README to select any Chapter
 Report](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/README.md)

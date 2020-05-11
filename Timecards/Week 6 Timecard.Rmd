@@ -17,10 +17,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Thursday** - 0 hours 0 minutes - work description
 
-**Friday** - 0 hours 0 minutes - work description
+**Friday** - 0 hours 20 minutes - ZOOM call with faculty!
 
 **Saturday** - 0 hours 0 minutes - work description
 
 **Sunday** - 0 hours 0 minutes - work description
 
-End of week reflection.
+Even though this week was short on days worked, I got so much work done since my last conference that I had two and a half reports done since then!  There was so much material I couldn't even talk about it all during the conference, even though I was pretty quickly firing information off.  Guess it goes to show quality of work and quantity (in hours) of work isn't neccesarily the same.  Learning many new statistical concepts was a lot of fun.  
+I had to step away from work this weekend to do housework.  We're mid-repurposing the living room to actually be a livable space.  We got a lot of progress done; next we have to get the big trashy furniture pieces to the dump so we can finish repurposing the space and have enough maneuverable area to build the living room tent.  
+I should have been available on Sunday though . . . but Sunday ran into a new issue--it was too hot to be productive!!  It was warm the whole week, and I guess Sunday was the worst of it.  I tried waiting until evening when it cooled down to work, but by that time it was already really late.  I decided to wake up early on Monday to work before it got hot.
