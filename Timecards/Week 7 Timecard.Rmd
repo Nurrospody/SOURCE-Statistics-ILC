@@ -9,7 +9,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-**Monday** - 2 hours 27 minutes - set up timecard and README hyperlink, wrote Week 6 reflection.  Wrote up the section on skewness and kurtosis, complete with their definitions; although I had learned about it last week, I didn't actually get to using the equations.  I had an issue where CRAN wasn't mirroring correctly, so I had to manually reset the repository in my knit for the first time.  I also looked up how to make a better 'distribution curve' graph for my kurtosis example that wasn't a historgram or a Q-Q plot that would simply prove normality (not the right thing) so I learned how to plot a Kernel Density plot.  
+**Monday** - 2 hours 37 minutes - set up timecard and README hyperlink, wrote Week 6 reflection.  Wrote up the section on skewness and kurtosis, complete with their definitions; although I had learned about it last week, I didn't actually get to using the equations.  I had an issue where CRAN wasn't mirroring correctly, so I had to manually reset the repository in my knit for the first time.  I also looked up how to make a better 'distribution curve' graph for my kurtosis example that wasn't a historgram or a Q-Q plot that would simply prove normality (not the right thing) so I learned how to plot a Kernel Density plot.  
 Settup chapter 4 part5 report.  Only binomial and str() summary() are left, so this should be the last part of chapter 4.
 
 **Tuesday** - 0 hours 0 minutes - work description

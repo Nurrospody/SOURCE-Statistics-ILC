@@ -3,7 +3,7 @@ Week 7 Timecard
 Nurrospody
 5/11/2020
 
-**Monday** - 2 hours 27 minutes - set up timecard and README hyperlink,
+**Monday** - 2 hours 37 minutes - set up timecard and README hyperlink,
 wrote Week 6 reflection. Wrote up the section on skewness and kurtosis,
 complete with their definitions; although I had learned about it last
 week, I didn’t actually get to using the equations. I had an issue where
