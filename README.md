@@ -23,7 +23,7 @@ My Chapter Reports show my work and the commands I've practiced with in R.
 [CH4 *.xlsx* and SPSS files (reading and writing) and Basic Data Processing](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part2.md)  
 [CH4 Central Tendency, Spread, Variation Commands, Random Number Generation](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part3.md)  
 [CH4 part4 Special Central Tendencies, Cumulative Distribution Function, Skewness and Kurtosis](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part4.md)  
-[CH4 part5 Binomial Distribution and Summary/Structure currently empty]((https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part5.md)
+[CH4 part5 Binomial Distribution and Summary/Structure](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part5.md)
 
 ## "Statistics Gone Wrong Musings" folder  
 Contains writeups that I've made after reading my *Statistics Gone Wrong* book by Alex Reinhart.  
