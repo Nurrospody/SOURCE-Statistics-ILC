@@ -6,8 +6,8 @@ Regressions, and Statistics*
 
   - [Binomial Distribution **New Commands: dbinom(), pbinom(), qbinom(),
     rbinom()**](#binomial-distribution-new-commands-dbinom-pbinom-qbinom-rbinom)
-  - [Summary and Structure **New? Commands: summary(),
-    str()**](#summary-and-structure-new-commands-summary-str)
+  - [Summary and Structure **summary(),
+    str()**](#summary-and-structure-summary-str)
 
 #### Binomial Distribution **New Commands: dbinom(), pbinom(), qbinom(), rbinom()**
 
@@ -77,9 +77,9 @@ either side.
 cointoss <- rbinom(100, 1, 0.5); cointoss
 ```
 
-    ##   [1] 0 1 0 0 0 0 0 1 0 1 1 1 0 1 1 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 0 1 1 0 1 1 0
-    ##  [38] 0 0 0 1 0 1 0 1 1 1 0 1 0 1 0 1 0 0 0 0 1 1 0 0 0 0 1 1 0 1 1 1 1 1 0 0 1
-    ##  [75] 1 0 0 0 0 1 1 1 1 0 0 1 1 0 0 1 1 1 1 1 1 0 0 0 0 0
+    ##   [1] 0 0 0 1 1 0 1 1 0 0 0 1 1 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 1 1 0 1 1 1 0 0 1
+    ##  [38] 0 0 1 1 0 0 0 1 0 1 1 1 0 1 1 1 0 0 0 0 1 0 1 0 0 0 1 0 1 1 1 1 1 0 1 0 0
+    ##  [75] 1 1 1 1 1 0 1 1 0 1 0 1 0 0 1 1 0 1 0 0 1 1 1 0 0 1
 
 ``` r
 hist(cointoss, breaks=2)
@@ -106,18 +106,18 @@ polygon(d, col="pink", border="green")
 
 ![](CH4-part5_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
 
-#### Summary and Structure **New? Commands: summary(), str()**
+#### Summary and Structure **summary(), str()**
 
-Chapter 4, descriptive statistics, ends on these two commands, but I’m
-fairly sure the book has already covered them before so I’m a little
-confused as to why they’re here.
+Chapter 4, descriptive statistics, ends on these two commands, but I’ve
+already used them both before, so I’m a little confused as to why
+they’re here.
 
 ``` r
 summary(placebo_trial)
 ```
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##    26.0    32.0    35.0    34.8    38.0    43.0
+    ##   23.00   32.00   35.00   34.79   38.00   46.00
 
 ``` r
 summary(PlantGrowth)
@@ -136,7 +136,7 @@ testBdata <- rbinom(70, 100, 0.69); summary(testBdata)
 ```
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   57.00   65.00   68.50   68.57   73.00   78.00
+    ##   58.00   67.25   70.00   69.60   72.00   79.00
 
 I’ve included **summaries** from the “placebo\_trial” example earlier, a
 built-in dataset called “PlantGrowth” I discovered by happy accident,
@@ -148,7 +148,7 @@ These are the **structures** of the same datasets as above.
 str(placebo_trial)
 ```
 
-    ##  int [1:100] 40 38 42 35 38 37 29 34 34 34 ...
+    ##  int [1:100] 23 35 31 28 36 28 36 40 41 39 ...
 
 ``` r
 str(PlantGrowth)
@@ -162,7 +162,7 @@ str(PlantGrowth)
 str(testBdata)
 ```
 
-    ##  int [1:70] 69 76 73 65 73 62 71 62 67 70 ...
+    ##  int [1:70] 63 67 71 70 75 70 75 71 70 71 ...
 
 This is the last section of the CH4 reports. [Link to README to select
 any Chapter

@@ -34,12 +34,16 @@ rather than leaving gg til the end like the book does. It looks like
 figuring out the gg coding will be complicated, so pacing it between
 more normal graphs should help.  
 Then my computer . . . froze up and wouldn’t turn off with the power
-button, so I had to wait for it to die on its own, so instead of making
+button, so I had to wait for it to die on its own. So instead of making
 a bunch of graphs, I read chapter 2 of my Statistics Done Wrong book. I
 told my partner he should read the chapters so he can be as cynical and
 disappointed as me now.
 
-**Thursday** - 0 hours 0 minutes - work description
+**Thursday** - 1 hours 16 minutes - Wrote up the Statistics Gone Wrong
+musings from chapter 2, now that my computer is back in buisness.
+Created new report skeleton and added to README –“why is it doing that?”
+(today I learned if you don’t have — under your header it doesn’t get
+detected properly when knitting\!)
 
 **Friday** - 0 hours 0 minutes - work description
 
