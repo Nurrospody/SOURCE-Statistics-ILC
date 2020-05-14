@@ -49,8 +49,8 @@ polygon(d, col="pink", border="green")
 ```
 
 
-#### Summary and Structure  **New? Commands: summary(), str()**
-Chapter 4, descriptive statistics, ends on these two commands, but I'm fairly sure the book has already covered them before so I'm a little confused as to why they're here.
+#### Summary and Structure  **summary(), str()**
+Chapter 4, descriptive statistics, ends on these two commands, but I've already used them both before, so I'm a little confused as to why they're here.
 ```{r}
 summary(placebo_trial)
 summary(PlantGrowth)
