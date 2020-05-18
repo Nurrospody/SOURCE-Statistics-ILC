@@ -98,5 +98,6 @@ polygon(d, col="red", border="blue")
 
 
 To continue reading the CH4 reports, select a new section:  
+[SPECIAL continuation on high kurtosis and normality](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/SPECIALCH4.md)  
 [Part 5 of the Chapter 4 Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part5.md)  
 [Link to README to select any Chapter Report](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/README.md)

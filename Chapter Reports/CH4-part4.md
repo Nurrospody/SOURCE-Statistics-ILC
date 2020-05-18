@@ -45,9 +45,9 @@ N; variance; sqrt(variance);
 
     ## [1] 70
 
-    ## [1] 4.029172
+    ## [1] 4.030052
 
-    ## [1] 2.00728
+    ## [1] 2.007499
 
 The first number in the solution box is N (70), the second number is the
 POP Variance (probably about 4), and the third number is the POP
@@ -103,7 +103,7 @@ qnorm(0.50, 10, 2); mean(random); qnorm(0.84, 10, 2);
 
     ## [1] 10
 
-    ## [1] 9.963782
+    ## [1] 10.10943
 
     ## [1] 11.98892
 
@@ -156,7 +156,7 @@ install.packages("moments")
     ## package 'moments' successfully unpacked and MD5 sums checked
     ## 
     ## The downloaded binary packages are in
-    ##  C:\Users\Persimmon\AppData\Local\Temp\Rtmpk7bTj7\downloaded_packages
+    ##  C:\Users\Persimmon\AppData\Local\Temp\RtmpKqdVGo\downloaded_packages
 
 ``` r
 require(moments)
@@ -170,7 +170,7 @@ hist(random); skewness(random)
 
 ![](CH4-part4_files/figure-gfm/mom-1.png)<!-- -->
 
-    ## [1] 0.09780196
+    ## [1] -0.5112289
 
 Unless something terribly extreme happened with the normal distribution
 random seed, the skewness result should be approximately normal and a
@@ -194,7 +194,7 @@ Student’s t with 4 df has infinity kurtosis.
 kurtosis(random);
 ```
 
-    ## [1] 2.928854
+    ## [1] 3.828577
 
 R appears to use “excess” sample kurtosis as its returned value, like
 Excel does.  
@@ -216,6 +216,8 @@ polygon(d, col="red", border="blue")
 ![](CH4-part4_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 To continue reading the CH4 reports, select a new section:  
+[SPECIAL continuation on high kurtosis and
+normality](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/SPECIALCH4.md)  
 [Part 5 of the Chapter 4
 Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part5.md)  
 [Link to README to select any Chapter
