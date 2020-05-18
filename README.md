@@ -49,8 +49,9 @@ Each week has its own Timecard.  In these timecards, I record via stopwatch how 
 [Week 3 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-3-Timecard.md)   
 [Week 4 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-4-Timecard.md)  
 [Week 5 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-5-Timecard.md)  
-[Week 6 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-6-Timecard.md)
+[Week 6 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-6-Timecard.md)  
 [Week 7 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-7-Timecard.md)  
+[Week 8 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-8-Timecard.md)  
 
 
 ## "data_sources" folder
