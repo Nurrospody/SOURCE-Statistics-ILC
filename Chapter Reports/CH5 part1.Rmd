@@ -63,7 +63,7 @@ ggplot2::CoordSf		Visualise sf objects
 ggplot2::update_geom_defaults		Modify geom/stat aesthetic defaults for future plots
 ```
 
-First, I obtained a new dataset: ["Launch_data.xlsx"](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/Launch_data.xlsx).  I obtined this dataset from my partner, who participated in the Kaizen CTF and got this dataset from a sheet within an Excel file.  It's simmulated data of: if soneone got far enough into the CTF, they could launch a nerf gun bullet from a Raspberry Pi.  It contains 8 columns of numeric "factor" class data.  I had to double check if the last column was numeric or logical, since it was just 0s and 1s so it seemed like it could be both.  
+First, I obtained a new dataset: "[Launch_data.xlsx](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/Launch_data.xlsx)".  [TXT format](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/MCTF.txt).  I obtined this dataset from my partner, who participated in the Kaizen CTF and got this dataset from a sheet within an Excel file.  It's simmulated data of: if soneone got far enough into the CTF, they could launch a nerf gun bullet from a Raspberry Pi.  It contains 8 columns of numeric "factor" class data.  I had to double check if the last column was numeric or logical, since it was just 0s and 1s so it seemed like it could be both.  
 ```
 > class(mCTF)
 [1] "data.frame"
@@ -72,8 +72,52 @@ First, I obtained a new dataset: ["Launch_data.xlsx"](https://github.com/Nurrosp
 > class(MCTF$NA..5)
 [1] "factor"
 ```
+I worked with 3 data.frames of this data, in reaction to the graphs acting kind of strange (I thought it was in reaction to the size of the data)  
+MCTF ```> MCTF <- read.xlsx(file="Launch_data.xlsx", 1)``` The whole thing  
+mCTF ```> mCTF <- MCTF[1:30,]``` Only the first 30 entries in each column  
+mctf ```> mctf <- MCTF[1:5,];``` Only the first 5 entries in each column  
 
 Let's look at geom_point, which makes a ggplot2 scatter plot.  Let's also look at the built-in scatter plot function, plot().
+
+If I use a ggplot2 geom_point and try to plot all 755 observations of X (the target latitude) and Y (the target longitude), I get a glitchy looking side where the values should be.  This is because I haven't specified to ggplot2 what scale I want my labels to be on.  Here, I'm showing what I typed in the console in order to export my graph as a png file, and then showing that png file.
+```
+> png(file="MCTF_point.png");
+> ggplot(MCTF, aes(x=NA..1, y=NA..2)) + geom_point(aes(color="pink"));
+> dev.off();
+RStudioGD 
+        2 
+```
+![](../data_sources/MCTF_point.png)
+
+ I didn't actually find a way inside of my book to specify the axis scale, but I did find [THIS](http://www.sthda.com/english/wiki/ggplot2-axis-scales-and-transformations) page about axis scales & transformations on STHDA.  It looks like I can change the min and max of the X and Y axis with ```sp + xlim(min, max)+ylim(min, max)``` and change the axis limits ```sp + expand_limits(x=c(0,30), y=c(0, 150))```.  But looking at my data, the range isn't actually that big--it looks like it's just that the plot is trying to include every point on it.  
+ What I want to actually use is ```scale_x_continuous```, ```scale_y_continuous```, or maybe ```scale_x_discrete```?  Or maybe ```labs()```or ```lims()```. . . I found some help in help(labs) and [THIS](https://stackoverflow.com/questions/14428887/overflowing-x-axis-ggplot2) thread, but this seems to get deeper into depth of ggplot2 than my introduction to it should be right this second.  It looks pretty complicated, but people are making lots of cool looking charts with ggplot2.  
+
+The very first thing I tried doing before I looked into all of that axis management, though, was plotting mCTF (instead of MCTF).  I also labeled this one!  But I also discovered that my color wasn't working correctly; I thought my pink seemed awfully red before.  Inside of the book, the colors don't work correctly either, so finding a function to "not automatically assign colors" might be required.  
+I also discovered that windows does not have CAPS SENSITIVE file names.  Thanks Windows.  
+```
+> png(file="m2CTF_point.png");
+> ggplot(mCTF, aes(x=NA..2, y=NA..1)) + geom_point(aes(color="blue")) + labs(title="Scatter of Nerf Gun Target Lat/Lon", x = "Target Longitude", y = "Target Latitude", color="Color Key");
+> dev.off();
+RStudioGD 
+        2 
+```
+![](../data_sources/m2CTF_point.png)
+
+This 'solution' isn't optimal (I'd still want to show all my data in a real report) and the bottom is still crowded, but the Y axis labels look much better.  
+
+The built-in R function, plot(), didn't do much better with this data, but for different reasons.  It takes a very long time for the plot to run, and when it's finished it looks like this . . .
+```
+> png(file="MCTF_plot")
+> plot(MCTF$NA..2, MCTF$NA..1, xlab="Target Longitude", ylab="Target Latitude", main="scatterplot");
+> dev.off()
+RStudioGD 
+        2 
+```
+![](../data_sources/MCTF_plot.png)
+
+It's kind of a disaster and I'm not sure why it's just a solid black box.  "mCTF" also results in a box like this, and "mctf" is a solid black box with some white lines.  It's like the dimensions of the dots are messed up.  Oddly though, R's built in scatterplot is better at scaling the X and Y axis with no interference than ggplot2.
+![](../data_sources/m2CTF_plot.png)
+![](../data_sources/m3ctf_plot.png)
 
 
 
