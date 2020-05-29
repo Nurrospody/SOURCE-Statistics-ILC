@@ -19,7 +19,7 @@ That’s a lot of packages\!\! I don’t want to wait for that to unpack
 every time I knit this document, so I’ll just show it off in cleartext
 here.
 
-    install.packages("ggplot2")
+    >install.packages("ggplot2")
     Installing package into ‘C:/Users/Persimmon/Documents/R/win-library/3.6’
     (as ‘lib’ is unspecified)
     also installing the dependencies ‘ps’, ‘processx’, ‘callr’, ‘prettyunits’, ‘backports’, ‘desc’, ‘pkgbuild’, ‘rprojroot’, ‘rstudioapi’, ‘pkgload’, ‘praise’, ‘colorspace’, ‘assertthat’, ‘utf8’, ‘testthat’, ‘farver’, ‘labeling’, ‘lifecycle’, ‘munsell’, ‘R6’, ‘RColorBrewer’, ‘viridisLite’, ‘cli’, ‘crayon’, ‘ellipsis’, ‘fansi’, ‘pillar’, ‘pkgconfig’, ‘vctrs’, ‘gtable’, ‘isoband’, ‘scales’, ‘tibble’, ‘withr’
@@ -75,13 +75,15 @@ package="ggplot2");`
     ggplot2::CoordSf        Visualise sf objects
     ggplot2::update_geom_defaults       Modify geom/stat aesthetic defaults for future plots
 
-First, I obtained a new dataset: “Launch\_data.xlsx”. I obtined this
-dataset from my partner, who participated in the Kaizen CTF and got this
-dataset from a sheet within an Excel file. It’s simmulated data of: if
-soneone got far enough into the CTF, they could launch a nerf gun bullet
-from a Raspberry Pi. It contains 8 columns of numeric “factor” class
-data. I had to double check if the last column was numeric or logical,
-since it was just 0s and 1s so it seemed like it could be both.
+First, I obtained a new dataset:
+[“Launch\_data.xlsx”](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/Launch_data.xlsx).
+I obtined this dataset from my partner, who participated in the Kaizen
+CTF and got this dataset from a sheet within an Excel file. It’s
+simmulated data of: if soneone got far enough into the CTF, they could
+launch a nerf gun bullet from a Raspberry Pi. It contains 8 columns of
+numeric “factor” class data. I had to double check if the last column
+was numeric or logical, since it was just 0s and 1s so it seemed like it
+could be both.
 
     > class(mCTF)
     [1] "data.frame"
