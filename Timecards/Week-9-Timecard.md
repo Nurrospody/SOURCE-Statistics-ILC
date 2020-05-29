@@ -1,0 +1,25 @@
+Week 9 Timecard
+================
+Nurrospody
+5/28/2020
+
+This week starts on Thursday\! I was really busy during the first half
+of the week. I had my final in my other class and had to study for that
+and do make-up work, and spent like a whole day grocery shopping and
+cooking now that we’re getting to Phase 2 of quarentine stores
+re-opening.
+
+**Thursday** - 2 hours 20 minutes - Got started on my Data Visualization
+work. Downloaded and required the ggplot2 package (and its
+dependencies); got a new dataset; tried to figure out how to make knitr
+automatically require needed packages but mostly found latext
+resources?, made both a regular R scatterplot and a ggplot scatterplot.
+Had to make a miniature version of my new dataset to fix on the
+scatterplot axis, since I haven’t learned how to set the axis myself
+yet. R Scatterplot only made a big black cube . . .
+
+**Friday** - 0 hours 0 minutes -work description
+
+**Saturday** - 0 hours 0 minutes - work description
+
+**Sunday** - 0 hours 0 minutes - work description
