@@ -157,6 +157,18 @@ I also tried plotting without the first point, in case it was the header causing
 
 However, if I make variables with only a single double value--so one variable with 6.8 and another with 7.4, R's built in plot() can plot *that*.  So I haven't quite cracked the mystery of using the plot() function and what makes it bug out. . . but it's a start.
 
+UPDATE: I editted my XLSX file because it had useless (for my purposes) data clunking up the headers.  Once I could properly assign headers, and I did the same exact thing I'd done before to try and get scatterplots, I get this message and no scatterplot at all:  
+```
+> plot(MCTF$NA..2, MCTF$NA..1, xlab="Target Longitude", ylab="Target Latitude", main="scatterplot");
+Error in plot.window(...) : need finite 'xlim' values
+In addition: Warning messages:
+1: In min(x) : no non-missing arguments to min; returning Inf
+2: In max(x) : no non-missing arguments to max; returning -Inf
+3: In min(x) : no non-missing arguments to min; returning Inf
+4: In max(x) : no non-missing arguments to max; returning -Inf
+```
+Adding [1:100,] at the end of each $ (to have a finite range?) doesn't make any difference.  
+
 
 To continue reading the CH5 reports, select a new section:  
 [Part 2 of the Chapter 5 Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH5-part2.md)  

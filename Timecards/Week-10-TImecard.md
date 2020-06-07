@@ -31,6 +31,12 @@ because it can plot a single double.
 **Friday** - Correponded with sponsor email; got my ILC approved on time
 before 5PM\!
 
-**Saturday** - =\>2 hours - Typed up a very stern exception request for
-my ILC. Appears in conflict with the college policy, my butt. Also,
-fnished chapter 5 report part 1. It is much more sensibly organized now.
+**Saturday** - =\>2 hours 20 minutes - Typed up a very stern exception
+request for my ILC. Appears in conflict with the college policy, my
+butt. Also, fnished chapter 5 report part 1. It is much more sensibly
+organized now.
+
+**Sunday** - =\> 2 hours 40 minutes - I did some last second attempts
+for point() when my partner and I got together, and wrote those down.
+Also worked on boxplots, ggplot2 boxplots, and scatterplot matrixes.
+Lots of odd data visualizations.
