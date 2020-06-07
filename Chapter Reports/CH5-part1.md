@@ -209,6 +209,7 @@ Then, I used the `as.integer()` command to make these whole numbers.
     > NC1 <- (as.integer(NA1))
 
 Once I did this, I was able to plot the points prefectly fine.
+
 ![](../data_sources/nctf_plot.png)
 
 Something very odd, however, is that even though this plot LOOKS the
@@ -216,9 +217,9 @@ same as the geom\_point graph at the beginning of this report . . . the
 actual numbers within NC2 and NC1, once made as.integer, appear to be
 very gross inaccurate approximations of what the numbers were. The
 highest number in MCTF NA..1 was around 100; the highest number in NC2
-is around 400. In the help section I found \`\`\`(To ensure that an
-object x is of integer type without stripping attributes, use
-storage.mode(x) \<- “integer”.)\`\`\`\` and so I tried using
+is around 400. In the help(as.integer) section I found `(To ensure that
+an object x is of integer type without stripping attributes, use
+storage.mode(x) <- "integer".)` written, and so I tried using
 
     > storage.mode(NA1) <- "integer"
     > storage.mode(NA2) <- "integer"
