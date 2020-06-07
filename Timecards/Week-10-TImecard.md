@@ -21,3 +21,16 @@ week 1 of summer will be ‘new’.
 
 **Wednesday** - 2 1/2 to 3 hours - Wrote up a first draft for my Summer
 2020 ILC, as that’s due on Friday.
+
+**Thursday** - =\> 40 minutes - Corresponded with dean and sponsor
+email. Looked into “why is my plot() breaking and just being a plain
+black box?” it’s because the built in plot function can’t plot floating
+values, only integers. Or at least, it can’t floating hundreds of them,
+because it can plot a single double.
+
+**Friday** - Correponded with sponsor email; got my ILC approved on time
+before 5PM\!
+
+**Saturday** - =\>2 hours - Typed up a very stern exception request for
+my ILC. Appears in conflict with the college policy, my butt. Also,
+fnished chapter 5 report part 1. It is much more sensibly organized now.
