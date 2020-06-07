@@ -143,11 +143,21 @@ Then, I used the ```as.integer()``` command to make these whole numbers.
 Once I did this, I was able to plot the points prefectly fine.
 ![](../data_sources/nctf_plot.png)  
 
-However, if I make variables with only a single double value--so one variable with 6.8 and another with 7.4, R's built in plot() can plot *that*.  So I haven't quite cracked the mystery of WHEN to convert points in R to whole numbers before using the plot() function . . . but it's a start.
+Something very odd, however, is that even though this plot LOOKS the same as the geom_point graph at the beginning of this report . . . the actual numbers within NC2 and NC1, once made as.integer, appear to be very gross inaccurate approximations of what the numbers were.  The highest number in MCTF NA..1 was around 100; the highest number in NC2 is around 400. In the help section I found ```(To ensure that an object x is of integer type without stripping attributes, use storage.mode(x) <- "integer".)```` and so I tried using 
+
+```
+> storage.mode(NA1) <- "integer"
+> storage.mode(NA2) <- "integer"
+> plot(NA2, NA1, xlab="Target Longitude", ylab="Target Latitude", main="scatterplot");
+```
+However the resulting scatterplot was a black square.  Using ```as.integer``` on this "integer" assigned storage mode of NA1 still results in incorrect numbers as well.
+
+I also tried plotting without the first point, in case it was the header causing issues ```> plot(NA2[-1], NA1[-1], xlab="Target Longitude", ylab="Target Latitude", main="scatterplot");```, plotting with specifically the second through the last point ```> plot(NA2[2:754], NA1[2:754], xlab="Target Longitude", ylab="Target Latitude", main="scatterplot");```, and plotting only the first 100 points excluding the header ```> plot(NA2[2:101], NA1[2:101], xlab="Target Longitude", ylab="Target Latitude", main="scatterplot");``` but none of these attempts worked to get a proper scatterplot.
+
+However, if I make variables with only a single double value--so one variable with 6.8 and another with 7.4, R's built in plot() can plot *that*.  So I haven't quite cracked the mystery of using the plot() function and what makes it bug out. . . but it's a start.
 
 
 To continue reading the CH5 reports, select a new section:  
-[Part 2 of the Chapter 5 EMPTY LINK
-Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH5-part2.md)  
+[Part 2 of the Chapter 5 Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH5-part2.md)  
 [Link to README to select any Chapter
 Report](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/README.md)
