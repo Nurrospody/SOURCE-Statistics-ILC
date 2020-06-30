@@ -54,11 +54,18 @@ Each week has its own Timecard.  In these timecards, I record via stopwatch how 
 [Week 7 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-7-Timecard.md)  
 [Week 8 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-8-Timecard.md)  
 [Week 9 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-9-Timecard.md)  
-[Week 10 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-10-Timecard.md)
+[Week 10 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-10-Timecard.md)  
+[Week 11 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-11-Timecard.md)  
+[Week 12 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-12-Timecard.md)  
+
 
 
 ## "data_sources" folder
-Contains *.csv*, *.png*, and other misc. files for my reports (of any kind) to pull from.  If links to the files are relevant, they will be contained within their respective reports.
+Contains *.csv*, *.png*, and other misc. files for my reports (of any kind) to pull from.  For the most part, If links to the files are relevant, they will be contained within their respective reports.  The following direct links are exceptions:
+
+**DIRECT LINKS**
+
+[Advanced Statistics II Garden Practicum Dataset]()
 
 
 
