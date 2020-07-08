@@ -3,7 +3,7 @@ Week 12 Worklog
 Nurrospody
 6/29/2020
 
-**Total Time from 29JUN2020 to XJUL2020** : 2 hour 43 minutes
+**Total Time from 29JUN2020 to 5JUL2020** : 3 hour 43 minutes
 
 **Monday** - 1 hours 10 minutes - Made new worklog; wrote up end
 comments for Week 11 worklog. Decided to record data of: \# of flowers
@@ -47,12 +47,22 @@ type of n \>= 30 data?
 **Thursday** - 30 minutes - Gathered data; input it into excel sheet;
 updated timecard thoughts. I really ought to start making headway on
 book stuff; aside from random fourth of July prepartion explosions,
-everything’s pretty much finally calmed down.
+everything’s pretty much finally calmed down. I changed my Cardoon
+measuring technique a bit; rather than measuring with the tape on the
+top of the leaf, I changed to measuring with the tape on the *bottom* of
+the leaf. The tops have upward facing barbs on the edges, so . . . I was
+getting scratches on my fingers.
 
-**Friday** -
+**Friday** - 20 minutes - Gathered data.
 
-**Saturday** -
+**Saturday** - 20 minutes - Gathered data.
 
-**Sunday** - I almost always take Sunday off.
+**Sunday** - 11 minutes- Gathered data; it’s starting to go faster,
+which is promising. A new leaf is starting to grow into both of the
+cardoon plants . . . I’ll have to decide if I want to include or
+disclude it from data.
 
-**End of Week Comments**:
+**End of Week Comments**: This week was all data collection. I really
+would have rather started doing some stuff in R too, but at least this
+way I get to see that the data collection and entering it into the excel
+sheet on its own IS worth 2 credits?
