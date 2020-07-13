@@ -6,6 +6,7 @@ Regressions, and Statistics*
 
   - [apply(), lapply(), sapply()
     commands](#apply-lapply-sapply-commands)
+  - [sample() commands](#sample-commands)
 
 *Inferential statistics are our gateway to understanding potential
 future data with current data.*
@@ -121,6 +122,36 @@ Madoka dataset, so it must have stored it away somewhere.
 A practical use of this would be to find the mean of a gathered dataset.
 I will be using apply again, with real data, when my garden dataset is
 done being collected at the end of this month.
+
+### sample() commands
+
+**sample()** can do simple random sampling.
+
+It works like this: `sample(data$..., # of items to select, replace=TRUE
+or FALSE)`.
+
+From the data, select which section (if applicable) to simple random
+sample from . . . type a simple numeric value to indicate how many
+random samples you want to pull, and decide if you want to replace
+values or not. Not replacing values means that each sample has a
+different likeliness than the last, which can be mathematically
+complicated; but it does mean you won’t get duplicate values.
+
+Here’s an example for the sake of practice:
+
+``` r
+sample(Madoka$album.info, 6, FALSE)
+```
+
+    ## [1] Volume 3 Volume 2 Volume 1 Volume 1 Volume 3 Volume 2
+    ## Levels: Volume 1 Volume 2 Volume 3
+
+Here, I’m randomly selecting 6 different (no replacement) values from
+the Madoka dataset. I chose album.info because it’s easy to read in a
+list. (I had used start.time originally, but it wasn’t legible.)
+
+It’s very likely that when my garden data is finished, I’ll find use for
+the random sampling command.
 
 To continue reading the CH6 reports, select a new section:  
 Next: [Part 2 of the Chapter 6
