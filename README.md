@@ -27,8 +27,11 @@ My Chapter Reports show my work and the commands I've practiced with in R.
 [CH4 part5 Binomial Distribution and Summary/Structure](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH4-part5.md) 
 
 *Chapter 5*  
-[CH5 part1 Unpacking ggplot2, geom_point, plot() ](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH5-part1.md) 
+[CH5 part1 Unpacking ggplot2, geom_point, plot() ](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH5-part1.md)  
 [CH5 part 2](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH5-part2.md) 
+
+*Chapter 6*  
+[CH5 part1 Inferential; apply() ](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part1.md)   
 
 ## "Statistics Gone Wrong Musings" folder  
 Contains writeups that I've made after reading my *Statistics Gone Wrong* book by Alex Reinhart.  
