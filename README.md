@@ -54,10 +54,11 @@ Each week has its own Timecard.  In these timecards, I record via stopwatch how 
 [Week 7 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-7-Timecard.md)  
 [Week 8 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-8-Timecard.md)  
 [Week 9 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-9-Timecard.md)  
-[Week 10 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-10-Timecard.md)  
+[Week 10 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-10-TImecard.md)  
 [Week 11 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-11-Timecard.md)  
 [Week 12 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-12-Timecard.md)  
-
+[Week 13 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-13-Timecard.md)  
+[Week 14 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-14-Timecard.md)  
 
 
 ## "data_sources" folder
@@ -66,6 +67,7 @@ Contains *.csv*, *.png*, and other misc. files for my reports (of any kind) to p
 **DIRECT LINKS**
 
 [Advanced Statistics II Garden Practicum Dataset](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/Garden%20Practicum.xlsx)  
+[Advanced Statistics II scan of my physical notes for data collection](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/29JUN2020%20to%208JUL2020%20garden%20records%20proof.pdf)
 
 
 
