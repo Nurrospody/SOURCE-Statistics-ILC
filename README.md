@@ -67,8 +67,8 @@ Contains *.csv*, *.png*, and other misc. files for my reports (of any kind) to p
 **DIRECT LINKS**
 
 [Advanced Statistics II Garden Practicum Dataset](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/Garden%20Practicum.xlsx)  
-[Advanced Statistics II scan of my physical notes for data collection](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/29JUN2020%20to%208JUL2020%20garden%20records%20proof.pdf)
-[Things to do with garden data once it's at >=n30]()
+[Advanced Statistics II scan of my physical notes for data collection](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/29JUN2020%20to%208JUL2020%20garden%20records%20proof.pdf)  
+[Things to do with garden data once it's at >=n30](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/What-to-do-with-garden-data.md)  
 
 
 
