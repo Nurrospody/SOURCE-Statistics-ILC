@@ -17,3 +17,6 @@ knitr::opts_chunk$set(echo = TRUE)
 -Visualze data in graphs that make sense (certain graphs wouldn't make sense)  
 
 *Add more as you think of what to do, this list should grow overtime*
+
+**Observations**  
+New leaves seem to grow in as old ones die.  One of the leaves on Cardoon 2 is breaking off, and will be detatched in a few days.  A new leaf is currently growing on cardoon 2.  This happened before, too, with leaf 6.  (observation made on 14th july).  Would some 'average amount of leaves' be interesting, or 'how long leaves last' be interesting?
