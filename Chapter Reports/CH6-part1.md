@@ -16,7 +16,8 @@ Regressions, and Statistics*
     ANOVA)](#t-test-basic-notes-187-194-revisit-after-anova)
   - [Chi-Square Test 194-198 (Revisit after
     ANOVA)](#chi-square-test-194-198-revisit-after-anova)
-  - [ANOVA: aov() commands](#anova-aov-commands)
+  - [ANOVA: aov(), TukeyHSD(), aictab()
+    commands](#anova-aov-tukeyhsd-aictab-commands)
 
 *Inferential statistics are our gateway to understanding potential
 future data, with current data.*
@@ -151,7 +152,7 @@ Here’s an example for the sake of practice:
 sample(Madoka$album.info, 6, FALSE)
 ```
 
-    ## [1] Volume 2 Volume 1 Volume 2 Volume 2 Volume 3 Volume 3
+    ## [1] Volume 1 Volume 3 Volume 1 Volume 3 Volume 2 Volume 2
     ## Levels: Volume 1 Volume 2 Volume 3
 
 Here, I’m randomly selecting 6 different (no replacement) values from
@@ -180,15 +181,15 @@ sample_n(3)
     ## # Groups:   Species [3]
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
     ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>     
-    ## 1          5           3.5          1.6         0.6 setosa    
-    ## 2          5           3.3          1.4         0.2 setosa    
-    ## 3          5.4         3.9          1.7         0.4 setosa    
-    ## 4          6.9         3.1          4.9         1.5 versicolor
-    ## 5          5.6         2.7          4.2         1.3 versicolor
-    ## 6          6.7         3.1          4.4         1.4 versicolor
-    ## 7          7.7         3            6.1         2.3 virginica 
-    ## 8          7.2         3.2          6           1.8 virginica 
-    ## 9          6.4         2.8          5.6         2.2 virginica
+    ## 1          5.4         3.9          1.3         0.4 setosa    
+    ## 2          4.8         3.4          1.6         0.2 setosa    
+    ## 3          5.2         3.4          1.4         0.2 setosa    
+    ## 4          6           2.2          4           1   versicolor
+    ## 5          5.1         2.5          3           1.1 versicolor
+    ## 6          5.6         2.9          3.6         1.3 versicolor
+    ## 7          7.2         3.2          6           1.8 virginica 
+    ## 8          6.1         3            4.9         1.8 virginica 
+    ## 9          6.7         3.1          5.6         2.4 virginica
 
 Normally, Iris is 50 different sepal measurements from 3 different
 flower species, for a total of 150 samples. This sample\_n() is taking 3
@@ -210,9 +211,9 @@ slice_sample(6)
     ## # Groups:   Species [3]
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
     ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>     
-    ## 1          5           3.2          1.2         0.2 setosa    
-    ## 2          5.9         3            4.2         1.5 versicolor
-    ## 3          6.4         2.8          5.6         2.1 virginica
+    ## 1          5           3.4          1.6         0.4 setosa    
+    ## 2          5.8         2.7          4.1         1   versicolor
+    ## 3          7.1         3            5.9         2.1 virginica
 
 ### Correlation basic notes 183-184 (revisit after ANOVA)
 
@@ -310,7 +311,7 @@ Just like the last one, this use of chisq.test will also spit out a
 chi-square value, degrees of freedom, and p-value.  
 *This section made more sense, since the data gave itself context.*
 
-### ANOVA: aov() commands
+### ANOVA: aov(), TukeyHSD(), aictab() commands
 
 This is for testing the means of two or more different GROUPS. Are these
 multiple means the same? Note: Often, an amateur mistake is thinking
@@ -337,7 +338,8 @@ have similar means.
 Example filled out: `variable <- aov(section ~ section, data =
 data.frame the sections are from); summary(variable)`
 
-I downloaded a sample dataset for using with ANOVA, [crop.data.csv]().
+I downloaded a sample dataset for using with ANOVA,
+[crop.data.csv](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/data_sources/crop.data.csv).
 This dataset has 4 different variables about growing crops: density of
 crops, which block it was in, which fertilzer was used, and what the
 yield’s weight was. (no unit is offered, but probably pounds).  
@@ -387,8 +389,7 @@ us this. We must do a
 **Post-hoc test**  
 `TukeyHSD()` function to figure out which fertilzer impacts the mean the
 most.  
-This is the test that we could not do without fertilzer being a factor,
-that I mentioned earlier.
+This is the test that we could not do without fertilzer being as.factor.
 
 ``` r
 TukeyHSD(one.way)
@@ -404,6 +405,78 @@ TukeyHSD(one.way)
     ## 2-1 0.1761687 -0.19371896 0.5460564 0.4954705
     ## 3-1 0.5991256  0.22923789 0.9690133 0.0006125
     ## 3-2 0.4229569  0.05306916 0.7928445 0.0208735
+
+The table result shows the variable being tested (Crop). Then it shows
+the paired differences for our independent variable. In this case, we’d
+already found that the crop yield is DEPENDENT on the fertilzer (but
+which fertilzer we just so happen to add, is independent of what the
+crop yield is in the future). The table compares fertilzer 1, 2, and 3
+with each other.  
+*diff* means the mean difference between the two fertilzer treatments;
+*lwr/upr* are the upper and lower bounds for our confidence interval
+(that the fertilzers, indeed, are different); *p adj* is the P-value, as
+adjusted for this multiple pair comparison test.  
+We can conclude that there is no major difference between fertilzer 2
+and 1, because the confidence interval includes 0. The difference
+between 3 and 1 is significant (confidence interval does not start near
+1; p-value is nowhere near alpha). There is a significant difference
+between 2 and 3, but because there is no significant difference between
+2 and **1**, we can conclude that *fertilzer 3 positively impacts yield
+the most*.
+
+**Two-way ANOVA**  
+2-way starts with the same basic formula, except you add extra
+independent variables. To model your different independent variable NOT
+interacting with each other, use `+`. To model your different
+independent variables YES intearacting with each other, use `*`.  
+Let’s create a few models, and test which is most accurate. Without
+knowing what data specifically to look at, trying to interpret a 2-way
+ANOVA feels like flailing in the dark. We want the model that is the
+best fit for our data; the one that explains the MOST variation.
+
+1.  Is there interaction between what fertilzer is used, what the crop
+    density is, and what the final yield is? Here we use +, to predict
+    that crop density does not effect the fertilzer.  
+2.  The same as 1, except we use \*, to see if the crop density DOES
+    affect the fertilzer (which in turn affects final yield).
+3.  We add ‘block’, because the plants were planted in random blocks. Do
+    the random blocks impact results? (If they do, we would probably
+    consider this data contaminated.)
+
+<!-- end list -->
+
+``` r
+two.way <- aov(yield ~ as.factor(fertilizer) + as.factor(density), data = Crop);  
+fert.dens.interact <- aov(yield ~ as.factor(fertilizer) * as.factor(density), data = Crop);  
+blok.fertdens <- aov(yield ~ as.factor(fertilizer) * as.factor(density) + as.factor(block), data = Crop); 
+```
+
+We want the `aictab()` function for this. It’s part of the **AICcmodavg
+library**. I installed that package, but it didn’t come with all its
+dependencies. It requires ‘raster’, which requires ‘Rcpp’.  
+I got this error.
+
+    ERROR: compilation failed for package 'raster'
+    * removing 'C:/Users/Persimmon/Documents/R/win-library/3.6/raster'
+    Warning in install.packages :
+      installation of package ‘raster’ had non-zero exit status
+
+The [information I could find about this
+error](https://community.rstudio.com/t/i-can-t-install-packages-on-r-studio-non-zero-exit-status/52135/2)
+~~used mac instead of windows~~ seemed to be a CRAN binary repository
+corruption problem, so I’ll come back to this a bit later. Otherwise it
+could be something that corrupted and I have to redownload stuff. For
+now, I’ll display what should have happened without a language.
+
+    require(AICcmodavg);
+    model.set <- list(two.way, fert.dens.interact, blok.fertdens)
+    model.names <- c("two.way", "fertilzer/density interaction", "block interaction")
+    
+    aictab(model.set, modnames = model.names)
+
+Then it should have given me a table that listed, in descending order,
+which model was the best fit; and I would have taken that model and ran
+it through a Post-hoc test.
 
 To continue reading the CH6 reports, select a new section:  
 Next: [Part 2 of the Chapter 6

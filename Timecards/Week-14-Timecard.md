@@ -3,7 +3,7 @@ Week 14 Timecard
 Nurrospody
 7/13/2020
 
-**Total Time inclusive from 13JUL2020 to 19JUL2020** : 4 hours 30
+**Total Time inclusive from 13JUL2020 to 19JUL2020** : 8 hours 49
 minutes
 
 **Monday** - 2 hour 30 minutes - created new timecard; added 3 direct
@@ -19,21 +19,24 @@ gathered data. Put data in excel sheet; updated ‘what do’ sheet with
 observation about new leaves growing as old ones that will die, are not
 quite dead yet. Worked on chapter report.
 
-**Wednesday** - 2 hour 24 minutes - collected data, put into excel
+**Wednesday** - 2 hours 25 minutes - collected data, put into excel
 sheet. Realized that there’s actually a lot of material between where
 I’m at and ANOVA but I’m supposed to talk about using that in R this
 Friday morning. Because I’ve worked with all these concepts before in
 other stats classes, I read the book until ANOVA to give myself a
-refresher on what everything was while writing down general notes, and
-did the actual RStudio practice for ANOVA first. I’ll practice the other
-things this weekend, though aside from the goodness of fit test, they
-were all super obvious how they work so it’s just making sure I don’t
-get a Week 3 again.
+refresher on what everything was while writing down general notes about
+the function for each. I’ll practice the things other than ANOVA later
+this weekend, though aside from the goodness of fit test, they were all
+super obvious how they work so it’s just making sure I don’t get a Week
+3 again.
 
-**Thursday** -
+**Thursday** - 2 hour 19 minutes - collected data, put into excel
+sheets. Worked on the ANOVA section of the chapter report.
 
-**Friday** - *NOTE: At 10 AM, meeting about ANOVA with faculty over
-ZOOM.*
+**Friday** - 1 hour 40 minutes - worked on ANOVA chapter report.
+TukeyHSD, 2-way ANOVA, issue with the AICcmodavg library.  
+~~NOTE: At 10 AM, meeting about ANOVA with faculty over ZOOM.~~ Changed
+to 4 PM. Changed to 5 PM.
 
 **Saturday** -
 
