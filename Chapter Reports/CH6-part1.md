@@ -16,7 +16,7 @@ Regressions, and Statistics*
     ANOVA)](#t-test-basic-notes-187-194-revisit-after-anova)
   - [Chi-Square Test 194-198 (Revisit after
     ANOVA)](#chi-square-test-194-198-revisit-after-anova)
-  - [ANOVA](#anova)
+  - [ANOVA: aov() commands](#anova-aov-commands)
 
 *Inferential statistics are our gateway to understanding potential
 future data, with current data.*
@@ -151,7 +151,7 @@ Here’s an example for the sake of practice:
 sample(Madoka$album.info, 6, FALSE)
 ```
 
-    ## [1] Volume 2 Volume 1 Volume 3 Volume 1 Volume 1 Volume 2
+    ## [1] Volume 2 Volume 1 Volume 2 Volume 2 Volume 3 Volume 3
     ## Levels: Volume 1 Volume 2 Volume 3
 
 Here, I’m randomly selecting 6 different (no replacement) values from
@@ -180,15 +180,15 @@ sample_n(3)
     ## # Groups:   Species [3]
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
     ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>     
-    ## 1          4.9         3            1.4         0.2 setosa    
-    ## 2          5.1         3.8          1.9         0.4 setosa    
-    ## 3          4.8         3.1          1.6         0.2 setosa    
-    ## 4          5.7         2.6          3.5         1   versicolor
-    ## 5          5.6         2.5          3.9         1.1 versicolor
-    ## 6          6.3         2.3          4.4         1.3 versicolor
-    ## 7          6.5         3            5.2         2   virginica 
-    ## 8          7.1         3            5.9         2.1 virginica 
-    ## 9          6.7         3.3          5.7         2.1 virginica
+    ## 1          5           3.5          1.6         0.6 setosa    
+    ## 2          5           3.3          1.4         0.2 setosa    
+    ## 3          5.4         3.9          1.7         0.4 setosa    
+    ## 4          6.9         3.1          4.9         1.5 versicolor
+    ## 5          5.6         2.7          4.2         1.3 versicolor
+    ## 6          6.7         3.1          4.4         1.4 versicolor
+    ## 7          7.7         3            6.1         2.3 virginica 
+    ## 8          7.2         3.2          6           1.8 virginica 
+    ## 9          6.4         2.8          5.6         2.2 virginica
 
 Normally, Iris is 50 different sepal measurements from 3 different
 flower species, for a total of 150 samples. This sample\_n() is taking 3
@@ -210,9 +210,9 @@ slice_sample(6)
     ## # Groups:   Species [3]
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
     ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>     
-    ## 1          5.1         3.5          1.4         0.3 setosa    
-    ## 2          5.8         2.7          3.9         1.2 versicolor
-    ## 3          6           2.2          5           1.5 virginica
+    ## 1          5           3.2          1.2         0.2 setosa    
+    ## 2          5.9         3            4.2         1.5 versicolor
+    ## 3          6.4         2.8          5.6         2.1 virginica
 
 ### Correlation basic notes 183-184 (revisit after ANOVA)
 
@@ -229,7 +229,7 @@ threshold for ‘definitely coorelation’.
 
 ### Covariance basic notes 185-186 (revisit after ANOVA)
 
-`cov()`  
+`cov()` function  
 assign variables to data.frame; select rows in data.frame with $; use
 cov(data$, data$); get a negative or positive number. There is no set
 range.  
@@ -266,7 +266,7 @@ than each other and still manage to get accurate results.
 
 **1 sample t-test** Question: is the mean of a population equal to
 \_\_\_?  
-`t.test()`  
+`t.test()` function  
 Example filled out `t.test(data$var1, mu=0.6);`  
 Make data.frame, pull one /$ out of the data.frame *only*, and include
 mu= to ask if the mean is equal to mu. In the example case, we’re asking
@@ -275,7 +275,7 @@ in var1 is equal to 0.6?
 
 **2 sample t-test** Question: are the means of these two samples the
 same?  
-`t.test()`  
+`t.test()` function  
 Example filled out `t.test(data$var1, data$var2, var.equal=TRUE,
 paired=FALSE);` Each sample is plugged into the function; var.equal=
 means if the variance is equal (or not), paired= means if the variables
@@ -291,7 +291,7 @@ uses hypothesis test null/alternate arguments.
 **One categorical variable (Goodness of Fit)**  
 Question: Is this one sample we have, consistent with the distribution
 of the other ones?  
-`chisq.test(data)`  
+`chisq.test(data)` function  
 putting data in the chi square test will spit out information about the
 degrees of freedom, p-value, etc.  
 *Extra important to come back to this section. The book didn’t explain
@@ -299,18 +299,111 @@ it very well*.
 
 **Two categorical variable (Contingency Test)** Question: is there a
 relationship between these two variables?  
-`chisq.test(data.table)` Unlike the goodness of fit test (one
-categorical variables), when doing a contingency test (two categorical
-variables), the data needs to be input as a TABLE. This means that
-before doing the chisq.test(data.table) you need to assign your
-variables to a `table`.  
+`chisq.test(data.table)` function  
+Unlike the goodness of fit test (one categorical variables), when doing
+a contingency test (two categorical variables), the data needs to be
+input as a TABLE. This means that before doing the
+chisq.test(data.table) you need to assign your variables to a `table`.  
 Example from book: `data.table <- table(data$var1, data$var2);
 chisq.test(data.table);`  
 Just like the last one, this use of chisq.test will also spit out a
 chi-square value, degrees of freedom, and p-value.  
 *This section made more sense, since the data gave itself context.*
 
-### ANOVA
+### ANOVA: aov() commands
+
+This is for testing the means of two or more different GROUPS. Are these
+multiple means the same? Note: Often, an amateur mistake is thinking
+multiple T-tests can be done for something, but in reality an ANOVA
+needs to be done as to not muliplicatively reduce the power of a
+result.  
+When done by hand, Anova uses both the sample means of (everything), and
+also a ‘grand mean’ which is the mean of all sample means.  
+When the distribution of multiple samples overlap, their means are not
+significantly different. No overlap means that there is a significant
+difference. The grand mean will reflect this difference.  
+Different levels of difference (between sample means) can be called
+‘little discrimination’, ‘some discrimination’, or ‘large
+discrimination’ in ascending order.
+
+The more variance increases, the grater the overlap is, and then these
+can be considered part of the same population. With small variances, and
+no overlap, the groups are considered seperate populations, even if they
+have similar means.
+
+**One-way ANOVA**  
+`aov()` function  
+`summary()` function  
+Example filled out: `variable <- aov(section ~ section, data =
+data.frame the sections are from); summary(variable)`
+
+I downloaded a sample dataset for using with ANOVA, [crop.data.csv]().
+This dataset has 4 different variables about growing crops: density of
+crops, which block it was in, which fertilzer was used, and what the
+yield’s weight was. (no unit is offered, but probably pounds).  
+Let’s test if the fertilzer that was used, has an impact on the yield
+poundage. We are using an ANOVA for this, and not a T-test, because
+there are 3+ fertilzers rather than 2. We are using as.factor for the
+fertilzer $, because otherwise our results are incorrect and we cannot
+do a future test.
+
+``` r
+one.way <- aov(yield ~ as.factor(fertilizer), data = Crop);
+```
+
+To get our results and interpret them, we need to use the summary()
+function. This is why we need to assign the result of our aov() to a
+variable, rather than just letting it print on its own.
+
+``` r
+summary(one.way)
+```
+
+    ##                       Df Sum Sq Mean Sq F value Pr(>F)    
+    ## as.factor(fertilizer)  2   6.07  3.0340   7.863  7e-04 ***
+    ## Residuals             93  35.89  0.3859                   
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+*Df* means ‘degrees of freedom’, *sum sq* is the ‘sum of the square
+between the group means and overal mean’, and *mean sq* is the mean of
+the sum of the squares. Earlier I made some notes about how one would do
+an ANOVA long hand, and those values are relevant for long-hand and
+double checking the equation, basically. **With those values**, an
+*F-value* is created (ANOVA is an f-test, vs a t-test). We want our
+F-value to be larger to indicate a variation that’s associated with our
+independent variable, rather than random chance.  
+*Pr(\>F)* is the **F-value transformed into a P-value**. I.e., the
+probability that this result could have happened by chance alone.  
+This P-value of 0.000207\<0.05, the typical alpha value. Thus, we can
+reject the null hypothesis that there is no difference between the mean
+of groups that did, or did not, have different fertilzers. The alternate
+hypothesis, that fertilzer impacts the mean in a meaningful way, appears
+true.
+
+But which fertilzer, 1, 2, or 3, impacts it the most? ANOVA cannot tell
+us this. We must do a
+
+**Post-hoc test**  
+`TukeyHSD()` function to figure out which fertilzer impacts the mean the
+most.  
+This is the test that we could not do without fertilzer being a factor,
+that I mentioned earlier.
+
+``` r
+TukeyHSD(one.way)
+```
+
+    ##   Tukey multiple comparisons of means
+    ##     95% family-wise confidence level
+    ## 
+    ## Fit: aov(formula = yield ~ as.factor(fertilizer), data = Crop)
+    ## 
+    ## $`as.factor(fertilizer)`
+    ##          diff         lwr       upr     p adj
+    ## 2-1 0.1761687 -0.19371896 0.5460564 0.4954705
+    ## 3-1 0.5991256  0.22923789 0.9690133 0.0006125
+    ## 3-2 0.4229569  0.05306916 0.7928445 0.0208735
 
 To continue reading the CH6 reports, select a new section:  
 Next: [Part 2 of the Chapter 6

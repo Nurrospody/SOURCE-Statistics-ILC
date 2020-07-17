@@ -20,6 +20,8 @@ Madoka <- read.csv(file="../data_sources/Madoka Magika Volume 1-3.csv")
 
 Smallmad <- Madoka[1:5,]
 require(dplyr)
+
+Crop <- read.csv(file="../data_sources/crop.data.csv")
 ```
 
 *Inferential statistics are our gateway to understanding potential future data, with current data.*   
@@ -89,7 +91,7 @@ assign variables to a data.frame; select rows in data.frame with \$, use cor(dat
 If I remember right, generally a value more extreme than +-0.8 is the threshold for 'definitely coorelation'.  
 
 ### Covariance basic notes 185-186 (revisit after ANOVA)  
-```cov()```  
+```cov()```  function  
 assign variables to data.frame; select rows in data.frame with \$; use cov(data\$, data$); get a negative or positive number.  There is no set range.  
 Covariance is related to Correlation.  Correlation is "normalized" Covariance.  It seems to me that  covariance:correlation :: variance:standard-deviation.  The limited details in this book do not mention why or when to use covariance rather than correlation.  
 
@@ -106,13 +108,13 @@ T tests are mathematically different if the samples are independent (uncoorelate
 
 **1 sample t-test**
 Question: is the mean of a population equal to ___?  
-```t.test()```  
+```t.test()```  function  
 Example filled out ```t.test(data$var1, mu=0.6);```  
 Make data.frame, pull one /$ out of the data.frame *only*, and include mu= to ask if the mean is equal to mu.  In the example case, we're asking if the mean of var1 in data is equal to 0.6.  Can we reject that the mean in var1 is equal to 0.6?  
 
 **2 sample t-test**
 Question: are the means of these two samples the same?  
-```t.test()```  
+```t.test()``` function   
 Example filled out ```t.test(data$var1, data$var2, var.equal=TRUE, paired=FALSE);```
 Each sample is plugged into the function; var.equal= means if the variance is equal (or not), paired= means if the variables are dependent or independent.  
 With these arguments, you can do all varities of the 2 sample T-test.  
@@ -123,20 +125,61 @@ uses hypothesis test null/alternate arguments.
 
 **One categorical variable (Goodness of Fit)**  
 Question: Is this one sample we have, consistent with the distribution of the other ones?  
-```chisq.test(data)```  
+```chisq.test(data)```  function  
 putting data in the chi square test will spit out information about the degrees of freedom, p-value, etc.  
 *Extra important to come back to this section.  The book didn't explain it very well*.  
 
 **Two categorical variable (Contingency Test)** 
 Question: is there a relationship between these two variables?  
-```chisq.test(data.table)```
+```chisq.test(data.table)``` function  
 Unlike the goodness of fit test (one categorical variables), when doing a contingency  test (two categorical variables), the data needs to be input as a TABLE.  This means that before doing the chisq.test(data.table) you need to assign your variables to a ```table```.  
 Example from book: ```data.table <- table(data$var1, data$var2);  chisq.test(data.table);```  
 Just like the last one, this use of chisq.test will also spit out a chi-square value, degrees of freedom, and p-value.  
 *This section made more sense, since the data gave itself context.*
 
+### ANOVA: aov() commands  
+This is for testing the means of two or more different GROUPS.  Are these multiple means the same?  Note: Often, an amateur mistake is thinking multiple T-tests can be done for something, but in reality an ANOVA needs to be done as to not muliplicatively reduce the power of a result.  
+When done by hand, Anova uses both the sample means of (everything), and also a 'grand mean' which is the mean of all sample means.  
+When the distribution of multiple samples overlap, their means are not significantly different.  No overlap means that there is a significant difference.  The grand mean will reflect this difference.  
+Different levels of difference (between sample means) can be called 'little discrimination', 'some discrimination', or 'large discrimination' in ascending order.  
 
-### ANOVA
+The more variance increases, the grater the overlap is, and then these can be considered part of the same population.  With small variances, and no overlap, the groups are considered seperate populations, even if they have similar means.  
+
+**One-way ANOVA**  
+```aov()```  function  
+```summary()```  function  
+Example filled out: ```variable <- aov(section ~ section, data = data.frame the sections are from); summary(variable)```  
+
+I downloaded a sample dataset for using with ANOVA, [crop.data.csv]().  This dataset has 4 different variables about growing crops: density of crops, which block it was in, which fertilzer was used, and what the yield's weight was.  (no unit is offered, but probably pounds).  
+Let's test if the fertilzer that was used, has an impact on the yield poundage.  We are using an ANOVA for this, and not a T-test, because there are 3+ fertilzers rather than 2.  We are using as.factor for the fertilzer $, because otherwise our results are incorrect and we cannot do a future test.  
+```{r}
+one.way <- aov(yield ~ as.factor(fertilizer), data = Crop);
+```
+To get our results and interpret them, we need to use the summary() function.  This is why we need to assign the result of our aov() to a variable, rather than just letting it print on its own.
+```{r}
+summary(one.way)
+```
+*Df* means 'degrees of freedom', *sum sq* is the 'sum of the square between the group means and overal mean', and *mean sq* is the mean of the sum of the squares.  Earlier I made some notes about how one would do an ANOVA long hand, and those values are relevant for long-hand and double checking the equation, basically.  **With those values**, an *F-value* is created (ANOVA is an f-test, vs a t-test).  We want our F-value to be larger to indicate a variation that's associated with our independent variable, rather than random chance.  
+*Pr(>F)* is the **F-value transformed into a P-value**.  I.e., the probability that this result could have happened by chance alone.  
+This P-value of 0.000207<0.05, the typical alpha value.  Thus, we can reject the null hypothesis that there is no difference between the mean of groups that did, or did not, have different fertilzers.  The alternate hypothesis, that fertilzer impacts the mean in a meaningful way, appears true.  
+
+But which fertilzer, 1, 2, or 3, impacts it the most?  ANOVA cannot tell us this.  We must do a  
+
+**Post-hoc test**  
+```TukeyHSD()``` function
+to figure out which fertilzer impacts the mean the most.  
+This is the test that we could not do without fertilzer being a factor, that I mentioned earlier.  
+
+```{r}
+TukeyHSD(one.way)
+```
+
+
+
+
+
+
+
 
 
 
