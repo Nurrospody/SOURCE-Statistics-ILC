@@ -1,0 +1,39 @@
+Week 15 Worklog/Timecard
+================
+Nurrospody
+7/20/2020
+
+**Total Time inclusive from 20JUL2020 to 26JUL2020** : 1 hour 2 minutes
+
+**Monday** - 1 hour 2 minutes - wrapped up old/made new timecards;
+collected data. Explained briefly what a t-test and ANOVA were to my
+partner (it was a good excercise to solidify my understanding). Recorded
+data. For some reason, Cardoon 1 is missing several entries on leaf 6?
+it’s been hot so many leaves have been wilting and dying, but this lack
+of information doesn’t make much sense. I might see about using a
+regression model to fill in the gaps once my dataset is complete?
+
+**Tuesday** - 1 hour 4 minutes +4 - collected data, put into excel
+sheet. One of the leaves was kind of weird, but less bloopers than
+yesterday. Really bad start to the day, though . . . my roomate got home
+from a roadtrip 3 days early (technically yesterday), and then even
+though I woke up early to avoid disruptions, I had to kick his company
+out of the house for being annoying. bllaasfgh.  
+Continued work on chapter report. Fixed some problems that I was running
+into with a package not installing correctly. Also made the table of
+contents nicer, by giving it multiple tiers\!
+
+**Wednesday** -
+
+**Thursday** -
+
+**Friday** -
+
+**Saturday** -
+
+**Sunday** -
+
+**End of Week Comments**: Next week, my n30 for garden data will be
+finished\! Hopefully (this is a pre-emptive comment from Monday) I
+should start doing something with it next week after working through
+Chapter 6.

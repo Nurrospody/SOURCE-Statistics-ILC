@@ -9,7 +9,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-**Total Time inclusive from 13JUL2020 to 19JUL2020** : 8 hours 49 minutes
+**Total Time inclusive from 13JUL2020 to 19JUL2020** :12 hours 05 minutes
 
 **Monday** - 2 hour 30 minutes - created new timecard; added 3 direct links to README and fixed Week 10 timecard link which wasn't working.  Started list of what to do with garden data once I've finished collecting it, since I've thought about it but the thoughts have just been floating this whole time.  Worked on Chapter 6 report and ```apply(), lapply(), sapply()``` commands.  Gathered data in the afternoon, put it into excel.
 
@@ -17,13 +17,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Wednesday** - 2 hours 25 minutes - collected data, put into excel sheet.  Realized that there's actually a lot of material between where I'm at and ANOVA but I'm supposed to talk about using that in R this Friday morning.  Because I've worked with all these concepts before in other stats classes, I read the book until ANOVA to give myself a refresher on what everything was while writing down general notes about the function for each. I'll practice the things other than ANOVA later this weekend, though aside from the goodness of fit test, they were all super obvious how they work so it's just making sure I don't get a Week 3 again.  
 
-**Thursday** - 2 hour 19 minutes - collected data, put into excel sheets.  Worked on the ANOVA section of the chapter report.
+**Thursday** - 2 hour 19 minutes - collected data, put into excel sheets.  Worked on the ANOVA section of the chapter report.  
 
-**Friday** - 1 hour 40 minutes - worked on ANOVA chapter report.  TukeyHSD, 2-way ANOVA, issue with the AICcmodavg library.  
-~~NOTE: At 10 AM, meeting about ANOVA with faculty over ZOOM.~~ Changed to 4 PM.  Changed to 5 PM.
+**Friday** - 2 hour  20 minutes - worked on ANOVA chapter report.  TukeyHSD, 2-way ANOVA, issue with the AICcmodavg library.  Collected data.
+~~NOTE: At 10 AM, meeting about ANOVA with faculty over ZOOM.~~ Changed to 4 PM.  Changed to 5 PM.  Showed off ANOVA, talked about misconceptions between a one way ANOVA and a 2-way T-test.  Also alpha and P-values a little bit.  Decided on what to do next week (continue skipped sections) AND MAKE SOME PLOTS of a presented ANOVA.  
 
-**Saturday** -
+**Saturday** - 15 minutes - collected data; took the rest of the day off.  
 
-**Sunday** - 
+**Sunday** - 20 minutes - collected data; editted timecard a bit; took the rest of the day off.  
 
-**End of Week Comments**: 
+**End of Week Comments**: It was a good week!  Got lots of work done.  I didn't really intend to take the weekend off, but I crashed a bit after working so hard I guess.  

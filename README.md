@@ -31,7 +31,7 @@ My Chapter Reports show my work and the commands I've practiced with in R.
 [CH5 part 2](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH5-part2.md) 
 
 *Chapter 6*  
-[CH5 part1 Inferential; apply() ](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part1.md)   
+[CH5 part1 Inferential Stats until ANOVA ](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part1.md)   
 
 ## "Statistics Gone Wrong Musings" folder  
 Contains writeups that I've made after reading my *Statistics Gone Wrong* book by Alex Reinhart.  
@@ -62,6 +62,7 @@ Each week has its own Timecard.  In these timecards, I record via stopwatch how 
 [Week 12 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-12-Timecard.md)  
 [Week 13 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-13-Timecard.md)  
 [Week 14 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-14-Timecard.md)  
+[Week 15 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-15-Timecard.md)  
 
 
 ## "data_sources" folder

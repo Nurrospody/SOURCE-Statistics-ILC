@@ -14,10 +14,20 @@ Regressions, and Statistics*
   - [Hypothesis Testing and P-Value](#hypothesis-testing-and-p-value)
   - [T-Test basic notes 187-194 (revisit after
     ANOVA)](#t-test-basic-notes-187-194-revisit-after-anova)
+      - [**1 sample t-test**](#sample-t-test)
+      - [**2 sample t-test**](#sample-t-test-1)
   - [Chi-Square Test 194-198 (Revisit after
     ANOVA)](#chi-square-test-194-198-revisit-after-anova)
+      - [**One categorical variable (Goodness of
+        Fit)**](#one-categorical-variable-goodness-of-fit)
+      - [**Two categorical variable (Contingency
+        Test)**](#two-categorical-variable-contingency-test)
   - [ANOVA: aov(), TukeyHSD(), aictab()
     commands](#anova-aov-tukeyhsd-aictab-commands)
+      - [**One-way ANOVA**](#one-way-anova)
+      - [**Post-hoc test**](#post-hoc-test)
+      - [**Two-way ANOVA**](#two-way-anova)
+      - [**Two way plot**](#two-way-plot)
 
 *Inferential statistics are our gateway to understanding potential
 future data, with current data.*
@@ -152,7 +162,7 @@ Here’s an example for the sake of practice:
 sample(Madoka$album.info, 6, FALSE)
 ```
 
-    ## [1] Volume 1 Volume 3 Volume 1 Volume 3 Volume 2 Volume 2
+    ## [1] Volume 3 Volume 1 Volume 3 Volume 3 Volume 1 Volume 3
     ## Levels: Volume 1 Volume 2 Volume 3
 
 Here, I’m randomly selecting 6 different (no replacement) values from
@@ -181,14 +191,14 @@ sample_n(3)
     ## # Groups:   Species [3]
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
     ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>     
-    ## 1          5.4         3.9          1.3         0.4 setosa    
-    ## 2          4.8         3.4          1.6         0.2 setosa    
-    ## 3          5.2         3.4          1.4         0.2 setosa    
-    ## 4          6           2.2          4           1   versicolor
-    ## 5          5.1         2.5          3           1.1 versicolor
-    ## 6          5.6         2.9          3.6         1.3 versicolor
-    ## 7          7.2         3.2          6           1.8 virginica 
-    ## 8          6.1         3            4.9         1.8 virginica 
+    ## 1          4.9         3            1.4         0.2 setosa    
+    ## 2          4.6         3.1          1.5         0.2 setosa    
+    ## 3          5           3            1.6         0.2 setosa    
+    ## 4          5.4         3            4.5         1.5 versicolor
+    ## 5          4.9         2.4          3.3         1   versicolor
+    ## 6          6           2.7          5.1         1.6 versicolor
+    ## 7          7.2         3.6          6.1         2.5 virginica 
+    ## 8          6.3         2.5          5           1.9 virginica 
     ## 9          6.7         3.1          5.6         2.4 virginica
 
 Normally, Iris is 50 different sepal measurements from 3 different
@@ -211,9 +221,9 @@ slice_sample(6)
     ## # Groups:   Species [3]
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
     ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>     
-    ## 1          5           3.4          1.6         0.4 setosa    
-    ## 2          5.8         2.7          4.1         1   versicolor
-    ## 3          7.1         3            5.9         2.1 virginica
+    ## 1          4.9         3            1.4         0.2 setosa    
+    ## 2          6.6         3            4.4         1.4 versicolor
+    ## 3          7.4         2.8          6.1         1.9 virginica
 
 ### Correlation basic notes 183-184 (revisit after ANOVA)
 
@@ -265,8 +275,9 @@ uncoorelated, it might become important if their variances are
 different. Emphasis on might; an ANOVA can handle variances 8x bigger
 than each other and still manage to get accurate results.
 
-**1 sample t-test** Question: is the mean of a population equal to
-\_\_\_?  
+#### **1 sample t-test**
+
+Question: is the mean of a population equal to \_\_\_?  
 `t.test()` function  
 Example filled out `t.test(data$var1, mu=0.6);`  
 Make data.frame, pull one /$ out of the data.frame *only*, and include
@@ -274,8 +285,9 @@ mu= to ask if the mean is equal to mu. In the example case, we’re asking
 if the mean of var1 in data is equal to 0.6. Can we reject that the mean
 in var1 is equal to 0.6?
 
-**2 sample t-test** Question: are the means of these two samples the
-same?  
+#### **2 sample t-test**
+
+Question: are the means of these two samples the same?  
 `t.test()` function  
 Example filled out `t.test(data$var1, data$var2, var.equal=TRUE,
 paired=FALSE);` Each sample is plugged into the function; var.equal=
@@ -289,7 +301,8 @@ relationships between categorical variables/data (rather than continuous
 data)  
 uses hypothesis test null/alternate arguments.
 
-**One categorical variable (Goodness of Fit)**  
+#### **One categorical variable (Goodness of Fit)**
+
 Question: Is this one sample we have, consistent with the distribution
 of the other ones?  
 `chisq.test(data)` function  
@@ -298,8 +311,9 @@ degrees of freedom, p-value, etc.
 *Extra important to come back to this section. The book didn’t explain
 it very well*.
 
-**Two categorical variable (Contingency Test)** Question: is there a
-relationship between these two variables?  
+#### **Two categorical variable (Contingency Test)**
+
+Question: is there a relationship between these two variables?  
 `chisq.test(data.table)` function  
 Unlike the goodness of fit test (one categorical variables), when doing
 a contingency test (two categorical variables), the data needs to be
@@ -332,7 +346,8 @@ can be considered part of the same population. With small variances, and
 no overlap, the groups are considered seperate populations, even if they
 have similar means.
 
-**One-way ANOVA**  
+#### **One-way ANOVA**
+
 `aov()` function  
 `summary()` function  
 Example filled out: `variable <- aov(section ~ section, data =
@@ -386,7 +401,8 @@ true.
 But which fertilzer, 1, 2, or 3, impacts it the most? ANOVA cannot tell
 us this. We must do a
 
-**Post-hoc test**  
+#### **Post-hoc test**
+
 `TukeyHSD()` function to figure out which fertilzer impacts the mean the
 most.  
 This is the test that we could not do without fertilzer being as.factor.
@@ -424,7 +440,8 @@ between 2 and 3, but because there is no significant difference between
 2 and **1**, we can conclude that *fertilzer 3 positively impacts yield
 the most*.
 
-**Two-way ANOVA**  
+#### **Two-way ANOVA**
+
 2-way starts with the same basic formula, except you add extra
 independent variables. To model your different independent variable NOT
 interacting with each other, use `+`. To model your different
@@ -453,30 +470,80 @@ blok.fertdens <- aov(yield ~ as.factor(fertilizer) * as.factor(density) + as.fac
 
 We want the `aictab()` function for this. It’s part of the **AICcmodavg
 library**. I installed that package, but it didn’t come with all its
-dependencies. It requires ‘raster’, which requires ‘Rcpp’.  
-I got this error.
+dependencies. It requires ‘raster’, which requires ‘Rcpp’. I had to use
+installed.libraries() to make sure I had everything.
 
-    ERROR: compilation failed for package 'raster'
-    * removing 'C:/Users/Persimmon/Documents/R/win-library/3.6/raster'
-    Warning in install.packages :
-      installation of package ‘raster’ had non-zero exit status
+``` r
+model.set <- list(two.way, fert.dens.interact, blok.fertdens)
+model.names <- c("two.way", "fertilzer/density interaction", "block interaction")
 
-The [information I could find about this
-error](https://community.rstudio.com/t/i-can-t-install-packages-on-r-studio-non-zero-exit-status/52135/2)
-~~used mac instead of windows~~ seemed to be a CRAN binary repository
-corruption problem, so I’ll come back to this a bit later. Otherwise it
-could be something that corrupted and I have to redownload stuff. For
-now, I’ll display what should have happened without a language.
+aictab(model.set, modnames = model.names)
+```
 
-    require(AICcmodavg);
-    model.set <- list(two.way, fert.dens.interact, blok.fertdens)
-    model.names <- c("two.way", "fertilzer/density interaction", "block interaction")
-    
-    aictab(model.set, modnames = model.names)
+    ## 
+    ## Model selection based on AICc:
+    ## 
+    ##                               K   AICc Delta_AICc AICcWt Cum.Wt     LL
+    ## two.way                       5 173.86       0.00   0.81   0.81 -81.59
+    ## fertilzer/density interaction 7 177.12       3.26   0.16   0.97 -80.92
+    ## block interaction             9 180.39       6.53   0.03   1.00 -80.15
 
-Then it should have given me a table that listed, in descending order,
-which model was the best fit; and I would have taken that model and ran
-it through a Post-hoc test.
+While I don’t know exactly what these numbers mean, I DO know that in an
+AIC model, the best fit will always be listed first, at the top.
+*two.way* is the model we want to use for this 2-way ANOVA.  
+Let’s take a look at the summary, and then postHoc test our results. We
+already know from our one-way ANOVA that fertilzer affects the yield,
+but the information about density will be new.
+
+``` r
+summary(two.way);
+```
+
+    ##                       Df Sum Sq Mean Sq F value   Pr(>F)    
+    ## as.factor(fertilizer)  2  6.068   3.034   9.073 0.000253 ***
+    ## as.factor(density)     1  5.122   5.122  15.316 0.000174 ***
+    ## Residuals             92 30.765   0.334                     
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+``` r
+TukeyHSD(two.way)
+```
+
+    ##   Tukey multiple comparisons of means
+    ##     95% family-wise confidence level
+    ## 
+    ## Fit: aov(formula = yield ~ as.factor(fertilizer) + as.factor(density), data = Crop)
+    ## 
+    ## $`as.factor(fertilizer)`
+    ##          diff         lwr       upr     p adj
+    ## 2-1 0.1761687 -0.16822506 0.5205625 0.4452958
+    ## 3-1 0.5991256  0.25473179 0.9435194 0.0002219
+    ## 3-2 0.4229569  0.07856306 0.7673506 0.0119381
+    ## 
+    ## $`as.factor(density)`
+    ##         diff       lwr       upr     p adj
+    ## 2-1 0.461956 0.2275204 0.6963916 0.0001741
+
+In the summary, we reject the null hypothesis that the density does not
+affect the yield.  
+In the postHoc test, we see that there’s a significant difference
+between the two levels of planting density; fertilzer type 3-1; and
+fertilzer 3-2.  
+But even though we know this, we don’t actually know yet whether
+planting density (high) or (low) is better.  
+Plotting some kind of graph which shows our data, descriptive
+statistics, and variable markers would be best to finish figuring this
+out.
+
+#### **Two way plot**
+
+Let’s use a two-way plot to show this information. We can split our
+output into different groups in a two-way plot. It’ll look like a
+scatterplot, but clustered in a laterial line shape, with two lines for
+each density group.  
+First we have to add our info to a data.frame; and then we should add
+variables to that data.frame for the graph markers.
 
 To continue reading the CH6 reports, select a new section:  
 Next: [Part 2 of the Chapter 6

@@ -3,7 +3,7 @@ Week 14 Timecard
 Nurrospody
 7/13/2020
 
-**Total Time inclusive from 13JUL2020 to 19JUL2020** : 8 hours 49
+**Total Time inclusive from 13JUL2020 to 19JUL2020** :12 hours 05
 minutes
 
 **Monday** - 2 hour 30 minutes - created new timecard; added 3 direct
@@ -33,13 +33,20 @@ super obvious how they work so it’s just making sure I don’t get a Week
 **Thursday** - 2 hour 19 minutes - collected data, put into excel
 sheets. Worked on the ANOVA section of the chapter report.
 
-**Friday** - 1 hour 40 minutes - worked on ANOVA chapter report.
-TukeyHSD, 2-way ANOVA, issue with the AICcmodavg library.  
-~~NOTE: At 10 AM, meeting about ANOVA with faculty over ZOOM.~~ Changed
-to 4 PM. Changed to 5 PM.
+**Friday** - 2 hour 20 minutes - worked on ANOVA chapter report.
+TukeyHSD, 2-way ANOVA, issue with the AICcmodavg library. Collected
+data. ~~NOTE: At 10 AM, meeting about ANOVA with faculty over ZOOM.~~
+Changed to 4 PM. Changed to 5 PM. Showed off ANOVA, talked about
+misconceptions between a one way ANOVA and a 2-way T-test. Also alpha
+and P-values a little bit. Decided on what to do next week (continue
+skipped sections) AND MAKE SOME PLOTS of a presented ANOVA.
 
-**Saturday** -
+**Saturday** - 15 minutes - collected data; took the rest of the day
+off.
 
-**Sunday** -
+**Sunday** - 20 minutes - collected data; editted timecard a bit; took
+the rest of the day off.
 
-**End of Week Comments**:
+**End of Week Comments**: It was a good week\! Got lots of work done. I
+didn’t really intend to take the weekend off, but I crashed a bit after
+working so hard I guess.

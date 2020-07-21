@@ -5,6 +5,7 @@ date: "7/13/2020, *Learn R for Applied Statistics : With Data Visualizations, Re
 output:
   github_document:
     toc: TRUE
+    toc_depth: 4
 ---
 
 ```{r setup, include=FALSE}
@@ -22,6 +23,14 @@ Smallmad <- Madoka[1:5,]
 require(dplyr)
 
 Crop <- read.csv(file="../data_sources/crop.data.csv")
+require(AICcmodavg)
+
+#ERROR: compilation failed for package 'raster'
+#* removing 'C:/Users/Persimmon/Documents/R/win-library/3.6/raster'
+#Warning in install.packages :
+#  installation of package ‘raster’ had non-zero exit status
+
+#After restarting RStudio, I was able to successfully unpack 'raster' just fine.  An easy solution is the best solution, I suppose.  
 ```
 
 *Inferential statistics are our gateway to understanding potential future data, with current data.*   
@@ -106,13 +115,13 @@ Normally distributed population.  From random sample (duh).
 continuous variables/data.  Hypothesis test about the means from 2 different samples.  If we can disprove that they are the same, there is a difference in the mean between the two samples.  
 T tests are mathematically different if the samples are independent (uncoorelated) or dependent/paired (correlated).  If they are uncoorelated, it might become important if their variances are different.  Emphasis on might; an ANOVA can handle variances 8x bigger than each other and still manage to get accurate results.  
 
-**1 sample t-test**
+#### **1 sample t-test**
 Question: is the mean of a population equal to ___?  
 ```t.test()```  function  
 Example filled out ```t.test(data$var1, mu=0.6);```  
 Make data.frame, pull one /$ out of the data.frame *only*, and include mu= to ask if the mean is equal to mu.  In the example case, we're asking if the mean of var1 in data is equal to 0.6.  Can we reject that the mean in var1 is equal to 0.6?  
 
-**2 sample t-test**
+#### **2 sample t-test**
 Question: are the means of these two samples the same?  
 ```t.test()``` function   
 Example filled out ```t.test(data$var1, data$var2, var.equal=TRUE, paired=FALSE);```
@@ -123,13 +132,13 @@ With these arguments, you can do all varities of the 2 sample T-test.
 relationships between categorical variables/data (rather than continuous data)  
 uses hypothesis test null/alternate arguments.  
 
-**One categorical variable (Goodness of Fit)**  
+#### **One categorical variable (Goodness of Fit)**  
 Question: Is this one sample we have, consistent with the distribution of the other ones?  
 ```chisq.test(data)```  function  
 putting data in the chi square test will spit out information about the degrees of freedom, p-value, etc.  
 *Extra important to come back to this section.  The book didn't explain it very well*.  
 
-**Two categorical variable (Contingency Test)** 
+#### **Two categorical variable (Contingency Test)** 
 Question: is there a relationship between these two variables?  
 ```chisq.test(data.table)``` function  
 Unlike the goodness of fit test (one categorical variables), when doing a contingency  test (two categorical variables), the data needs to be input as a TABLE.  This means that before doing the chisq.test(data.table) you need to assign your variables to a ```table```.  
@@ -145,7 +154,7 @@ Different levels of difference (between sample means) can be called 'little disc
 
 The more variance increases, the grater the overlap is, and then these can be considered part of the same population.  With small variances, and no overlap, the groups are considered seperate populations, even if they have similar means.  
 
-**One-way ANOVA**  
+#### **One-way ANOVA**  
 ```aov()```  function  
 ```summary()```  function  
 Example filled out: ```variable <- aov(section ~ section, data = data.frame the sections are from); summary(variable)```  
@@ -165,7 +174,7 @@ This P-value of 0.000207<0.05, the typical alpha value.  Thus, we can reject the
 
 But which fertilzer, 1, 2, or 3, impacts it the most?  ANOVA cannot tell us this.  We must do a  
 
-**Post-hoc test**  
+#### **Post-hoc test**  
 ```TukeyHSD()``` function
 to figure out which fertilzer impacts the mean the most.  
 This is the test that we could not do without fertilzer being as.factor.    
@@ -177,7 +186,7 @@ The table result shows the variable being tested (Crop).  Then it shows the pair
 *diff* means the mean difference between the two fertilzer treatments; *lwr/upr* are the upper and lower bounds for our confidence interval (that the fertilzers, indeed, are different); *p adj* is the P-value, as adjusted for this multiple pair comparison test.  
 We can conclude that there is no major difference between fertilzer 2 and 1, because the confidence interval includes 0.  The difference between 3 and 1 is significant (confidence interval does not start near 1; p-value is nowhere near alpha).  There is a significant difference between 2 and 3, but because there is no significant difference between 2 and **1**, we can conclude that *fertilzer 3 positively impacts yield the most*.  
 
-**Two-way ANOVA**  
+#### **Two-way ANOVA**  
 2-way starts with the same basic formula, except you add extra independent variables.  To model your different independent variable NOT interacting with each other, use ```+```.  To model your different independent variables YES intearacting with each other, use ```*```.  
 Let's create a few models, and test which is most accurate. Without knowing what data specifically to look at, trying to interpret a 2-way ANOVA feels like flailing in the dark.  We want the model that is the best fit for our data; the one that explains the MOST variation.  
 
@@ -190,23 +199,29 @@ two.way <- aov(yield ~ as.factor(fertilizer) + as.factor(density), data = Crop);
 fert.dens.interact <- aov(yield ~ as.factor(fertilizer) * as.factor(density), data = Crop);  
 blok.fertdens <- aov(yield ~ as.factor(fertilizer) * as.factor(density) + as.factor(block), data = Crop); 
 ```
-We want the ```aictab()``` function for this.  It's part of the **AICcmodavg library**.  I installed that package, but it didn't come with all its dependencies.  It requires 'raster', which requires 'Rcpp'.  
-I got this error.  
-```
-ERROR: compilation failed for package 'raster'
-* removing 'C:/Users/Persimmon/Documents/R/win-library/3.6/raster'
-Warning in install.packages :
-  installation of package ‘raster’ had non-zero exit status
-```
-The [information I could find about this error](https://community.rstudio.com/t/i-can-t-install-packages-on-r-studio-non-zero-exit-status/52135/2) ~~used mac instead of windows~~ seemed to be a CRAN binary repository corruption problem, so I'll come back to this a bit later.  Otherwise it could be something that corrupted and I have to redownload stuff.  For now, I'll display what should have happened without a language.  
-```{}
-require(AICcmodavg);
+We want the ```aictab()``` function for this.  It's part of the **AICcmodavg library**.  I installed that package, but it didn't come with all its dependencies.  It requires 'raster', which requires 'Rcpp'.  I had to use installed.libraries() to make sure I had everything.
+
+```{r}
 model.set <- list(two.way, fert.dens.interact, blok.fertdens)
 model.names <- c("two.way", "fertilzer/density interaction", "block interaction")
 
 aictab(model.set, modnames = model.names)
 ```
-Then it should have given me a table that listed, in descending order, which model was the best fit; and I would have taken that model and ran it through a Post-hoc test.
+While I don't know exactly what these numbers mean, I DO know that in an AIC model, the best fit will always be listed first, at the top.  *two.way* is the model we want to use for this 2-way ANOVA.  
+Let's take a look at the summary, and then postHoc test our results.  We already know from our one-way ANOVA that fertilzer affects the yield, but the information about density will be new.  
+```{r}
+summary(two.way);
+TukeyHSD(two.way)
+```
+In the summary, we reject the null hypothesis that the density does not affect the yield.  
+In the postHoc test, we see that there's a significant difference between the two levels of planting density; fertilzer type 3-1; and fertilzer 3-2.  
+But even though we know this, we don't actually know yet whether planting density (high) or (low) is better.   
+Plotting some kind of graph which shows our data, descriptive statistics, and variable markers would be best to finish figuring this out.  
+
+#### **Two way plot**
+Let's use a two-way plot to show this information.  We can split our output into different groups in a two-way plot.  It'll look like a scatterplot, but clustered in a laterial line shape, with two lines for each density group.  
+First we have to add our info to a data.frame; and then we should add variables to that data.frame for the graph markers.
+
 
 
 
