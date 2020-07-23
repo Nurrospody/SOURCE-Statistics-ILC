@@ -162,7 +162,7 @@ Here’s an example for the sake of practice:
 sample(Madoka$album.info, 6, FALSE)
 ```
 
-    ## [1] Volume 3 Volume 1 Volume 3 Volume 3 Volume 1 Volume 3
+    ## [1] Volume 2 Volume 2 Volume 1 Volume 3 Volume 1 Volume 3
     ## Levels: Volume 1 Volume 2 Volume 3
 
 Here, I’m randomly selecting 6 different (no replacement) values from
@@ -176,7 +176,7 @@ the random sampling command.
 **stratified sampling**. Stratified sampling involves seperating smaller
 groups from a bigger one (like the aromantic community, or the finsexual
 community, from the overal GRSM community) and sampling randomly within
-those smaller communitites.
+those smaller communities.
 
 “Iris” is a dataset that’s built into R, and I used it as an example for
 stratified sampling.
@@ -191,15 +191,15 @@ sample_n(3)
     ## # Groups:   Species [3]
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
     ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>     
-    ## 1          4.9         3            1.4         0.2 setosa    
-    ## 2          4.6         3.1          1.5         0.2 setosa    
-    ## 3          5           3            1.6         0.2 setosa    
-    ## 4          5.4         3            4.5         1.5 versicolor
-    ## 5          4.9         2.4          3.3         1   versicolor
-    ## 6          6           2.7          5.1         1.6 versicolor
-    ## 7          7.2         3.6          6.1         2.5 virginica 
-    ## 8          6.3         2.5          5           1.9 virginica 
-    ## 9          6.7         3.1          5.6         2.4 virginica
+    ## 1          5.2         3.4          1.4         0.2 setosa    
+    ## 2          5.1         3.5          1.4         0.2 setosa    
+    ## 3          5.4         3.9          1.7         0.4 setosa    
+    ## 4          6.1         2.8          4.7         1.2 versicolor
+    ## 5          6.2         2.2          4.5         1.5 versicolor
+    ## 6          6.3         3.3          4.7         1.6 versicolor
+    ## 7          6.9         3.2          5.7         2.3 virginica 
+    ## 8          6.4         2.7          5.3         1.9 virginica 
+    ## 9          6.7         2.5          5.8         1.8 virginica
 
 Normally, Iris is 50 different sepal measurements from 3 different
 flower species, for a total of 150 samples. This sample\_n() is taking 3
@@ -221,19 +221,19 @@ slice_sample(6)
     ## # Groups:   Species [3]
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
     ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>     
-    ## 1          4.9         3            1.4         0.2 setosa    
-    ## 2          6.6         3            4.4         1.4 versicolor
-    ## 3          7.4         2.8          6.1         1.9 virginica
+    ## 1          4.7         3.2          1.6         0.2 setosa    
+    ## 2          5.6         2.9          3.6         1.3 versicolor
+    ## 3          7.7         2.6          6.9         2.3 virginica
 
 ### Correlation basic notes 183-184 (revisit after ANOVA)
 
 `cor()` function  
 assign variables to a data.frame; select rows in data.frame with $, use
 cor(data$, data$); get number between -1 and +1.  
-\-1 perfect negative coorelation; as one variable increases, the other
+\-1 perfect negative correlation; as one variable increases, the other
 decreases.  
-0 no coorelation between variables.  
-\+1 perfect positive coorelation; as one variable increases, the other
+0 no correlation between variables.  
+\+1 perfect positive correlation; as one variable increases, the other
 also increases.  
 If I remember right, generally a value more extreme than +-0.8 is the
 threshold for ‘definitely coorelation’.
@@ -251,7 +251,7 @@ mention why or when to use covariance rather than correlation.
 
 ### Hypothesis Testing and P-Value
 
-no functions in this section. Probabilty value of less than alpha 0.05
+no functions in this section. Probability value of less than alpha 0.05
 5% means something is significant; you make alternate hypothesis and see
 if you can even disprove the null hypothesis (assuming you have a large
 enough sample size to have the power to disprove it anyway), the whole
@@ -270,7 +270,7 @@ continuous variables/data. Hypothesis test about the means from 2
 different samples. If we can disprove that they are the same, there is a
 difference in the mean between the two samples.  
 T tests are mathematically different if the samples are independent
-(uncoorelated) or dependent/paired (correlated). If they are
+(uncorrelated) or dependent/paired (correlated). If they are
 uncoorelated, it might become important if their variances are
 different. Emphasis on might; an ANOVA can handle variances 8x bigger
 than each other and still manage to get accurate results.
@@ -330,8 +330,8 @@ chi-square value, degrees of freedom, and p-value.
 This is for testing the means of two or more different GROUPS. Are these
 multiple means the same? Note: Often, an amateur mistake is thinking
 multiple T-tests can be done for something, but in reality an ANOVA
-needs to be done as to not muliplicatively reduce the power of a
-result.  
+needs to be done as to not multiplicatively reduce the power of/increase
+alpha of the result.  
 When done by hand, Anova uses both the sample means of (everything), and
 also a ‘grand mean’ which is the mean of all sample means.  
 When the distribution of multiple samples overlap, their means are not
@@ -395,10 +395,10 @@ probability that this result could have happened by chance alone.
 This P-value of 0.000207\<0.05, the typical alpha value. Thus, we can
 reject the null hypothesis that there is no difference between the mean
 of groups that did, or did not, have different fertilzers. The alternate
-hypothesis, that fertilzer impacts the mean in a meaningful way, appears
-true.
+hypothesis, that fertilizer impacts the mean in a meaningful way,
+appears true.
 
-But which fertilzer, 1, 2, or 3, impacts it the most? ANOVA cannot tell
+But which fertilizer, 1, 2, or 3, impacts it the most? ANOVA cannot tell
 us this. We must do a
 
 #### **Post-hoc test**
@@ -424,20 +424,20 @@ TukeyHSD(one.way)
 
 The table result shows the variable being tested (Crop). Then it shows
 the paired differences for our independent variable. In this case, we’d
-already found that the crop yield is DEPENDENT on the fertilzer (but
-which fertilzer we just so happen to add, is independent of what the
-crop yield is in the future). The table compares fertilzer 1, 2, and 3
+already found that the crop yield is DEPENDENT on the fertilizer (but
+which fertilizer we just so happen to add, is independent of what the
+crop yield is in the future). The table compares fertilizer 1, 2, and 3
 with each other.  
-*diff* means the mean difference between the two fertilzer treatments;
+*diff* means the mean difference between the two fertilizer treatments;
 *lwr/upr* are the upper and lower bounds for our confidence interval
 (that the fertilzers, indeed, are different); *p adj* is the P-value, as
 adjusted for this multiple pair comparison test.  
-We can conclude that there is no major difference between fertilzer 2
+We can conclude that there is no major difference between fertilizer 2
 and 1, because the confidence interval includes 0. The difference
 between 3 and 1 is significant (confidence interval does not start near
 1; p-value is nowhere near alpha). There is a significant difference
 between 2 and 3, but because there is no significant difference between
-2 and **1**, we can conclude that *fertilzer 3 positively impacts yield
+2 and **1**, we can conclude that *fertilizer 3 positively impacts yield
 the most*.
 
 #### **Two-way ANOVA**
@@ -445,17 +445,17 @@ the most*.
 2-way starts with the same basic formula, except you add extra
 independent variables. To model your different independent variable NOT
 interacting with each other, use `+`. To model your different
-independent variables YES intearacting with each other, use `*`.  
+independent variables YES interacting with each other, use `*`.  
 Let’s create a few models, and test which is most accurate. Without
 knowing what data specifically to look at, trying to interpret a 2-way
 ANOVA feels like flailing in the dark. We want the model that is the
 best fit for our data; the one that explains the MOST variation.
 
-1.  Is there interaction between what fertilzer is used, what the crop
+1.  Is there interaction between what fertilizer is used, what the crop
     density is, and what the final yield is? Here we use +, to predict
     that crop density does not effect the fertilzer.  
 2.  The same as 1, except we use \*, to see if the crop density DOES
-    affect the fertilzer (which in turn affects final yield).
+    affect the fertilizer (which in turn affects final yield).
 3.  We add ‘block’, because the plants were planted in random blocks. Do
     the random blocks impact results? (If they do, we would probably
     consider this data contaminated.)
@@ -492,7 +492,7 @@ While I don’t know exactly what these numbers mean, I DO know that in an
 AIC model, the best fit will always be listed first, at the top.
 *two.way* is the model we want to use for this 2-way ANOVA.  
 Let’s take a look at the summary, and then postHoc test our results. We
-already know from our one-way ANOVA that fertilzer affects the yield,
+already know from our one-way ANOVA that fertilizer affects the yield,
 but the information about density will be new.
 
 ``` r
@@ -528,8 +528,8 @@ TukeyHSD(two.way)
 In the summary, we reject the null hypothesis that the density does not
 affect the yield.  
 In the postHoc test, we see that there’s a significant difference
-between the two levels of planting density; fertilzer type 3-1; and
-fertilzer 3-2.  
+between the two levels of planting density; fertilizer type 3-1; and
+fertilizer 3-2.  
 But even though we know this, we don’t actually know yet whether
 planting density (high) or (low) is better.  
 Plotting some kind of graph which shows our data, descriptive
@@ -538,12 +538,76 @@ out.
 
 #### **Two way plot**
 
-Let’s use a two-way plot to show this information. We can split our
-output into different groups in a two-way plot. It’ll look like a
-scatterplot, but clustered in a laterial line shape, with two lines for
-each density group.  
-First we have to add our info to a data.frame; and then we should add
-variables to that data.frame for the graph markers.
+Let’s use a two-way plot to show this information; this comes from the
+ggplot2 package that I looked at in Chapter 5. First we have to add our
+info to a data.frame; and then we should add variables to that
+data.frame for the graph markers.
+
+``` r
+mean.yield.crop <- Crop %>%
+  group_by(fertilizer, density) %>%
+  summarise(
+      yield = mean(yield)
+  )
+```
+
+    ## `summarise()` regrouping output by 'fertilizer' (override with `.groups` argument)
+
+``` r
+mean.yield.crop$group <- c("f1 + d1","f1 + d2","f2 + d1","f2 + d2","f3 + d1","f3 + d2")
+
+mean.yield.crop
+```
+
+    ## # A tibble: 6 x 4
+    ## # Groups:   fertilizer [3]
+    ##   fertilizer density yield group  
+    ##        <int>   <int> <dbl> <chr>  
+    ## 1          1       1  176. f1 + d1
+    ## 2          1       2  177. f1 + d2
+    ## 3          2       1  177. f2 + d1
+    ## 4          2       2  177. f2 + d2
+    ## 5          3       1  177. f3 + d1
+    ## 6          3       2  178. f3 + d2
+
+Then we start creating our plot.
+
+```` r
+#First, I fed it the basic information and where to display the graph
+two.way.plot <- ggplot(Crop, aes(x = density, y = yield, group=fertilizer)) +
+  geom_point(cex = 1.5, pch = 1.0,position = position_jitter(w = 0.1, h = 0))
+
+#Second, I told it more about how to display the info, what data the points were coming from, and that it should have the x scale only show 1 and 2.  It's displaying the mean in a big black point.
+two.way.plot <- two.way.plot +
+  stat_summary(fun.data = 'mean_se', geom = 'errorbar', width = 0.2) +
+  stat_summary(fun.data = 'mean_se', geom = 'pointrange') +
+  geom_point(data=mean.yield.crop, aes(x=density, y=yield)) + scale_x_continuous(breaks = c(1,2))
+
+#Third, I told it where and how big to set the <chr> labels I made with ```mean.yield.crop$group```
+two.way.plot <- two.way.plot +
+  geom_text(data=mean.yield.crop, label=mean.yield.crop$group, vjust = -10, size = 3.5) +
+  facet_wrap(~ fertilizer)
+
+#Last, I told it what to name the axis, and what theme to display the data in.  
+two.way.plot <- two.way.plot +
+    theme_test() +
+  labs(title = "Crop yield when using new fertilzers (1, 2, 3) and different densities (1, 2)",
+      x = "Planting density (1=low, 2=high)",
+      y = "Yield (in bushels/acre)")
+
+two.way.plot
+````
+
+![](CH6-part1_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+
+Our two-way plot shows that, **with fertilizer 3 and planting density 2
+(high density), we get the most bushels per acre** (what the yield in
+our sample dataset is measured in). While the difference may not look
+massive on the graph itself, we know from our ANOVA that the variance
+between these variables is not by random chance alone and that it’s
+statistically significant. We did both a postHoc test and a graph so
+that we could show numerically AND visually what variables the data
+variance came from.
 
 To continue reading the CH6 reports, select a new section:  
 Next: [Part 2 of the Chapter 6

@@ -13,7 +13,7 @@ it’s been hot so many leaves have been wilting and dying, but this lack
 of information doesn’t make much sense. I might see about using a
 regression model to fill in the gaps once my dataset is complete?
 
-**Tuesday** - 1 hour 4 minutes +4 - collected data, put into excel
+**Tuesday** - 1 hour 9 minutes +4 - collected data, put into excel
 sheet. One of the leaves was kind of weird, but less bloopers than
 yesterday. Really bad start to the day, though . . . my roomate got home
 from a roadtrip 3 days early (technically yesterday), and then even
@@ -23,7 +23,14 @@ Continued work on chapter report. Fixed some problems that I was running
 into with a package not installing correctly. Also made the table of
 contents nicer, by giving it multiple tiers\!
 
-**Wednesday** -
+**Wednesday** - 2 hours 30 minutes - collected data, put into excel
+sheet. Leaf 1 of cardoon2 died today. Finished doing an ANOVA for my
+sample data, and made a plot with ggplot2\! It was really complicated
+and I definitely wouldn’t have been able to do it without several sample
+graphs to look at and figure out what everything does, but it was much
+more helpful than when I was just trying to understand everything in
+theory back in Chapter 5. Accidentally didn’t have my timer running
+today, so I made my best guess.
 
 **Thursday** -
 
