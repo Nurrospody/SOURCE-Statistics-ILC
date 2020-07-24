@@ -3,7 +3,7 @@ Week 15 Worklog/Timecard
 Nurrospody
 7/20/2020
 
-**Total Time inclusive from 20JUL2020 to 26JUL2020** : 5 hour 6 minutes
+**Total Time inclusive from 20JUL2020 to 26JUL2020** : 7 hour 18 minutes
 
 **Monday** - 1 hour 2 minutes - wrapped up old/made new timecards;
 collected data. Explained briefly what a t-test and ANOVA were to my

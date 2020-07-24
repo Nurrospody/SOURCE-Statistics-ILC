@@ -9,7 +9,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-**Total Time inclusive from 20JUL2020 to 26JUL2020** : 5 hour 6 minutes
+**Total Time inclusive from 20JUL2020 to 26JUL2020** : 7 hour 18 minutes
 
 **Monday** - 1 hour 2 minutes - wrapped up old/made new timecards; collected data.  Explained briefly what a t-test and ANOVA were to my partner (it was a good excercise to solidify my understanding).  Recorded data.  For some reason, Cardoon 1 is missing several entries on leaf 6?  it's been hot so many leaves have been wilting and dying, but this lack of information doesn't make much sense.  I might see about using a regression model to fill in the gaps once my dataset is complete?  
 
