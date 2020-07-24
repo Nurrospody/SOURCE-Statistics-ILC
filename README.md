@@ -31,7 +31,8 @@ My Chapter Reports show my work and the commands I've practiced with in R.
 [CH5 part 2](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH5-part2.md) 
 
 *Chapter 6*  
-[CH5 part1 Inferential Stats until ANOVA ](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part1.md)   
+[CH6 part1 Inferential Stats until ANOVA](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part1.md)   
+[CH6 part2 Inferential Stats, T-test, Chi Test, C/C](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part2.md)   
 
 ## "Statistics Gone Wrong Musings" folder  
 Contains writeups that I've made after reading my *Statistics Gone Wrong* book by Alex Reinhart.  

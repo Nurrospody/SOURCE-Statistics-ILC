@@ -20,7 +20,9 @@ Continued work on chapter report.  Fixed some problems that I was running into w
 
 **Thursday** - 21 minutes - collected data, put into excel sheet.  Exhausting conflict with roomate, might not get more work done today.  I'll see how it goes after taking a break.
 
-**Friday** - 
+**Friday** - 2 hour 12 minutes - collected data, put into excel sheet.  Worked on chapter6 part 2--t-tests (2 kinds) and attempted chi-square tests.  It was super helpful for figuring out what was what.  
+Had my faculty meeting at 4:30-- my sponsor was pretty impressed with all that I got done this week!!  That made me really happy :3   
+NEXT WEEK, work on: chi-square tests, correlation tests, look up what everything in an AIC test means.  Rest of chapter 6.  Maybe look into a new stats book?  
 
 **Saturday** -
 

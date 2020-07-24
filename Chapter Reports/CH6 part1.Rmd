@@ -1,5 +1,5 @@
 ---
-title: "CH6 part 1 *Inferential Statistics & Regressions* (apply)"
+title: "CH6 part 1 *Inferential Statistics & Regressions*"
 author: "Nurrospody"
 date: "7/13/2020, *Learn R for Applied Statistics : With Data Visualizations, Regressions, and Statistics*"
 output:
