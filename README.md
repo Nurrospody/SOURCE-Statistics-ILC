@@ -64,6 +64,7 @@ Each week has its own Timecard.  In these timecards, I record via stopwatch how 
 [Week 13 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-13-Timecard.md)  
 [Week 14 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-14-Timecard.md)  
 [Week 15 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-15-Timecard.md)  
+[Week 16 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-16-Timecard.md)  
 
 
 ## "data_sources" folder

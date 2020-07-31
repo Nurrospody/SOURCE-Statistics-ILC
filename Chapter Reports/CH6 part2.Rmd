@@ -29,6 +29,46 @@ require(ggplot2)
 require(xlsx)
 Garden <- read.xlsx(file="../data_sources/Garden Practicum.xlsx", 1)
 Garden2 <- read.xlsx(file="../data_sources/Garden Practicum.xlsx", 2)
+FB <- read.xlsx(file="../data_sources/FriendshipBonus.xlsx", 1)
+
+sex <- c("Male", "Female", "Male", "Female", "Male",
+"Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male",
+"Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male",
+"Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male",
+"Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male",
+"Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male",
+"Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male",
+"Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male",
+"Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male",
+"Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male",
+"Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male",
+"Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male",
+"Female", "Male", "Female", "Male", "Female");
+milkshake<- c("chocolate", "strawberry", "strawberry",
+"strawberry", "chocolate", "chocolate", "chocolate",
+"strawberry", "strawberry", "strawberry", "chocolate", "strawberry", "strawberry",
+"strawberry", "chocolate", "chocolate", "chocolate",
+"strawberry", "strawberry", "strawberry", "chocolate", "strawberry", "strawberry",
+"strawberry", "chocolate", "chocolate", "chocolate",
+"strawberry", "strawberry", "strawberry", "chocolate", "strawberry", "strawberry",
+"strawberry", "chocolate", "chocolate", "chocolate",
+"strawberry", "strawberry", "strawberry", "chocolate", "strawberry", "strawberry",
+"strawberry", "chocolate", "chocolate", "chocolate",
+"strawberry", "strawberry", "strawberry", "chocolate", "strawberry", "strawberry",
+"strawberry", "chocolate", "chocolate", "chocolate",
+"strawberry", "strawberry", "strawberry", "chocolate", "strawberry", "strawberry",
+"strawberry", "chocolate", "chocolate", "chocolate",
+"strawberry", "strawberry", "strawberry", "chocolate", "strawberry", "strawberry",
+"strawberry", "chocolate", "chocolate", "chocolate",
+"strawberry", "strawberry", "strawberry", "chocolate", "strawberry", "strawberry",
+"strawberry", "chocolate", "chocolate", "chocolate",
+"strawberry", "strawberry", "strawberry", "chocolate", "strawberry", "strawberry",
+"strawberry", "chocolate", "chocolate", "chocolate",
+"strawberry", "strawberry", "strawberry", "chocolate", "strawberry", "strawberry",
+"strawberry", "chocolate", "chocolate", "chocolate",
+"strawberry", "strawberry", "strawberry", "chocolate", "strawberry", "strawberry",
+"strawberry", "chocolate", "chocolate", "chocolate",
+"strawberry", "strawberry", "strawberry");
 ```
 
 *Let's revisit some sections that only had basic notes written down in Chapter6 part1.*  
@@ -61,24 +101,61 @@ relationships between categorical variables/data (rather than continuous data)
 uses hypothesis test null/alternate arguments.  
 
 #### **One categorical variable (Goodness of Fit)**  
-Question: Is this one sample we have, consistent with the distribution of the other ones?  
-```chisq.test(data)```  function 
+I helped collect a dataset about friendship bonuses in pokémon café mix, and we were interested in see if all pokémon visited at a frequency that was (or was not) approximately equal.  While the amount of data we collected was not very big, it was categorical data like is needed for a goodness of fit test.  
+First I created a frequency table to use, then I preformed the test.
 
 ```{r}
+FBtable <-table(FB$Pokemon); FBtable;
+chisq.test(FBtable);
 ```
-
+The warning message comes from the fact that the expected value for each variable is thirty one divided by fifteen . . . or approximately 2.  This value is very small.  This means it can't prove that DRA appearing 5 times is significant compared to SQT who appears 3 times, or BEL who shows up once.  The test can only say that this particular batch is 75% likely to happen by chance alone.
 
 
 #### **Two categorical variable (Contingency Test)** 
-Question: is there a relationship between these two variables?  
+Question: is there a relationship between these two variables?  i.e. can we disprove indepdndence?  
 ```chisq.test(data.table)``` function  
-I decided to see if the distribution of live pansies, was consistant with the distribution of dead pansies.  The amount of dead pansies s less than live ones on any given days, but will it see a similar pattern?  I need to review what chi-square tests are in my basic stats textbook, so seeing the result should help.  
+There isn't an actual difference in how to excecute the chisq.test for a contingency test and a chi-squared test, but the formula that is used if you put in one variable or two is different.  
+Originally I had forgotten that it needed categorical values to work at first, since that's how tables work, and I got this monstrosity:  
 ```{r}
 Pansylife <- data.frame(Garden$Pansy3, Garden2$Pansy3);
 Pansytable <- table(Pansylife);
 Pansytable
 ```
-. . . I forgot that it had to be categorical variables and not numerical, so this result doesn't make a lot of sense.  At least that definitely shows what a chi-square test is supposed to be for!!
-I was thinking of a Correlation test ```cor()``` which I still have to revisit.  
-
 Making mistakes about what tests do what has actually been super helpful so far for figuring out what does what, though.
+
+
+Then I took categorical data from the pokémon café dataset: which category of pokémon the customer was, and which category of customer the server was.  (servers are at the columns; customers areon the rows).  Unlike the previous table, this one actually means something.  However, it is super big; normally, contingency tests are only done with 2 X and 2 Y tables.  I wanted to see what would happen.
+```{r}
+FStable <- table(FB$Pokemon, FB$Server)
+FStable
+chisq.test(FStable)
+```
+Well it's not surprising to me that no dependence was found, haha.  There weren't a lot of points to deal with anyway.  
+
+Finally, let's take an arbitrary dataset from the *Learn R For Applied Statistics* book, that will certainly be compatible with the equation because it is part of a 2x2 table.  I've multiplied the data to n120 because they did not make a high enough n to ever reject the null hypothesis . . .  I included the c() in the invisible block because it was very long.  
+```{r}
+shaketable <- table(sex, milkshake)
+shaketable
+chisq.test(shaketable)
+```
+Here, the p-value is so low that we can disprove that the variables are independent of each other.  However.  The original dataset that this came from had a p-value of 0.5, and we got this test by multiplying each value in that original test by twelve.  That means that this dataset was NOT randomly obtained, and the p-value here actually means nothing.  This might seem like an inane test to even do, but when collecting data with my friends I definitely thought about multiplying the data we did have for a split moment before realizing it would simply bias the results.  Having enough data to multiply it responsibly is important.  
+
+### Correlation 183-184  
+Let's test for if the values of live pansies on a single plant per day; and the values of dead pansies removed from a single plant per day; are correlated with each other.  We want something close to +-0.8.
+```{r}
+cor(Garden$Pansy1, Garden2$Pansy1);
+```
+The correlation between the amount of live pansies, and the amount of dead pansies, is 'a positive correlation is there, but it is weak and unimportant'.  This 'seems' wrong, but correlation is not the same as causation (live and dead pansies are paired variables).  
+It seems that correlations from 0.3-0.7 are considered moderate, and above that are strong.  0.8 is worth noting.  (80% of the changes in variable Y are based on changes in variable X.)  
+
+I did a second correlation test as well, with another dataset I helped collect.  One of my friends took screenshots containing information from a Pokémon Café Mix video game (what orders friendship bonuses occured on), and I put the [data]() into an excel sheet so that it would be easier to crunch numbers.  I was curious if there was any correlation between the number of Master Points he had, and how often friendship bonuses happened.  
+```{r}
+cor(FB$MasterPoint[2:31], FB$StagesSince[2:31])
+```
+Honestly, I'm surprised that the correlation isn't even closer to zero.  There seems to be a weak correlation, but nothing that is significant.  We can't claim that there is a correlation this way.  Perhaps, when the master points reset, we can get more data if he is interested?  
+
+### Covariance 185-186 
+```{r}
+cov(Garden$Pansy1, Garden2$Pansy1);
+``` 
+Covariance is similar to correlation; here, our covariance is positive because as one variable increases (live pansies), the other variable also increases (dead pansies).  This makes sense.  However, it seems the relationship here isn't very good. 

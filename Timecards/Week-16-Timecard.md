@@ -1,0 +1,84 @@
+Week 16 Worklog/Timecard
+================
+Nurrospody
+7/29/2020
+
+**Total Time inclusive from 27JUL2020 to 2AUG2020** : 5 hour 41 minutes
+
+**Monday** - 11 minutes - collected data.
+
+**Tuesday** - 51 minutes - Intended to start today, but got pulled into
+post office stuff . . . but I did have a very interesting conversation
+with a group of my discord friends\! Someone expressed interest in
+figuring out, statistically, if all the different pokémon who appear in
+Pokémon Café Mix have significantly different encounter rates. I
+mentioned that we could use an ANOVA to compare the variance if we got
+enough people collecting data on how many times they encountered X
+pokémon in n different levels. But it’s interesting that it’s an
+ANOVA–a simpler approach, like testing if the mean of a couple
+different ‘rarer’ pokémon is the same as (n/X), feels a lot more
+intuitive to get the same answer in a less intensive way. But in order
+for the data to be sound and for there to be any maintained power,
+because there are 19 variables, it needs to be put through an ANOVA.  
+So we talked about that, and how we would collect the data. I mentioned
+that organizing poorly collected data takes longer than running the
+tests and interpretting the results . . . so getting a standard down for
+all participants would be important. I also thought about how initially,
+I wanted to have a collection of different samples with the same n; even
+though I would still want to do a meta-analysis with all datasets
+collected in one at the end. I wonder why I initially wanted to keep the
+data seperate?  
+But there are many more complicated questions that people want answers
+for, that I can’t solve with a simple ANOVA (though everything starts
+with simple data collection in the beginning, regardless of the end
+goal). Some want to know if different users have different patterns of
+pokémon appearing; or if there’s ways to manipulate order RNG to get
+certain pokémon with friendship bonuses. These are questions that would
+be looked into significantly later into info crunching . . . and I’m not
+sure if there’s statistical tests where you could really find these
+things by just looking at number data, rather than using datamining. We
+have figured out how to do complicated things in the real world, where
+we couldn’t datamine . . . yet we often don’t know whether doing
+activity X or Y way is actually better.  
+People kind of put down the idea because ambitions went high, and they
+weren’t sure how interested they were in finding out if the variance of
+encounter rates were significantly different seeing how everyone is
+ALREADY convinced that they are significantly different. (It’d take a
+lot of data, too, to have enough power to prove that in the first
+place). Regardless, it was amazing having a skillset that I can do come
+up in the conversation\! I forget how much I know about stats, and kind
+of take it for granted, but I feel like I was accidentally talking an
+alien language most of the time when talking about tests. (My partner
+mentioned this once, too).
+
+also, collected data.
+
+**Wednesday** - 1 hour 19 minutes - realized that I have reached n31 for
+my garden data\! I input the past 4 days of data, made my new timecard,
+updated README, reflected on the week so far.
+
+Other data collection projects started in my discord channel; this time
+they started collecting data on whenever pokémon with friendship bonuses
+came up. They were posting screenshots with the info, but I recognized
+that trying to get info from all that would take frustrating hours when
+they were done (and it’d be hard to know when all variabiables have \>=
+3 entries without a datasheet) so I started recording it for them. We’ll
+probably run an ANOVA on it later, assuming they don’t lose interest
+before enough data is collected to make meaningful conclusions. I think
+that’s the main limitation in a peer-run group that’s just collecting
+info for a game.
+
+I didn’t time this data recording as part of my ILC, but I do have an
+additonal n30 dataset to work with now that I compiled together.
+
+**Thursday** - 3 hours 20 minutes - did a bunch of different chisquare
+tests, a correlation tests, using some of my actual data and figuring
+out what was useful to share with my server friends.
+
+**Friday** -
+
+**Saturday** -
+
+**Sunday** -
+
+**End of Week Comments**:

@@ -9,7 +9,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-**Total Time inclusive from 20JUL2020 to 26JUL2020** : 7 hour 18 minutes
+**Total Time inclusive from 20JUL2020 to 26JUL2020** : 7 hour 41 minutes
 
 **Monday** - 1 hour 2 minutes - wrapped up old/made new timecards; collected data.  Explained briefly what a t-test and ANOVA were to my partner (it was a good excercise to solidify my understanding).  Recorded data.  For some reason, Cardoon 1 is missing several entries on leaf 6?  it's been hot so many leaves have been wilting and dying, but this lack of information doesn't make much sense.  I might see about using a regression model to fill in the gaps once my dataset is complete?  
 
@@ -24,11 +24,12 @@ Continued work on chapter report.  Fixed some problems that I was running into w
 Had my faculty meeting at 4:30-- my sponsor was pretty impressed with all that I got done this week!!  That made me really happy :3   
 NEXT WEEK, work on: chi-square tests, correlation tests, look up what everything in an AIC test means.  Rest of chapter 6.  Maybe look into a new stats book?  
 
-**Saturday** -
+**Saturday** - 11 minutes - collected data.
 
-**Sunday** - 
+**Sunday** - 11 minutes - collected data.
 
-**End of Week Comments**: Next week, my n30 for garden data will be finished!  Hopefully (this is a pre-emptive comment from Monday) I should start doing something with it next week after working through Chapter 6.
+**End of Week Comments**: Next week, my n30 for garden data will be finished!  Hopefully (this is a pre-emptive comment from Monday) I should start doing something with it next week after working through Chapter 6.  
+Overall, a good week!  I felt very proud of myself after meeting, so I was comfortable taking the week off.
 
 
  

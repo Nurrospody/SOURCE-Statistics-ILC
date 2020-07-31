@@ -12,6 +12,8 @@ Regressions, and Statistics*
         Fit)**](#one-categorical-variable-goodness-of-fit)
       - [**Two categorical variable (Contingency
         Test)**](#two-categorical-variable-contingency-test)
+  - [Correlation 183-184](#correlation-183-184)
+  - [Covariance 185-186](#covariance-185-186)
 
 *Let’s revisit some sections that only had basic notes written down in
 Chapter6 part1.*
@@ -75,13 +77,13 @@ t.test(Garden$Pansy2, Garden$Pansy5, var.equal=TRUE, paired=FALSE)
     ##  Two Sample t-test
     ## 
     ## data:  Garden$Pansy2 and Garden$Pansy5
-    ## t = 2.9729, df = 50, p-value = 0.004529
+    ## t = 4.4146, df = 58, p-value = 4.468e-05
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  0.4366744 2.2556333
+    ##  1.111357 2.955310
     ## sample estimates:
     ## mean of x mean of y 
-    ##  3.730769  2.384615
+    ##  4.100000  2.066667
 
 I chose to look at pansy 2 and pansy 5 because they have been very
 succesful at different times in the past 26 days.  
@@ -103,19 +105,50 @@ uses hypothesis test null/alternate arguments.
 
 #### **One categorical variable (Goodness of Fit)**
 
-Question: Is this one sample we have, consistent with the distribution
-of the other ones?  
-`chisq.test(data)` function
+I helped collect a dataset about friendship bonuses in pokémon café mix,
+and we were interested in see if all pokémon visited at a frequency that
+was (or was not) approximately equal. While the amount of data we
+collected was not very big, it was categorical data like is needed for a
+goodness of fit test.  
+First I created a frequency table to use, then I preformed the test.
+
+``` r
+FBtable <-table(FB$Pokemon); FBtable;
+```
+
+    ## 
+    ## BEL BUL CHA DRA JIG KIR LAX LUC MIN PIK SLU SNU SQT STA STE 
+    ##   1   2   2   5   1   1   2   2   2   1   4   1   3   1   3
+
+``` r
+chisq.test(FBtable);
+```
+
+    ## Warning in chisq.test(FBtable): Chi-squared approximation may be incorrect
+
+    ## 
+    ##  Chi-squared test for given probabilities
+    ## 
+    ## data:  FBtable
+    ## X-squared = 10.129, df = 14, p-value = 0.7527
+
+The warning message comes from the fact that the expected value for each
+variable is thirty one divided by fifteen . . . or approximately 2. This
+value is very small. This means it can’t prove that DRA appearing 5
+times is significant compared to SQT who appears 3 times, or BEL who
+shows up once. The test can only say that this particular batch is 75%
+likely to happen by chance alone.
 
 #### **Two categorical variable (Contingency Test)**
 
-Question: is there a relationship between these two variables?  
+Question: is there a relationship between these two variables? i.e. can
+we disprove indepdndence?  
 `chisq.test(data.table)` function  
-I decided to see if the distribution of live pansies, was consistant
-with the distribution of dead pansies. The amount of dead pansies s less
-than live ones on any given days, but will it see a similar pattern? I
-need to review what chi-square tests are in my basic stats textbook, so
-seeing the result should help.
+There isn’t an actual difference in how to excecute the chisq.test for a
+contingency test and a chi-squared test, but the formula that is used if
+you put in one variable or two is different.  
+Originally I had forgotten that it needed categorical values to work at
+first, since that’s how tables work, and I got this monstrosity:
 
 ``` r
 Pansylife <- data.frame(Garden$Pansy3, Garden2$Pansy3);
@@ -127,13 +160,142 @@ Pansytable
     ## Garden.Pansy3 0 1 2 3 6
     ##             2 6 2 2 0 0
     ##             3 9 1 0 0 0
-    ##             4 4 0 0 0 1
+    ##             4 7 1 0 0 1
     ##             5 0 0 0 1 0
-
-. . . I forgot that it had to be categorical variables and not
-numerical, so this result doesn’t make a lot of sense. At least that
-definitely shows what a chi-square test is supposed to be for\!\! I was
-thinking of a Correlation test `cor()` which I still have to revisit.
 
 Making mistakes about what tests do what has actually been super helpful
 so far for figuring out what does what, though.
+
+Then I took categorical data from the pokémon café dataset: which
+category of pokémon the customer was, and which category of customer the
+server was. (servers are at the columns; customers areon the rows).
+Unlike the previous table, this one actually means something. However,
+it is super big; normally, contingency tests are only done with 2 X and
+2 Y tables. I wanted to see what would happen.
+
+``` r
+FStable <- table(FB$Pokemon, FB$Server)
+FStable
+```
+
+    ##      
+    ##       BUL CHA DOG DRA JIG LAX LUC MIN SLU SNU SQT STA STE TOG
+    ##   BEL   0   0   0   0   0   0   0   0   0   0   1   0   0   0
+    ##   BUL   0   0   0   0   0   0   1   0   1   0   0   0   0   0
+    ##   CHA   0   0   0   0   0   0   0   0   1   1   0   0   0   0
+    ##   DRA   0   0   0   0   1   0   0   1   0   0   3   0   0   0
+    ##   JIG   0   0   0   1   0   0   0   0   0   0   0   0   0   0
+    ##   KIR   0   0   0   0   0   0   0   0   0   0   1   0   0   0
+    ##   LAX   0   0   0   0   0   1   0   0   1   0   0   0   0   0
+    ##   LUC   2   0   0   0   0   0   0   0   0   0   0   0   0   0
+    ##   MIN   1   0   0   0   0   0   0   0   0   1   0   0   0   0
+    ##   PIK   0   0   0   0   0   0   1   0   0   0   0   0   0   0
+    ##   SLU   0   1   0   0   0   1   0   0   0   0   0   0   1   1
+    ##   SNU   0   0   0   0   0   0   0   0   0   0   0   1   0   0
+    ##   SQT   0   0   1   0   0   1   0   0   0   0   0   1   0   0
+    ##   STA   0   0   0   0   0   0   0   1   0   0   0   0   0   0
+    ##   STE   1   0   0   0   0   0   1   0   0   0   1   0   0   0
+
+``` r
+chisq.test(FStable)
+```
+
+    ## Warning in chisq.test(FStable): Chi-squared approximation may be incorrect
+
+    ## 
+    ##  Pearson's Chi-squared test
+    ## 
+    ## data:  FStable
+    ## X-squared = 183.5, df = 182, p-value = 0.4548
+
+Well it’s not surprising to me that no dependence was found, haha. There
+weren’t a lot of points to deal with anyway.
+
+Finally, let’s take an arbitrary dataset from the *Learn R For Applied
+Statistics* book, that will certainly be compatible with the equation
+because it is part of a 2x2 table. I’ve multiplied the data to n120
+because they did not make a high enough n to ever reject the null
+hypothesis . . . I included the c() in the invisible block because it
+was very long.
+
+``` r
+shaketable <- table(sex, milkshake)
+shaketable
+```
+
+    ##         milkshake
+    ## sex      chocolate strawberry
+    ##   Female        12         48
+    ##   Male          36         24
+
+``` r
+chisq.test(shaketable)
+```
+
+    ## 
+    ##  Pearson's Chi-squared test with Yates' continuity correction
+    ## 
+    ## data:  shaketable
+    ## X-squared = 18.368, df = 1, p-value = 1.821e-05
+
+Here, the p-value is so low that we can disprove that the variables are
+independent of each other. However. The original dataset that this came
+from had a p-value of 0.5, and we got this test by multiplying each
+value in that original test by twelve. That means that this dataset was
+NOT randomly obtained, and the p-value here actually means nothing. This
+might seem like an inane test to even do, but when collecting data with
+my friends I definitely thought about multiplying the data we did have
+for a split moment before realizing it would simply bias the results.
+Having enough data to multiply it responsibly is important.
+
+### Correlation 183-184
+
+Let’s test for if the values of live pansies on a single plant per day;
+and the values of dead pansies removed from a single plant per day; are
+correlated with each other. We want something close to +-0.8.
+
+``` r
+cor(Garden$Pansy1, Garden2$Pansy1);
+```
+
+    ## [1] -0.2052695
+
+The correlation between the amount of live pansies, and the amount of
+dead pansies, is ‘a positive correlation is there, but it is weak and
+unimportant’. This ‘seems’ wrong, but correlation is not the same as
+causation (live and dead pansies are paired variables).  
+It seems that correlations from 0.3-0.7 are considered moderate, and
+above that are strong. 0.8 is worth noting. (80% of the changes in
+variable Y are based on changes in variable X.)
+
+I did a second correlation test as well, with another dataset I helped
+collect. One of my friends took screenshots containing information from
+a Pokémon Café Mix video game (what orders friendship bonuses occured
+on), and I put the [data]() into an excel sheet so that it would be
+easier to crunch numbers. I was curious if there was any correlation
+between the number of Master Points he had, and how often friendship
+bonuses happened.
+
+``` r
+cor(FB$MasterPoint[2:31], FB$StagesSince[2:31])
+```
+
+    ## [1] 0.3299343
+
+Honestly, I’m surprised that the correlation isn’t even closer to zero.
+There seems to be a weak correlation, but nothing that is significant.
+We can’t claim that there is a correlation this way. Perhaps, when the
+master points reset, we can get more data if he is interested?
+
+### Covariance 185-186
+
+``` r
+cov(Garden$Pansy1, Garden2$Pansy1);
+```
+
+    ## [1] -0.3356322
+
+Covariance is similar to correlation; here, our covariance is positive
+because as one variable increases (live pansies), the other variable
+also increases (dead pansies). This makes sense. However, it seems the
+relationship here isn’t very good.
