@@ -3,7 +3,7 @@ Week 16 Worklog/Timecard
 Nurrospody
 7/29/2020
 
-**Total Time inclusive from 27JUL2020 to 2AUG2020** : 5 hour 41 minutes
+**Total Time inclusive from 27JUL2020 to 2AUG2020** : 8 hour
 
 **Monday** - 11 minutes - collected data.
 
@@ -73,9 +73,15 @@ additonal n30 dataset to work with now that I compiled together.
 
 **Thursday** - 3 hours 20 minutes - did a bunch of different chisquare
 tests, a correlation tests, using some of my actual data and figuring
-out what was useful to share with my server friends.
+out what was useful to share with my server friends about supposed
+significancy of encounter rates. (There was no apparent significance
+findable with the low power of test we had).
 
-**Friday** -
+**Friday** - 2 hours 20 minutes - looked into what AIC testing was, and
+talked to sponsor in weekly meeting\!  
+4:50 is a good meeting time.  
+Next week: resampling, MANOVA, non-parametric tests, more data stuff
+with server
 
 **Saturday** -
 

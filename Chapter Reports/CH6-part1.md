@@ -162,7 +162,7 @@ Here’s an example for the sake of practice:
 sample(Madoka$album.info, 6, FALSE)
 ```
 
-    ## [1] Volume 2 Volume 1 Volume 2 Volume 3 Volume 1 Volume 1
+    ## [1] Volume 1 Volume 1 Volume 2 Volume 3 Volume 2 Volume 2
     ## Levels: Volume 1 Volume 2 Volume 3
 
 Here, I’m randomly selecting 6 different (no replacement) values from
@@ -191,15 +191,15 @@ sample_n(3)
     ## # Groups:   Species [3]
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
     ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>     
-    ## 1          5.7         4.4          1.5         0.4 setosa    
-    ## 2          5           3.5          1.6         0.6 setosa    
-    ## 3          4.6         3.1          1.5         0.2 setosa    
-    ## 4          6           3.4          4.5         1.6 versicolor
-    ## 5          6.2         2.9          4.3         1.3 versicolor
-    ## 6          6.3         3.3          4.7         1.6 versicolor
-    ## 7          6.5         3.2          5.1         2   virginica 
-    ## 8          6.7         3            5.2         2.3 virginica 
-    ## 9          6.3         2.9          5.6         1.8 virginica
+    ## 1          4.7         3.2          1.3         0.2 setosa    
+    ## 2          5.1         3.7          1.5         0.4 setosa    
+    ## 3          5.1         3.5          1.4         0.3 setosa    
+    ## 4          6.1         2.8          4           1.3 versicolor
+    ## 5          5.8         2.7          3.9         1.2 versicolor
+    ## 6          6.7         3            5           1.7 versicolor
+    ## 7          6.5         3            5.5         1.8 virginica 
+    ## 8          6.5         3            5.2         2   virginica 
+    ## 9          6.7         2.5          5.8         1.8 virginica
 
 Normally, Iris is 50 different sepal measurements from 3 different
 flower species, for a total of 150 samples. This sample\_n() is taking 3
@@ -221,9 +221,9 @@ slice_sample(6)
     ## # Groups:   Species [3]
     ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
     ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>     
-    ## 1          5.1         3.4          1.5         0.2 setosa    
-    ## 2          6.3         2.3          4.4         1.3 versicolor
-    ## 3          6.7         3.1          5.6         2.4 virginica
+    ## 1          5.1         3.5          1.4         0.2 setosa    
+    ## 2          5.8         2.6          4           1.2 versicolor
+    ## 3          6.2         3.4          5.4         2.3 virginica
 
 ### Correlation basic notes 183-184 (revisit after ANOVA)
 
