@@ -10,10 +10,57 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+Modes <- function(x) {
+  ux <- unique(x)
+  tab <- tabulate(match(x, ux))
+  ux[tab == max(tab)]
+}
+
+Madoka <- read.csv(file="../data_sources/Madoka Magika Volume 1-3.csv")
+
+Smallmad <- Madoka[1:5,]
+require(dplyr)
+
+Crop <- read.csv(file="../data_sources/crop.data.csv")
+require(AICcmodavg)
+require(ggplot2)
+
+require(xlsx)
+Garden <- read.xlsx(file="../data_sources/Garden Practicum.xlsx", 1)
+Garden2 <- read.xlsx(file="../data_sources/Garden Practicum.xlsx", 2)
+FB <- read.xlsx(file="../data_sources/FriendshipBonus.xlsx", 1)
 ```
 
+### MANOVA  
+*While an ANOVA tests for 'what is the effect on X based on 3+ different variables', MANOVA tests for 'what is the effect of x variable on 3 different outcomes'.*  MANOVA is *multi*variate analysis of variance, rather than a (single) variate analysis of variance.  It seems to be less common, as there is less information about MANOVA than ANOVA.  Even the ```help(manova)``` page doesn't have any commands and simply redirects to the ```help(aov)``` page.
 
+Despite the similar names, they're used for very different things.  I wouldn't be surprised if using a MANOVA on a dataset where it's not warranted, would result in 'fake results' that could be exploited for publicity . . .  because of this I don't want to try and contort my new n134 dataset about friendship data to fit into an ANOVA.  My dataset that I collected, doesn't really have enough factors either, because I didn't collect anything about the weather or bugs or other extraneous things.  I'll use the iris data instead.  
 
+#### Iris dataset summary  
+
+```{r}
+data("iris")
+str(iris)
+summary(iris)
+```
+
+With this dataset we have one variable--species--that we can clearly hypothesize about having an effect on the other 4 variables (sepal and petal width/length).  MANOVA doesn't appear to use any special 'does this variable effect the other variables' like ANOVA does, because that's not the point here.  We just ask to concatenate bind some variables together, and ~ it to another variable while specifying our data.  
+
+#### MANOVA with all 4 dependent variables  
+```{r}
+MrIris <- manova(cbind(iris$Sepal.Length, iris$Sepal.Width, iris$Petal.Length, iris$Petal.Width) ~ iris$Species, data=iris);
+summary(MrIris, intercept = TRUE)
+```
+What we can see here is that, based on coorelation between these 4 variables, they were definitely impacted by the species of flower.  But how to tell which variable was impacted by species?  I can use the summary.aov() command for that, and it'll spit out different Responses (1, 2, 3, 4).  The numbers of the responses co-incide which what order the variables were put into the MrIris variable.  ~~he's Mister Iris because he's a MANova~~  
+
+#### Follow-up analysis
+```{r}
+summary.aov(MrIris)
+```
+We can see that the p-value of all these variables is *actually* the same.  That makes sense, because a flower's species has just as much impact on its sepals, as its petals, as everything else.  In a dataset that wasn't asking something basic like, how does what something is impact how it is, or how much does the circumfrence and radius of a circle coorelate (essentially), we would get differing p-values and that would narrow down our focus.  Othertimes, we might even get a MANOVA that proves there is a significant difference between one group and another, but the univariate ANOVA follow-up doesn't accomodate for variable coorelation.  This seems to impact whether you can do a 'contrast' or not with intercepts.  
+
+I found a source that discussed using 'contrast models' after doing an ANOVA, but we don't really have any data to contrast here.  There are notes about these contrasts on github [here](https://gaopinghuang0.github.io/2017/11/20/MANOVA-notes-and-R-code).  
 
 
 To continue reading the CH6 reports, select a new section:  

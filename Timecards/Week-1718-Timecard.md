@@ -8,7 +8,10 @@ tests, more data stuff with server
 
 **Total Time inclusive from 7AUG2020 to 13AUG2020** :
 
-**Friday** -
+**Friday** - 1 hour 30 minutes - MANOVA. Had to look around quite a bit
+to figure out how to do this one, it seems pretty unpopular. Also made
+new timecards, editted README, new chapter report RMD.  
+Brief meeting at 4.
 
 **Saturday** -
 
