@@ -299,3 +299,12 @@ Covariance is similar to correlation; here, our covariance is positive
 because as one variable increases (live pansies), the other variable
 also increases (dead pansies). This makes sense. However, it seems the
 relationship here isn’t very good.
+
+To continue reading the CH6 reports, select a new section:  
+Next: [Part 3 of the Chapter 6
+Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part3.md)  
+Previous: [Part 1 of the Chapter 6
+Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part1.md)
+
+[Link to README to select any Chapter
+Report](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/README.md)

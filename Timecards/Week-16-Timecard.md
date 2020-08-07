@@ -87,4 +87,7 @@ with server
 
 **Sunday** -
 
-**End of Week Comments**:
+**End of Week Comments**: An interesting week\! I got a lot of practical
+experience doing stats with a real group of people who wanted to find
+out stuff. Now I have two sources of inspiration to work–my ILC and
+helping out my people\!

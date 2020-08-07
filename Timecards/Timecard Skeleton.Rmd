@@ -15,6 +15,8 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+**Learning Objectives this week** - 
+
 **Total Time inclusive from 6JUL2020 to 12JUL2020** : 
 
 **Monday** - 
