@@ -29,6 +29,7 @@ require(ggplot2)
 require(xlsx)
 Garden <- read.xlsx(file="../data_sources/Garden Practicum.xlsx", 1)
 Garden2 <- read.xlsx(file="../data_sources/Garden Practicum.xlsx", 2)
+require(moments)
 FB <- read.xlsx(file="../data_sources/FriendshipBonus.xlsx", 1)
 ```
 
@@ -60,8 +61,42 @@ summary.aov(MrIris)
 ```
 We can see that the p-value of all these variables is *actually* the same.  That makes sense, because a flower's species has just as much impact on its sepals, as its petals, as everything else.  In a dataset that wasn't asking something basic like, how does what something is impact how it is, or how much does the circumfrence and radius of a circle coorelate (essentially), we would get differing p-values and that would narrow down our focus.  Othertimes, we might even get a MANOVA that proves there is a significant difference between one group and another, but the univariate ANOVA follow-up doesn't accomodate for variable coorelation.  This seems to impact whether you can do a 'contrast' or not with intercepts.  
 
-I found a source that discussed using 'contrast models' after doing an ANOVA, but we don't really have any data to contrast here.  There are notes about these contrasts on github [here](https://gaopinghuang0.github.io/2017/11/20/MANOVA-notes-and-R-code).  
+I found a source that discussed using 'contrast models' after doing an ANOVA, but we don't really have any data to contrast here.  There are notes about these contrasts on github [here](https://gaopinghuang0.github.io/2017/11/20/MANOVA-notes-and-R-code).   
 
+### Non-parametric: Wilcoxon Signed Rank Test (efficiency 0.95)  
+We can use this test for testing if *matched pairs* have some property where the median is equal (or not) to zero  
+or for testing a claim that the population has a median equal to a claimed value (single-t test).  
+
+We need to pair each sample with a claimed median (even if that's just the null hypothesis being paired with everything) so that we have matched pairs, due to the nature of this test.  
+We need a simple random sample and approximately symmetric distribution; but we do not need a normal distribution.  Use this for t-tests that do not have a normal distribution, essentially.  It's not really important that the distrubution is NOT normal, but if it IS normal, you're wasting data by using this test rather than a t-test.  
+I've made the mistake of not checking my datasets for normality before running them through t-tests, but I suppose I did not know how to do non-parametrics in R beforehand anyway and it had been a little while since I thought about it.  
+
+#### Testing for (lack of) normality and presence of symmetry  
+
+For my test I used my friendship bonus $stagessince data.   
+This is because I can't prove that the data is normally distributed.  If data is normally distributed, the p-value with a shapiro-wilk test should be above 0.05, but here it is not--probably because n is only 30.  
+
+```{r}
+shapiro.test(FB$StagesSince[2:31])
+```
+
+However, I can verify with a skewness test that the data is approximately normally skewed.  (It's between -+0.5).  It is close to being moderately skewed towards smaller numbers, but not significantly enough that we can't use a wilcoxon test.  
+
+```{r}
+skewness(FB$StagesSince[2:31])
+```
+
+#### Doing the test  
+
+I'm going to do a "1-way t-test" replacement to check if the median (not the mean, since this is non-parametric) is equal to 8.  I know that the mean is 8, so I wanted to see what happens.  I will also test for 7 and 9 to see what happens if I 'miss' the mean in my paired data test.  
+
+```{r}
+wilcox.test(FB$StagesSince, mu=8, alternative = "two.sided")
+wilcox.test(FB$StagesSince, mu=7, alternative = "two.sided")
+wilcox.test(FB$StagesSince, mu=9, alternative = "two.sided")
+```
+
+Each test tells us what the alternate hypothesis is, so that we know what to do with the p-value.  For 8, the probability that the median is equal to 8 is greater than 0.05; but for 7 and 9, this is not the case.  Because of the p-value we can interpret that 8 is the true location of the median, and that 9 and 7 are not the true locations.  
 
 To continue reading the CH6 reports, select a new section:  
 Next: [Part 4 of the Chapter 6 Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part4.md)  

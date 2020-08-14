@@ -9,6 +9,11 @@ Regressions, and Statistics*
       - [MANOVA with all 4 dependent
         variables](#manova-with-all-4-dependent-variables)
       - [Follow-up analysis](#follow-up-analysis)
+  - [Non-parametric: Wilcoxon Signed Rank Test (efficiency
+    0.95)](#non-parametric-wilcoxon-signed-rank-test-efficiency-0.95)
+      - [Testing for (lack of) normality and presence of
+        symmetry](#testing-for-lack-of-normality-and-presence-of-symmetry)
+      - [Doing the test](#doing-the-test)
 
 ### MANOVA
 
@@ -141,6 +146,118 @@ I found a source that discussed using ‘contrast models’ after doing an
 ANOVA, but we don’t really have any data to contrast here. There are
 notes about these contrasts on github
 [here](https://gaopinghuang0.github.io/2017/11/20/MANOVA-notes-and-R-code).
+
+### Non-parametric: Wilcoxon Signed Rank Test (efficiency 0.95)
+
+We can use this test for testing if *matched pairs* have some property
+where the median is equal (or not) to zero  
+or for testing a claim that the population has a median equal to a
+claimed value (single-t test).
+
+We need to pair each sample with a claimed median (even if that’s just
+the null hypothesis being paired with everything) so that we have
+matched pairs, due to the nature of this test.  
+We need a simple random sample and approximately symmetric distribution;
+but we do not need a normal distribution. Use this for t-tests that do
+not have a normal distribution, essentially. It’s not really important
+that the distrubution is NOT normal, but if it IS normal, you’re wasting
+data by using this test rather than a t-test.  
+I’ve made the mistake of not checking my datasets for normality before
+running them through t-tests, but I suppose I did not know how to do
+non-parametrics in R beforehand anyway and it had been a little while
+since I thought about it.
+
+#### Testing for (lack of) normality and presence of symmetry
+
+For my test I used my friendship bonus $stagessince data.  
+This is because I can’t prove that the data is normally distributed. If
+data is normally distributed, the p-value with a shapiro-wilk test
+should be above 0.05, but here it is not–probably because n is only 30.
+
+``` r
+shapiro.test(FB$StagesSince[2:31])
+```
+
+    ## 
+    ##  Shapiro-Wilk normality test
+    ## 
+    ## data:  FB$StagesSince[2:31]
+    ## W = 0.90918, p-value = 0.01419
+
+However, I can verify with a skewness test that the data is
+approximately normally skewed. (It’s between -+0.5). It is close to
+being moderately skewed towards smaller numbers, but not significantly
+enough that we can’t use a wilcoxon test.
+
+``` r
+skewness(FB$StagesSince[2:31])
+```
+
+    ## [1] -0.4739936
+
+#### Doing the test
+
+I’m going to do a “1-way t-test” replacement to check if the median (not
+the mean, since this is non-parametric) is equal to 8. I know that the
+mean is 8, so I wanted to see what happens. I will also test for 7 and 9
+to see what happens if I ‘miss’ the mean in my paired data test.
+
+``` r
+wilcox.test(FB$StagesSince, mu=8, alternative = "two.sided")
+```
+
+    ## Warning in wilcox.test.default(FB$StagesSince, mu = 8, alternative =
+    ## "two.sided"): cannot compute exact p-value with ties
+
+    ## Warning in wilcox.test.default(FB$StagesSince, mu = 8, alternative =
+    ## "two.sided"): cannot compute exact p-value with zeroes
+
+    ## 
+    ##  Wilcoxon signed rank test with continuity correction
+    ## 
+    ## data:  FB$StagesSince
+    ## V = 124, p-value = 0.9477
+    ## alternative hypothesis: true location is not equal to 8
+
+``` r
+wilcox.test(FB$StagesSince, mu=7, alternative = "two.sided")
+```
+
+    ## Warning in wilcox.test.default(FB$StagesSince, mu = 7, alternative =
+    ## "two.sided"): cannot compute exact p-value with ties
+
+    ## Warning in wilcox.test.default(FB$StagesSince, mu = 7, alternative =
+    ## "two.sided"): cannot compute exact p-value with zeroes
+
+    ## 
+    ##  Wilcoxon signed rank test with continuity correction
+    ## 
+    ## data:  FB$StagesSince
+    ## V = 292, p-value = 0.04194
+    ## alternative hypothesis: true location is not equal to 7
+
+``` r
+wilcox.test(FB$StagesSince, mu=9, alternative = "two.sided")
+```
+
+    ## Warning in wilcox.test.default(FB$StagesSince, mu = 9, alternative =
+    ## "two.sided"): cannot compute exact p-value with ties
+
+    ## Warning in wilcox.test.default(FB$StagesSince, mu = 9, alternative =
+    ## "two.sided"): cannot compute exact p-value with zeroes
+
+    ## 
+    ##  Wilcoxon signed rank test with continuity correction
+    ## 
+    ## data:  FB$StagesSince
+    ## V = 71, p-value = 0.01293
+    ## alternative hypothesis: true location is not equal to 9
+
+Each test tells us what the alternate hypothesis is, so that we know
+what to do with the p-value. For 8, the probability that the median is
+equal to 8 is greater than 0.05; but for 7 and 9, this is not the case.
+Because of the p-value we can interpret that 8 is the true location of
+the median, and that 9 and 7 are not the true locations.
 
 To continue reading the CH6 reports, select a new section:  
 Next: [Part 4 of the Chapter 6

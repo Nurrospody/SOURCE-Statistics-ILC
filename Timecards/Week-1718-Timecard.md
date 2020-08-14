@@ -8,7 +8,7 @@ tests, more data stuff with server
 
 **Total Time inclusive from 7AUG2020 to 13AUG2020** :
 
-**Friday** - 1 hour 30 minutes - MANOVA. Had to look around quite a bit
+**Friday** - 1 hour 26 minutes - MANOVA. Had to look around quite a bit
 to figure out how to do this one, it seems pretty unpopular. Also made
 new timecards, editted README, new chapter report RMD.  
 Brief meeting at 4.
@@ -25,7 +25,27 @@ Brief meeting at 4.
 
 **Thursday** -
 
-**End of Week Comments**: This timecard starts on Friday instead of
+**Start of Week Comments**: This timecard starts on Friday instead of
 Monday . . . this was a weird week and I didn’t really get any stats
 stuff done before then. So this timecard is both both Week 17 (the last
 few days of it) and week 18.
+
+**End of Week Comments**: Actually okay I’m just gonna pretend these
+past weeks didn’t happen . . . I was either really busy with life stuff
+or depressed or both. After the first 3 weeks of this ILC being bad due
+to the same thing, and these 2 weeks being bad, this is really
+embarassing. oof. But . . . I need to ask my sponsor about my credits
+for my previous quarter. I didn’t see the credits marked as upper
+science division, just regular . . . (also I don’t use she/her pronouns)
+. . . and if that’s not fixed these classes don’t actually impact my
+degree at all since I just need 8 more upper science division credits to
+graduate with a BSA. I was supposed to get 6 last quarter and use this
+quarter to just get the last 2 basically. Even splitting it 4 and 4
+could work, or all 6 of the last one and only 2 of this one. Otherwise,
+I don’t really have the money left to keep taking classes and I’ll just
+have to take an ‘Arts’ degree I could have gotten a whole year and a
+half ago . . . for some reason I was an idiot and never really explictly
+talked about needing the credits except for at the class fair, I just
+noticed that the QUASR director mentioned it was upper science and
+assumed from there that I’d be beating a dead horse if I brought it up I
+guess?
