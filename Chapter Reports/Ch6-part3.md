@@ -13,7 +13,10 @@ Regressions, and Statistics*
     0.95)](#non-parametric-wilcoxon-signed-rank-test-efficiency-0.95)
       - [Testing for (lack of) normality and presence of
         symmetry](#testing-for-lack-of-normality-and-presence-of-symmetry)
-      - [Doing the test](#doing-the-test)
+      - [Doing the test with just X](#doing-the-test-with-just-x)
+      - [Doing the test wtih X and Y](#doing-the-test-wtih-x-and-y)
+      - [Wilcoxon Rank SUM test](#wilcoxon-rank-sum-test)
+  - [Wilcoxon-Mann-Whitney Test](#wilcoxon-mann-whitney-test)
 
 ### MANOVA
 
@@ -195,7 +198,7 @@ skewness(FB$StagesSince[2:31])
 
     ## [1] -0.4739936
 
-#### Doing the test
+#### Doing the test with just X
 
 I’m going to do a “1-way t-test” replacement to check if the median (not
 the mean, since this is non-parametric) is equal to 8. I know that the
@@ -203,14 +206,20 @@ mean is 8, so I wanted to see what happens. I will also test for 7 and 9
 to see what happens if I ‘miss’ the mean in my paired data test.
 
 ``` r
-wilcox.test(FB$StagesSince, mu=8, alternative = "two.sided")
+wilcox.test(FB$StagesSince, mu=8, alternative = "two.sided", conf.int = TRUE)
 ```
 
     ## Warning in wilcox.test.default(FB$StagesSince, mu = 8, alternative =
-    ## "two.sided"): cannot compute exact p-value with ties
+    ## "two.sided", : cannot compute exact p-value with ties
 
     ## Warning in wilcox.test.default(FB$StagesSince, mu = 8, alternative =
-    ## "two.sided"): cannot compute exact p-value with zeroes
+    ## "two.sided", : cannot compute exact confidence interval with ties
+
+    ## Warning in wilcox.test.default(FB$StagesSince, mu = 8, alternative =
+    ## "two.sided", : cannot compute exact p-value with zeroes
+
+    ## Warning in wilcox.test.default(FB$StagesSince, mu = 8, alternative =
+    ## "two.sided", : cannot compute exact confidence interval with zeroes
 
     ## 
     ##  Wilcoxon signed rank test with continuity correction
@@ -218,16 +227,27 @@ wilcox.test(FB$StagesSince, mu=8, alternative = "two.sided")
     ## data:  FB$StagesSince
     ## V = 124, p-value = 0.9477
     ## alternative hypothesis: true location is not equal to 8
+    ## 95 percent confidence interval:
+    ##  6.500028 9.000053
+    ## sample estimates:
+    ## (pseudo)median 
+    ##       7.999986
 
 ``` r
-wilcox.test(FB$StagesSince, mu=7, alternative = "two.sided")
+wilcox.test(FB$StagesSince, mu=7, alternative = "two.sided", conf.int = TRUE)
 ```
 
     ## Warning in wilcox.test.default(FB$StagesSince, mu = 7, alternative =
-    ## "two.sided"): cannot compute exact p-value with ties
+    ## "two.sided", : cannot compute exact p-value with ties
 
     ## Warning in wilcox.test.default(FB$StagesSince, mu = 7, alternative =
-    ## "two.sided"): cannot compute exact p-value with zeroes
+    ## "two.sided", : cannot compute exact confidence interval with ties
+
+    ## Warning in wilcox.test.default(FB$StagesSince, mu = 7, alternative =
+    ## "two.sided", : cannot compute exact p-value with zeroes
+
+    ## Warning in wilcox.test.default(FB$StagesSince, mu = 7, alternative =
+    ## "two.sided", : cannot compute exact confidence interval with zeroes
 
     ## 
     ##  Wilcoxon signed rank test with continuity correction
@@ -235,16 +255,27 @@ wilcox.test(FB$StagesSince, mu=7, alternative = "two.sided")
     ## data:  FB$StagesSince
     ## V = 292, p-value = 0.04194
     ## alternative hypothesis: true location is not equal to 7
+    ## 95 percent confidence interval:
+    ##  7.000047 8.999951
+    ## sample estimates:
+    ## (pseudo)median 
+    ##       8.000001
 
 ``` r
-wilcox.test(FB$StagesSince, mu=9, alternative = "two.sided")
+wilcox.test(FB$StagesSince, mu=9, alternative = "two.sided", conf.int = TRUE)
 ```
 
     ## Warning in wilcox.test.default(FB$StagesSince, mu = 9, alternative =
-    ## "two.sided"): cannot compute exact p-value with ties
+    ## "two.sided", : cannot compute exact p-value with ties
 
     ## Warning in wilcox.test.default(FB$StagesSince, mu = 9, alternative =
-    ## "two.sided"): cannot compute exact p-value with zeroes
+    ## "two.sided", : cannot compute exact confidence interval with ties
+
+    ## Warning in wilcox.test.default(FB$StagesSince, mu = 9, alternative =
+    ## "two.sided", : cannot compute exact p-value with zeroes
+
+    ## Warning in wilcox.test.default(FB$StagesSince, mu = 9, alternative =
+    ## "two.sided", : cannot compute exact confidence interval with zeroes
 
     ## 
     ##  Wilcoxon signed rank test with continuity correction
@@ -252,12 +283,117 @@ wilcox.test(FB$StagesSince, mu=9, alternative = "two.sided")
     ## data:  FB$StagesSince
     ## V = 71, p-value = 0.01293
     ## alternative hypothesis: true location is not equal to 9
+    ## 95 percent confidence interval:
+    ##  6.950047 8.949937
+    ## sample estimates:
+    ## (pseudo)median 
+    ##        7.94996
 
 Each test tells us what the alternate hypothesis is, so that we know
 what to do with the p-value. For 8, the probability that the median is
 equal to 8 is greater than 0.05; but for 7 and 9, this is not the case.
 Because of the p-value we can interpret that 8 is the true location of
-the median, and that 9 and 7 are not the true locations.
+the median, and that 9 and 7 are not the true locations.  
+`two.sided` refers to the fact that we are testing both sides of the
+probability curve, because it makes equal sense that the alternate
+hypothesis could result in a number above and below the null hypothesis.
+we could also use `less` or `greater` if they were applicable for the
+context.
+
+#### Doing the test wtih X and Y
+
+First, let’s generate X and Y. I’ll be using the random library to make
+random numbers. In one version, PAIRED with be TRUE; in the other,
+FALSE; to see what happens.
+
+``` r
+var1 <- randomNumbers(n=70, min=1, max=500, col=2);
+var2 <- randomNumbers(n=70, min=1, max=500, col=2);
+wilcox.test(var1, var2, mu=250, alternatives="two.sided", paired=TRUE, conf.int = TRUE)
+```
+
+    ## 
+    ##  Wilcoxon signed rank test with continuity correction
+    ## 
+    ## data:  var1 and var2
+    ## V = 85, p-value = 1.279e-11
+    ## alternative hypothesis: true location shift is not equal to 250
+    ## 95 percent confidence interval:
+    ##  -65.49992  42.99998
+    ## sample estimates:
+    ## (pseudo)median 
+    ##      -11.00002
+
+When both X and Y are given and PAIRED is FALSE, it’s for comparing two
+indendent populations rather than dependent populations, which makes it
+instead a:
+
+#### Wilcoxon Rank SUM test
+
+``` r
+wilcox.test(var1, var2, mu=250, alternatives="two.sided", paired=FALSE, conf.int = TRUE)
+```
+
+    ## 
+    ##  Wilcoxon rank sum test with continuity correction
+    ## 
+    ## data:  var1 and var2
+    ## W = 591.5, p-value = 9.671e-15
+    ## alternative hypothesis: true location shift is not equal to 250
+    ## 95 percent confidence interval:
+    ##  -66.00000  34.00007
+    ## sample estimates:
+    ## difference in location 
+    ##              -14.99995
+
+When variables are paired (correctly), coorelations are easier to find
+and the confidence interval will be more narrow. Unpaired data should
+not be falsely paired, however.
+
+### Wilcoxon-Mann-Whitney Test
+
+This is the non-parametric equivilant of a 2-way t-test, for comparing
+the medians between two different variables. We can test for if there’s
+a significant difference beween first variable median and second
+variable median.  
+Let’s use friendship bonus data; both the data I received from
+LordArcanite\#1325 `(FB$StagesSince[2:31])` and from
+SleepyRider\#7340`SleepyFB$FBGap[1:19]`. Sleepy’s data collection was
+comphrehensive for general stage information, but in this case I will be
+comparing only the StagesSince variable from Arc’s data and the FBGap
+variable from Sleepy’s data (bolded only), of which there is n19.
+Because n\<30 I am using a non-parametric test for the comparison of
+medians for these two data sets.
+
+``` r
+wilcox.test(FB$StagesSince[2:31], SleepyFB$FBGap[1:19], correct = FALSE, conf.int = TRUE)
+```
+
+    ## Warning in wilcox.test.default(FB$StagesSince[2:31], SleepyFB$FBGap[1:19], :
+    ## cannot compute exact p-value with ties
+
+    ## Warning in wilcox.test.default(FB$StagesSince[2:31], SleepyFB$FBGap[1:19], :
+    ## cannot compute exact confidence intervals with ties
+
+    ## 
+    ##  Wilcoxon rank sum test
+    ## 
+    ## data:  FB$StagesSince[2:31] and SleepyFB$FBGap[1:19]
+    ## W = 355, p-value = 0.1451
+    ## alternative hypothesis: true location shift is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.0000684063  2.0000687672
+    ## sample estimates:
+    ## difference in location 
+    ##              0.9999397
+
+Here, we cannot disprove the null hypothesis that the true location
+shift of the median is 0. We also see that the confidence variable
+includes 0, meaning that we cannot be confident that one median is
+either below or above the other. However, for this data, this is a good
+thing\! What this means is that the median is approximately the same for
+both sets of data. Of course, we must take this with a grain of salt,
+because n is only 19 for one of these–but it is the expected result.
 
 To continue reading the CH6 reports, select a new section:  
 Next: [Part 4 of the Chapter 6

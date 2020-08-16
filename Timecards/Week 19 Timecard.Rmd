@@ -11,11 +11,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Learning Objectives this week** - resampling, non-parametric tests, more data stuff with server
 
-**Total Time inclusive from 14AUG2020 to 20AUG2020** : 
+**Total Time inclusive from 14AUG2020 to 20AUG2020** : 2 hour 25 minutes
 
-**Friday** - 
+**Friday** - 1 hour 17 minutes - reflecting on week, Wilcoxon signed rank test; got out old textbook to help remind myself on what this stuff was.
 
-**Saturday** -
+**Saturday** - 1 hour 8 minutes - Wilcoxon rank sum test (and X+Y signed rank test); Wilcoxon-Mann-Whitney Test.  Used a new dataset for the Wilcoxon-Mann-Whitney Test.  
 
 **Sunday** - 
 

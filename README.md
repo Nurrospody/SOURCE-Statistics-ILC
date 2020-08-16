@@ -33,7 +33,7 @@ My Chapter Reports show my work and the commands I've practiced with in R.
 *Chapter 6*  
 [CH6 part1 Inferential Stats until ANOVA](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part1.md)   
 [CH6 part2 Inferential Stats, T-test, Chi Test, C/C](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part2.md)  
-[CH6 part3 Inferential Stats MANOVA, resampling, non-para](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part3.md)
+[CH6 part3 Inferential Stats MANOVA, resampling, non-para](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6%20part3.md)  
 
 ## "Statistics Gone Wrong Musings" folder  
 Contains writeups that I've made after reading my *Statistics Gone Wrong* book by Alex Reinhart.  
@@ -67,6 +67,7 @@ Each week has its own Timecard.  In these timecards, I record via stopwatch how 
 [Week 15 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-15-Timecard.md)  
 [Week 16 Timecard.md](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-16-Timecard.md)  
 [Week 17-18 Timecard](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-1718-Timecard.md)  
+[Week 19 Timecard](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Timecards/Week-1719-Timecard.md)
 
 
 ## "data_sources" folder
