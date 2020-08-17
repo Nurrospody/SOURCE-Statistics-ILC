@@ -129,6 +129,17 @@ wilcox.test(FB$StagesSince[2:31], SleepyFB$FBGap[1:19], correct = FALSE, conf.in
 ```
 Here, we cannot disprove the null hypothesis that the true location shift of the median is 0. We also see that the confidence variable includes 0, meaning that we cannot be confident that one median is either below or above the other.  However, for this data, this is a good thing!  What this means is that the median is approximately the same for both sets of data.  Of course, we must take this with a grain of salt, because n is only 19 for one of these--but it is the expected result.  
 
+### Kruskal-Wallis Test  
+This is like a one-way ANOVA that does not require the samples involved to have normal distributions or equal n, and tests for medians instead of means because it is non-parametric.  We use it to test 3+ simple random samples that are independent (and each sample needs at least five obsevations); the null hypothesis in this case is that samples come from the same population.  Alternate hypothesis is if the samples come from populations with inequal medians.  
+
+Let's use the built in R dataset ```"airquality"```, and test for if the Month that air quality was tested in (there are 4 months; 3+ so not a t-test) impacts the amount of Ozone that was measured (independent variable).  We put the independent variable first, and the dependent variable second since the formula is ```response ~ group```.  
+```{r}
+str(airquality);
+kruskal.test(airquality$Ozone ~ airquality$Month)
+```
+What we are testing for here is how the responses are impacted by their corresponding groups.  Response is the Ozone, and Groups are the months.  Our null hypothesis is that the median for the Responses are equal to each other, even when they are Grouped based on the month they were collected in.  
+Our p-value here is significantly small; the probability that the median for all 3 groupss is the same is less than alpha.  Thus we can reject the null hypothesis and accept our alternate hypothesis: median ozone varies based on the month.  This is sensible based on the data.  Air quality was measured during May-September; it makes sense for Ozone to be different for the end of Spring, the entire Summer, and the beginning of Autumn.  
+
 To continue reading the CH6 reports, select a new section:  
 Next: [Part 4 of the Chapter 6 Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part4.md)  
 Previous: [Part 2 of the Chapter 6 Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part2.md)   

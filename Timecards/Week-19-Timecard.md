@@ -6,7 +6,7 @@ Nurrospody
 **Learning Objectives this week** - resampling, non-parametric tests,
 more data stuff with server
 
-**Total Time inclusive from 14AUG2020 to 20AUG2020** : 2 hour 25 minutes
+**Total Time inclusive from 14AUG2020 to 20AUG2020** : 3 hour 8 minutes
 
 **Friday** - 1 hour 17 minutes - reflecting on week, Wilcoxon signed
 rank test; got out old textbook to help remind myself on what this stuff
@@ -16,7 +16,11 @@ was.
 rank test); Wilcoxon-Mann-Whitney Test. Used a new dataset for the
 Wilcoxon-Mann-Whitney Test.
 
-**Sunday** -
+**Sunday** - 43 minutes - Kruskal-Wallis Test, and how to interpret the
+results. I looked in my old Triola statsbook; my current R-book; and
+help(“kruskal.test”) for information. Incidentally my current R book was
+the least helpful . . . but it makes figuring out what to do easy, at
+least.
 
 **Monday** -
 

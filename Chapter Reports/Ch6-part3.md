@@ -17,6 +17,7 @@ Regressions, and Statistics*
       - [Doing the test wtih X and Y](#doing-the-test-wtih-x-and-y)
       - [Wilcoxon Rank SUM test](#wilcoxon-rank-sum-test)
   - [Wilcoxon-Mann-Whitney Test](#wilcoxon-mann-whitney-test)
+  - [Kruskal-Wallis Test](#kruskal-wallis-test)
 
 ### MANOVA
 
@@ -316,13 +317,13 @@ wilcox.test(var1, var2, mu=250, alternatives="two.sided", paired=TRUE, conf.int 
     ##  Wilcoxon signed rank test with continuity correction
     ## 
     ## data:  var1 and var2
-    ## V = 85, p-value = 1.279e-11
+    ## V = 179.5, p-value = 5.037e-10
     ## alternative hypothesis: true location shift is not equal to 250
     ## 95 percent confidence interval:
-    ##  -65.49992  42.99998
+    ##  -13.49994  89.00001
     ## sample estimates:
     ## (pseudo)median 
-    ##      -11.00002
+    ##       37.00001
 
 When both X and Y are given and PAIRED is FALSE, it’s for comparing two
 indendent populations rather than dependent populations, which makes it
@@ -338,13 +339,13 @@ wilcox.test(var1, var2, mu=250, alternatives="two.sided", paired=FALSE, conf.int
     ##  Wilcoxon rank sum test with continuity correction
     ## 
     ## data:  var1 and var2
-    ## W = 591.5, p-value = 9.671e-15
+    ## W = 789.5, p-value = 4.569e-12
     ## alternative hypothesis: true location shift is not equal to 250
     ## 95 percent confidence interval:
-    ##  -66.00000  34.00007
+    ##  -11.99993  87.00005
     ## sample estimates:
     ## difference in location 
-    ##              -14.99995
+    ##               36.99998
 
 When variables are paired (correctly), coorelations are easier to find
 and the confidence interval will be more narrow. Unpaired data should
@@ -394,6 +395,56 @@ either below or above the other. However, for this data, this is a good
 thing\! What this means is that the median is approximately the same for
 both sets of data. Of course, we must take this with a grain of salt,
 because n is only 19 for one of these–but it is the expected result.
+
+### Kruskal-Wallis Test
+
+This is like a one-way ANOVA that does not require the samples involved
+to have normal distributions or equal n, and tests for medians instead
+of means because it is non-parametric. We use it to test 3+ simple
+random samples that are independent (and each sample needs at least five
+obsevations); the null hypothesis in this case is that samples come from
+the same population. Alternate hypothesis is if the samples come from
+populations with inequal medians.
+
+Let’s use the built in R dataset `"airquality"`, and test for if the
+Month that air quality was tested in (there are 4 months; 3+ so not a
+t-test) impacts the amount of Ozone that was measured (independent
+variable). We put the independent variable first, and the dependent
+variable second since the formula is `response ~ group`.
+
+``` r
+str(airquality);
+```
+
+    ## 'data.frame':    153 obs. of  6 variables:
+    ##  $ Ozone  : int  41 36 12 18 NA 28 23 19 8 NA ...
+    ##  $ Solar.R: int  190 118 149 313 NA NA 299 99 19 194 ...
+    ##  $ Wind   : num  7.4 8 12.6 11.5 14.3 14.9 8.6 13.8 20.1 8.6 ...
+    ##  $ Temp   : int  67 72 74 62 56 66 65 59 61 69 ...
+    ##  $ Month  : int  5 5 5 5 5 5 5 5 5 5 ...
+    ##  $ Day    : int  1 2 3 4 5 6 7 8 9 10 ...
+
+``` r
+kruskal.test(airquality$Ozone ~ airquality$Month)
+```
+
+    ## 
+    ##  Kruskal-Wallis rank sum test
+    ## 
+    ## data:  airquality$Ozone by airquality$Month
+    ## Kruskal-Wallis chi-squared = 29.267, df = 4, p-value = 6.901e-06
+
+What we are testing for here is how the responses are impacted by their
+corresponding groups. Response is the Ozone, and Groups are the months.
+Our null hypothesis is that the median for the Responses are equal to
+each other, even when they are Grouped based on the month they were
+collected in.  
+Our p-value here is significantly small; the probability that the median
+for all 3 groupss is the same is less than alpha. Thus we can reject the
+null hypothesis and accept our alternate hypothesis: median ozone varies
+based on the month. This is sensible based on the data. Air quality was
+measured during May-September; it makes sense for Ozone to be different
+for the end of Spring, the entire Summer, and the beginning of Autumn.
 
 To continue reading the CH6 reports, select a new section:  
 Next: [Part 4 of the Chapter 6
