@@ -317,13 +317,13 @@ wilcox.test(var1, var2, mu=250, alternatives="two.sided", paired=TRUE, conf.int 
     ##  Wilcoxon signed rank test with continuity correction
     ## 
     ## data:  var1 and var2
-    ## V = 179.5, p-value = 5.037e-10
+    ## V = 124, p-value = 6.038e-11
     ## alternative hypothesis: true location shift is not equal to 250
     ## 95 percent confidence interval:
-    ##  -13.49994  89.00001
+    ##  -42.99999  59.00002
     ## sample estimates:
     ## (pseudo)median 
-    ##       37.00001
+    ##       7.000055
 
 When both X and Y are given and PAIRED is FALSE, it’s for comparing two
 indendent populations rather than dependent populations, which makes it
@@ -339,13 +339,13 @@ wilcox.test(var1, var2, mu=250, alternatives="two.sided", paired=FALSE, conf.int
     ##  Wilcoxon rank sum test with continuity correction
     ## 
     ## data:  var1 and var2
-    ## W = 789.5, p-value = 4.569e-12
+    ## W = 705.5, p-value = 3.638e-13
     ## alternative hypothesis: true location shift is not equal to 250
     ## 95 percent confidence interval:
-    ##  -11.99993  87.00005
+    ##  -38.99998  62.00001
     ## sample estimates:
     ## difference in location 
-    ##               36.99998
+    ##               8.999982
 
 When variables are paired (correctly), coorelations are easier to find
 and the confidence interval will be more narrow. Unpaired data should
