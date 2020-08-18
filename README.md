@@ -28,13 +28,13 @@ My Chapter Reports show my work and the commands I've practiced with in R.
 
 *Chapter 5*  
 [CH5 part1 Unpacking ggplot2, geom_point, plot() ](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH5-part1.md)  
-[CH5 part 2](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH5-part2.md) 
+[CH5 part 2 Boxplots and Scatterplot Matrix](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH5-part2.md) 
 
 *Chapter 6*  
 [CH6 part1 Inferential Stats until ANOVA](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part1.md)   
 [CH6 part2 Inferential Stats, T-test, Chi Test, C/C](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part2.md)  
-[CH6 part3 Inferential Stats MANOVA, resampling, non-para](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/Ch6-part3.md)  
-[CH4 part4 non-para cont.](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/Ch6-part4.md)  
+[CH6 part3 Inferential Stats MANOVA, resampling, non-parametric tests](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/Ch6-part3.md)  
+[CH4 part4 Linear Regressions](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/Ch6-part4.md)  
 
 ## "Statistics Gone Wrong Musings" folder  
 Contains writeups that I've made after reading my *Statistics Gone Wrong* book by Alex Reinhart.  

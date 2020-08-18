@@ -6,7 +6,8 @@ Nurrospody
 **Learning Objectives this week** - resampling, non-parametric tests,
 more data stuff with server
 
-**Total Time inclusive from 14AUG2020 to 20AUG2020** : 3 hour 8 minutes
+**Total Time inclusive from 14AUG2020 to 20AUG2020** : 4 hour 45 minutes
+(updated 1253 Wed)
 
 **Friday** - 1 hour 17 minutes - reflecting on week, Wilcoxon signed
 rank test; got out old textbook to help remind myself on what this stuff
@@ -22,9 +23,20 @@ help(“kruskal.test”) for information. Incidentally my current R book was
 the least helpful . . . but it makes figuring out what to do easy, at
 least.
 
-**Monday** -
+**Monday** - 33 minutes - Updated README, made new chapter report since
+the old one was starting to take a long time to knit. Fixed broken links
+finally.  
+Started looking into linear analysis (I thought there were more
+non-parametric tests to do in the book, but there weren’t). The book
+doesn’t really explain anything so I’m instead using [this
+site](https://www.scribbr.com/statistics/simple-linear-regression/) as
+my reference, which is instead very helpful and complete. Last time I
+used this site I used their dataset since I didn’t have any good sets
+for t-tests and ANOVA, but I want to see if I can use my own data this
+time.
 
-**Tuesday** -
+**Tuesday** - 1 hour - Linear analysis report and interpretting the
+results.
 
 **Wednesday** -
 
