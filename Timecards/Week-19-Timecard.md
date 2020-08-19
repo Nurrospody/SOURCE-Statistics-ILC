@@ -6,7 +6,7 @@ Nurrospody
 **Learning Objectives this week** - resampling, non-parametric tests,
 more data stuff with server
 
-**Total Time inclusive from 14AUG2020 to 20AUG2020** : 4 hour 45 minutes
+**Total Time inclusive from 14AUG2020 to 20AUG2020** : 6 hour 35 minutes
 (updated 1253 Wed)
 
 **Friday** - 1 hour 17 minutes - reflecting on week, Wilcoxon signed
@@ -35,8 +35,10 @@ used this site I used their dataset since I didn’t have any good sets
 for t-tests and ANOVA, but I want to see if I can use my own data this
 time.
 
-**Tuesday** - 1 hour - Linear analysis report and interpretting the
-results.
+**Tuesday** - 2 hour 50 minutes- Linear analysis report and
+interpretting the results. Multiple linear analysis report, getting a
+new dataset since the old one was bad, showing all the tests, and geting
+the p-valur results.
 
 **Wednesday** -
 

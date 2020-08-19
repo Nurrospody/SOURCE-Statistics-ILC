@@ -33,9 +33,11 @@ require(moments)
 FB <- read.xlsx(file="../data_sources/FriendshipBonus.xlsx", 1)
 SleepyFB <- read.xlsx(file="../data_sources/PCM_Pokemon_Visitors_Data_Data.xlsx", 2)
 library(random)
+USDA2 <- read.xlsx(file="../data_sources/ExampleUSDA.xlsx", 1)
+heart <- read.csv(file="../data_sources/heart.data.csv")
 ```
 
-### Linear Regression (lm)  
+### Linear Regression *lm(), hist(), summary()*  
 With a linear regression, we can test for a linear relationship between one independent variable and one dependent variable.  
 I'm going to Arc's friendship bonus data, and test for if ```FB$Stage``` (independent variable) has any linear relationship with ```FB$StagesSince``` (dependent variable).  The research question is: If the Stage number is higher, do friendship bonuses occur more often?  
 The null hypothesis is that there is no linear relationship; the alternate hypothesis is that the number of a stage has a statistically significant effect on the stages since a friendship bonus was received.  
@@ -44,15 +46,15 @@ The null hypothesis is that there is no linear relationship; the alternate hypot
 In a previous excercise, I had already used ```shapiro.test(FB$StagesSince[2:31])``` to test for normality (I could not find normality, presumably because of n30); I had also already used ```skewness(FB$StagesSince[2:31])``` to test for normality of skew.  
 However, this time I will instead use a histogram and linear plot to test for linearity.  
 ```{r}
-hist(FB$StagesSince); plot(Stage ~ StagesSince, data = FB)
+hist(FB$StagesSince); plot(StagesSince ~ Stage, data = FB)
 ```
 
-The histogram appears to be relatively normal; however, we can see with the basic plot that no linear relationship exists.  **We can immediately fail to reject the null hypothesis**.  
+The histogram appears to be relatively normal; however, we can see with the basic plot that no linear relationship exists between the two variables.  **We can immediately fail to reject the null hypothesis**.  
 
 For the sake of this excercise, though, I will complete the linear analysis so that I can use the commands.  
 
 ```{r}
-#lm(Dependent variable ~ independent variable)
+#lm(Dependent variable ~ independent variable)  
 StageNum.StagesSince.lm <- lm(StagesSince ~ Stage, data = FB)
 summary(StageNum.StagesSince.lm)
 ```
@@ -62,14 +64,72 @@ In the summary, we see our model equation, standard error, t-value, and p-value.
 Our p-value for Stage is 0.306--much greater than alpha 0.05.  We fail to reject our null hypothesis that there is no linear relationship.
 
 
-#### Spearman’s rank correlation test  
+#### Spearman’s rank correlation test  *"ggpubr", cor.test()*  
 This is the non-parametric test that can be run for data that does not fulfil the normality requirements (or similar variance requirements aka homoscedasticity) for the parametric linear regression test.  
 We would need to ```install.packages("ggpubr")```, load the library ```library("ggpubr")```, and then use the function ```cor.test()``` rather than lm() which we used for the parametric test.  I have inferred from the gg- in front of the package name that this is related to the ggplot package!
 
-### Multiple Linear Regression  
-With multiple linear regression, we can test for linear relationships between multiple independent variables and one dependent variable.
+### Multiple Linear Regression  *cor(), plot(), hist(), reformatting xlxs sheet*  
+With multiple linear regression, we can test for linear relationships between multiple independent variables and one dependent variable.  
+Since the data that I used before didn't have any linear correlation, I found a [USDA Ag Data Commons dataset](https://data.nal.usda.gov/dataset/stream-temperature-modeling-and-monitoring-multiple-regression-stream-temperature-model) about stream tempurature since it seemed promising.  I downloaded the Example Data that was available.  
+First, let's test for normalcy and linearity with a few variables.  Let's also try to remember that when plotting, the order should still be (dependent ~ independent) variable.  The plot will tell us its story either way, but it's good practice to always put them in the order that some functions require them to be in.  
+The headers used to be multi-tiered and make these two variables ```Predictor.Variables..X.s.``` (Elevation) and ```NA..3``` (Slope) but I didn't feel like messing with buggy variables and lack of numerical data which I need for cor(), so I just deleted some unnessesary rows in the excel sheet.  I'm sure there's ways to finagle this with fancy datasheets, but this ain't a fashion contest guys; we shouldn't be making datasheets pretty with extra cells.  This was the same kind of issue I got when using Madoka data in my first dataset ever.    
 
+Let's test for hidden correlations first in independent variables.  I'll use Elevation  and Channel Slope as my independent variables first.  
 
+```{r}
+cor(USDA2$Elevation..m., USDA2$Channel.slope)
+```
+-0.3953729 is a pretty high correllation to just ignore, but I don't know much about the cor() function's scale other than it going from +-0.1.  If we plot it, I should get a better subjective idea of how correlated it actually is.
+```{r}
+plot(USDA2$Elevation..m., USDA2$Channel.slope)
+```
+
+this doesn't look like anything to worry about, so I'll just keep going with the data.  Now that I think about it, I think this is the scale where a 0.8+- is important.  
+
+Next let's pick a dependent variable.  I have ```Lake Crk```,	```Fire Effect```, and ```Lake Effect``` to choose from, but I need to find one with a normal distribution . . . spoiler alert, none of them have a normal distribution.  They all look like this:
+```{r}
+hist(USDA2$Fire.Effect)
+hist(USDA2$Lake.Effect)
+hist(USDA2$Lake.Crk)
+```
+
+So that's a bust.  Let's try a different dataset.
+
+### Multiple Linear Regression Take 2  *plot(), png(), dev.off(), par(), linear plot later*
+
+I obtained a [sample multiple linear regression data set](https://www.scribbr.com/statistics/multiple-linear-regression/) from scribbr, which has been a surprisingly helpful guide (more so than my textbook recently) considering it's mostly a site for writing.  
+ With the new dataset, our research question is: how do biking and or smoking affect heart disease?  Our null hypothesis is that neither change the mean of heart disease, and our alternate hypothesis is that they do.  
+
+I've already shown getting cor() and hist() for proving if data is usable for a Linear Regression test before, so let's skip showing that and move onto the next step.  
+
+Our next step is to make two linearity testing scatterplots using our dependent variable (heart disease) and our two independent variables (smoking and heart disease).   Both times we have the order in (dependent ~ independent).
+```{r}
+plot(heart.disease ~ biking, data=heart); 
+plot(heart.disease ~ smoking, data=heart);
+```
+
+They both appear linear, so we can continue.  Funnily enough, when I tested this out in the console before knitting my Rmd, I got a weird combined plot that also looked linear.
+
+![](../data_sources/kokoro.png)
+
+Let's test the relationship between these variables now.  
+```{r}
+heart.disease.lm<-lm(heart.disease ~ biking + smoking, data = heart)
+
+summary(heart.disease.lm)
+```
+The P-value for both of these values are statistically significant.  But what does this mean?  It's sensible to guess that biking and smoking do not impact heart disease in the same exact way, so let's look at another number than just the p-value.  If we look at Estimate, we see that biking's number is negativge, and smoking's number is positive.  This means that biking has a negative impact on heart disease (as in, there is less of it) and smoking has a positive impact on heart disease(as in, there is more of it).  Funny how we want a negative in this case!  
+
+Next we want to test for homoscedasticity aka the variance does not vary too much so that the linear model can do a good job.  We could just use a Q-Q test for this, but apparently you can make more graphs print in the same space, and then plot a bunch of residual plots at oncde, and that's really cool!!  So we're going to try that here:  
+```{r}
+par(mfrow=c(2,2))
+plot(heart.disease.lm)
+par(mfrow=c(1,1))
+```
+This is really super cool.  I've never heard of Cook's distance before, but Residuals vs. Fitted and Normal Q-Q tell me that this will work well on the linear model.  
+If you do a regular ```plot(heart.disease.lm)``` without putting ```par(mfrow=c(2,2))``` first, then only one plot is printed and you get the message ```Hit <Return> to see next plot:```.  So multiple plots are already built into the results from the lm() function, and that's why we get multiple plots.  
+
+Then, we could plot our results onto a linear model to share it.  I'll do that tomorrow.  
 
 To continue reading the CH6 reports, select a new section:  
 Next: [Part 5 of the Chapter 6 Reports](https://github.com/Nurrospody/SOURCE-Statistics-ILC/blob/master/Chapter%20Reports/CH6-part5.md)  
