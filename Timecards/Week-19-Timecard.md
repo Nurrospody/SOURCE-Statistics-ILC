@@ -58,4 +58,6 @@ For now I need to do non-parametrics to finish my book, and look into my
 basic stats book from Stats 1-2 to refresh on when to use them. I can
 look into resampling some other time.
 
-**End of Week Comments**:
+**End of Week Comments**: I think I might have forgotten to write my
+work for Wednesday? seeing as I have a timestamp for editting the total
+time on Wednesday . . . ah well. Next week is resampling.
