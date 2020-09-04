@@ -12,4 +12,10 @@ This is the last week\! The goal this week is to do some resampling and
 get the linear regression plot made if I can. I hurt my hand so working
 at the computer is kind of hard, so resampling is the biggest priority.
 
-**Tuesday**
+**Tuesday** 30 minutes - Found sources about resampling; it’s a lot
+different than I thought it would be\! So I got a headache pretty fast,
+oops.
+
+**Thursday** about an hour? - worked on the first part of the report and
+getting all the sources needed for the resampling. got through the first
+intro part and what resampling is, then needed a break.
