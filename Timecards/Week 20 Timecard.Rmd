@@ -18,3 +18,5 @@ This is the last week!  The goal this week is to do some resampling and get the 
 **Tuesday** 30 minutes - Found sources about resampling; it's a lot different than I thought it would be!  So I got a headache pretty fast, oops.  
 
 **Thursday** about an hour? - worked on the first part of the report and getting all the sources needed for the resampling.  got through the first intro part and what resampling is, then needed a break.  
+
+**Friday** about 45 minutes fixing README to contain Rmd files for Richard's reference, since I only had md in the README.  
